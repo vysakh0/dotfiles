@@ -47,8 +47,7 @@ set number        " always show line numbers
 set hidden        " Allow un-saved buffers in background
 set clipboard=unnamed " Share system clipboard.
 set backspace=indent,eol,start " Make backspace behave normally.
-set directory=/tmp// " swap files
-set backupskip=/tmp/*,/private/tmp/*
+set noswapfile
 set ffs=unix,dos,mac "Default file types
 set nowrap        " don't wrap lines
 set showmatch     " set show matching parenthesis
