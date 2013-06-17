@@ -56,10 +56,18 @@ set ignorecase    " ignore case when searching
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set history=1000         " remember more commands and search history
-set undolevels=1000      " use many muchos levels of undo
 set title                " change the terminal's title
 set noerrorbells         " don't beep
 set guifont=Menlo\ for\ Powerline:h11
+
+"Persistent undo is like a local version control system that you don't have to
+"manage. I think I will use this feature a lot.
+
+set undodir=~/.vim/undodir
+set undofile
+set undolevels = 1000 "maximum number of changes that can be undone
+set undoreload = 10000 "maximum number lines to save for undo on a buffer reload
+
 
 " Remove the toolbar if we're running under a GUI (e.g. MacVIM).
 if has("gui_running")

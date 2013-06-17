@@ -73,7 +73,7 @@ Bundle 'honza/vim-snippets'
 Bundle "garbas/vim-snipmate"
 
 "Autocompletion with you complete me
-"Bundle "Valloric/YouCompleteMe"
+Bundle "Valloric/YouCompleteMe"
 
 
 "Tile management
