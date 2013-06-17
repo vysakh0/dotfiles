@@ -74,6 +74,7 @@ Bundle "garbas/vim-snipmate"
 
 "Autocompletion with you complete me
 Bundle "Valloric/YouCompleteMe"
+Bundle "ervandew/supertab"
 
 
 "Tile management
@@ -85,3 +86,4 @@ Bundle "terryma/vim-multiple-cursors"
 
 "For latex
 Bundle "jcf/vim-latex"
+
