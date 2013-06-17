@@ -1,13 +1,13 @@
 " vim: nowrap fdm=marker
 source ~/dotfiles/bundles.vim
 runtime ftplugin/man.vim
-filetype plugin indent on     " required!
 
 filetype plugin indent on     " required!
 
 " Configurations
 """"""""""""""""
 set background=dark
+set nocompatible
 
 " Wildmenu completion
 """""""""""""""""""""
@@ -22,6 +22,9 @@ set wildignore+=*.DS_Store                       " OSX bullshit
 set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=**.class                          " Cursed Java class files
+set statusline=\[%t%m]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [LINE=%04l,COL=%04v]\ %{fugitive#statusline()}
+set laststatus=2
+set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
 " Save when losing focus
 set autowriteall " Auto-save files when switching buffers or leaving vim.
@@ -56,7 +59,6 @@ set incsearch     " show search matches as you type
 set history=1000         " remember more commands and search history
 set undolevels=1000      " use many muchos levels of undo
 set title                " change the terminal's title
-set visualbell           " don't beep
 set noerrorbells         " don't beep
 set guifont=Menlo\ for\ Powerline:h11
 
@@ -134,10 +136,6 @@ endfunction
 """""""""""""""""""""
 autocmd filetype ruby setlocal noexpandtab shiftwidth=2 tabstop=2
 
-" PHP Configurations
-""""""""""""""""""""
-autocmd FileType php setlocal colorcolumn=100
-
 " HTML configurations
 """""""""""""""""""""
 autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
@@ -159,12 +157,6 @@ au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 expandtab
 """""""""""""""""""""""""""
 au BufNewFile,BufReadPost *.js setlocal shiftwidth=2 expandtab
 
-" Puppet configurations
-"""""""""""""""""""""""
-au FileType puppet setlocal noexpandtab
-
-" Get jinja filetype selection working correctly for *.jinja.html files.
-au BufNewFile,BufReadPost *.jinja.html setlocal filetype=htmljinja
 
 " Make sure we hilight extra whitespace in the most annoying way possible.
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -201,10 +193,18 @@ let g:gist_post_private = 1
 "map <leader>l <Plug>TaskList
 
 " TagBar
-nnoremap <silent> <F2> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-let g:tagbar_autoshowtag = 1
-let g:tagbar_autofocus = 1
+nmap <F2> :TagbarToggle<CR>
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'v:variables',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+    \ }
 
 " crtl-p
 let g:ctrlp_map = '<c-p>'
@@ -212,7 +212,8 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
 " SnipMate
-let g:snippets_dir = "~/.vim/bundle/snipmate-snippets"
+imap <C-\> <Plug>snipMateNextOrTrigger
+smap <C-\> <Plug>snipMateNextOrTrigger
 
 " Sparkup
 let g:sparkupExecuteMapping = '<c-y>'
@@ -226,6 +227,9 @@ set laststatus=2
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 0
 let g:syntastic_puppet_lint_disable = 0
+
+
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
+
 
