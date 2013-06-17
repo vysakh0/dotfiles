@@ -30,6 +30,7 @@ Bundle 'vim-scripts/Gist.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle "scrooloose/nerdtree"
 
 
 Bundle 'pangloss/vim-javascript.git'
@@ -81,3 +82,6 @@ Bundle "spolu/dwm.vim"
 "Mimicking some Sublime's feature
 
 Bundle "terryma/vim-multiple-cursors"
+
+"For latex
+Bundle "jcf/vim-latex"
