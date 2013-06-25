@@ -60,6 +60,7 @@ Bundle 'tpope/vim-endwise.git'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-rake.git'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'Keithbsmiley/rspec.vim'
 
 " Markdown
 Bundle 'tpope/vim-markdown.git'
@@ -73,8 +74,7 @@ Bundle 'honza/vim-snippets'
 Bundle "garbas/vim-snipmate"
 
 "Autocompletion with you complete me
-Bundle "Valloric/YouCompleteMe"
-Bundle "ervandew/supertab"
+"Bundle "Valloric/YouCompleteMe"
 
 
 "Tile management

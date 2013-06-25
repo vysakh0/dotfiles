@@ -43,6 +43,7 @@ endif
 
 " Basic
 syntax enable
+
 set number        " always show line numbers
 set hidden        " Allow un-saved buffers in background
 set clipboard=unnamed " Share system clipboard.
@@ -219,8 +220,8 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
 " SnipMate
-imap <C-\> <Plug>snipMateNextOrTrigger
-smap <C-\> <Plug>snipMateNextOrTrigger
+"imap <C-\> <Plug>snipMateNextOrTrigger
+"smap <C-\> <Plug>snipMateNextOrTrigger
 
 " Sparkup
 let g:sparkupExecuteMapping = '<c-y>'
@@ -238,5 +239,3 @@ let g:syntastic_puppet_lint_disable = 0
 
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
-
-
