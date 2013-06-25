@@ -239,3 +239,12 @@ let g:syntastic_puppet_lint_disable = 0
 
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
+
+" Terminal
+nmap <buffer> <F7> <Plug>(xmpfilter-run)
+xmap <buffer> <F7> <Plug>(xmpfilter-run)
+imap <buffer> <F7> <Plug>(xmpfilter-run)
+
+nmap <buffer> <F6> <Plug>(xmpfilter-mark)
+xmap <buffer> <F6> <Plug>(xmpfilter-mark)
+imap <buffer> <F6> <Plug>(xmpfilter-mark)

@@ -87,3 +87,5 @@ Bundle "terryma/vim-multiple-cursors"
 "For latex
 Bundle "jcf/vim-latex"
 
+"for Ruby instant output as command
+Bundle "t9md/vim-ruby-xmpfilter"
