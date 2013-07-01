@@ -31,4 +31,4 @@ function b {
 
 # RSpec
 alias s=rspec
-compdef s=rspec
+#compdef s=rspec

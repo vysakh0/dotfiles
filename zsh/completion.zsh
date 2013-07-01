@@ -5,4 +5,4 @@ fpath=(~/.dotfiles/zsh/completion-scripts /usr/local/share/zsh/site-functions $f
 autoload -U compinit && compinit
 
 # complete viw like `which`
-compdef viw=which
+#compdef viw=which

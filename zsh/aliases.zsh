@@ -6,7 +6,8 @@ alias qq="source ~/.zshrc"
 alias cp="cp -iv"
 alias rm="rm -iv"
 alias mv="mv -iv"
-alias ls="ls -FGh"
+#alias ls="ls -FGh"
+alias ls="ls --color=always"
 alias du="du -cksh"
 alias df="df -h"
 # Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
@@ -28,7 +29,7 @@ alias eject="drutil tray eject"
 alias prettyjson="python -m json.tool"
 alias prettyxml="xmllint --format -"
 
-alias dotfiles="cd ~/.dotfiles"
+alias dotfiles="cd ~/dotfiles"
 
 # Needs to be a function because `alias -` breaks
 function -() { cd - }
@@ -49,6 +50,9 @@ function p {
 
 # Customize to your needs...
 alias -s html=vim
+alias -s rb=vim
+alias -s py=vim
+alias -s erb=vim
 # credit: http://nparikh.org/notes/zshrc.txt
 # Usage: extract <file>
 # Description: extracts archived files / mounts disk images
