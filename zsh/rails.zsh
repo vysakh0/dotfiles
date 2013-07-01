@@ -15,3 +15,11 @@ alias tu="ruby -Itest"
 # Database
 alias db-development-name='egrep "database:.*development" config/database.yml | awk "{print \$2}"'
 alias db-reset="be rake db:drop db:create && migrate"
+
+#rails generate controller
+alias rgc="rails g controller"
+alias rgm="rails g model"
+
+#rails destroy
+alias rdc="rails d controller"
+alias rdm="rails d model"
