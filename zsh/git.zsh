@@ -16,7 +16,7 @@ function g {
 #compdef g=git
 #compdef _git gc=git-checkout
 
-alias gp="bundle exec rake && git push"
+alias gp="git push"
 alias gcl="git clone"
 alias gd="git diff"
 alias gg="git grep"
@@ -28,6 +28,7 @@ alias gai="git add --interactive"
 
 alias gb="git checkout -b"
 alias gc="git checkout"
+alias gct="git commit"
 alias gcm="git commit -m"
 
 # https://gist.github.com/3960799
