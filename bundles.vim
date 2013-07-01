@@ -89,3 +89,8 @@ Bundle "jcf/vim-latex"
 
 "for Ruby instant output as command
 Bundle "t9md/vim-ruby-xmpfilter"
+
+Bundle "ervandew/supertab"
+Bundle "kshenoy/vim-signature"
+
+Bundle "Shougo/unite.vim"
