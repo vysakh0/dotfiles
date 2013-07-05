@@ -8,6 +8,7 @@ alias svi="sudo $EDITOR"
 
 # Remove vim flags for crontab -e
 alias crontab="EDITOR=vim crontab"
+alias v="vim -p"
 
 function viw {
   local location=$(which "$1")

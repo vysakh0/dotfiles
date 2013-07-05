@@ -1,8 +1,13 @@
 ###########
 # ALIASES #
 ###########
+#create aliases to open dotfiles
 alias q="vim ~/.zshrc"
 alias qq="source ~/.zshrc"
+alias qv="vim ~/.vimrc"
+
+# alias to open the dotfiles directory
+alias dv="cd ~/dotfiles; vim +NERDTree"
 alias cp="cp -iv"
 alias rm="rm -iv"
 alias mv="mv -iv"
@@ -18,6 +23,7 @@ alias grpe=grep # fix typo
 #debian/ubuntu related system liases
 alias halt='sudo shutdown -h now'
 alias reboot='sudo reboot'
+alias api='sudo apt-get install'
 
 export GREP_OPTIONS="--color=auto" # removes color when piping
 export GREP_COLOR='1;31' # highlight matches in red
