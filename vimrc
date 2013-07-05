@@ -50,7 +50,8 @@ set clipboard=unnamed " Share system clipboard.
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
 set ffs=unix,dos,mac "Default file types
-set nowrap        " don't wrap lines
+set wrap        " wrap lines
+set linebreak
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
                   "  case-sensitive otherwise
@@ -93,6 +94,9 @@ set copyindent    " copy the previous indentation on autoindenting
 """"""""""""""""""""""
 set foldmethod=indent
 set foldlevel=99
+
+"Tabber Vim
+set tabline=%!tabber#TabLine()
 
 " Highlight VCS conflict markers
 """"""""""""""""""""""""""""""""
@@ -252,5 +256,7 @@ imap <buffer> <F6> <Plug>(xmpfilter-mark)
 "NERDTree toggle
 
 noremap <F3> :NERDTreeToggle<CR>
+"open vimrc
+noremap <leader>vm :tabe ~/.vimrc <CR>
 "abbreviations
 abbreviate lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.

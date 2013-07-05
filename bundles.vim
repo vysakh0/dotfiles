@@ -94,3 +94,10 @@ Bundle "ervandew/supertab"
 Bundle "kshenoy/vim-signature"
 
 Bundle "Shougo/unite.vim"
+
+Bundle "dhruvasagar/vim-table-mode"
+
+"Add tabber plugin
+Bundle "fweep/vim-tabber"
+
+Bundle "mbbill/undotree"
