@@ -20,7 +20,7 @@ editor
 aliases
 path
 options
-completion
+#completion
 #vcs
 #prompt
 ruby

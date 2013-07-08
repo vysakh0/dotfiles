@@ -2,7 +2,7 @@
 source ~/dotfiles/bundles.vim
 runtime ftplugin/man.vim
 
-filetype plugin indent on     " required!
+filetype plugin indent on " required!
 
 " Configurations
 """"""""""""""""
@@ -70,6 +70,7 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
+nnoremap <F8> :UndotreeToggle<cr>
 
 " Remove the toolbar if we're running under a GUI (e.g. MacVIM).
 if has("gui_running")
@@ -77,7 +78,7 @@ if has("gui_running")
 endif
 
 " Special characters for hilighting non-priting spaces/tabs/etc.
-set list listchars=tab:»\ ,trail:·
+"set list listchars=tab:»\ ,trail:·
 
 " Default Tabs & spaces
 set tabstop=4     " a tab is four spaces
@@ -95,8 +96,6 @@ set copyindent    " copy the previous indentation on autoindenting
 set foldmethod=indent
 set foldlevel=99
 
-"Tabber Vim
-set tabline=%!tabber#TabLine()
 
 " Highlight VCS conflict markers
 """"""""""""""""""""""""""""""""
@@ -139,7 +138,6 @@ function! DistractionFreeWriting()
     set linebreak                      " break the lines on words
 endfunction
 
-:map <F8> :call DistractionFreeWriting()<CR>
 
 " Toggle spellcheck in normal mode
 :map <F5> :setlocal spell! spelllang=en_us<CR>
@@ -156,7 +154,6 @@ autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
 """""""""""""""""""""""
 autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
 autocmd FileType python setlocal colorcolumn=80
-autocmd FileType python map <buffer> <F4> :call Flake8()<CR>
 autocmd FileType python autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
@@ -228,8 +225,8 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -
 "smap <C-\> <Plug>snipMateNextOrTrigger
 
 " Sparkup
-let g:sparkupExecuteMapping = '<c-y>'
-let g:sparkupNextMapping = '<c-k>'
+"let g:sparkupExecuteMapping = '<c-y>'
+"let g:sparkupNextMapping = '<c-k>'
 
 " Jedi
 let g:jedi#goto_command = "<leader>g"
@@ -258,5 +255,25 @@ imap <buffer> <F6> <Plug>(xmpfilter-mark)
 noremap <F3> :NERDTreeToggle<CR>
 "open vimrc
 noremap <leader>vm :tabe ~/.vimrc <CR>
+nnoremap <F9> :NumbersToggle<CR>
 "abbreviations
 abbreviate lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
+
+
+"Unite vim
+nnoremap <C-i> :Unite file_rec<cr>
+nnoremap <space>a :Unite file_rec -auto-preview<cr>
+nnoremap <space>/ :Unite grep:.<cr>
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite history/yank<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+
+"Ulti
+let g:UltiSnipsExpandTrigger = '<c-l>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+
+
+"Recover from accidental undo
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>

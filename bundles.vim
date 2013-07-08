@@ -5,7 +5,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-filetype plugin indent on
 
 " General enhancements
 "Bundle 'tpope/vim-characterize.git'
@@ -70,11 +69,14 @@ Bundle 'nelstrom/vim-markdown-folding.git'
 Bundle 'Rip-Rip/clang_complete'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle 'honza/vim-snippets'
-Bundle "garbas/vim-snipmate"
+"Bundle 'honza/vim-snippets'
+"Bundle "garbas/vim-snipmate"
+Bundle "SirVer/ultisnips"
 
 "Autocompletion with you complete me
-"Bundle "Valloric/YouCompleteMe"
+Bundle "Valloric/YouCompleteMe"
+
+Bundle "myusuf3/numbers.vim"
 
 
 "Tile management
@@ -97,7 +99,9 @@ Bundle "Shougo/unite.vim"
 
 Bundle "dhruvasagar/vim-table-mode"
 
-"Add tabber plugin
-Bundle "fweep/vim-tabber"
 
 Bundle "mbbill/undotree"
+
+Bundle "bling/vim-airline"
+Bundle "myusuf3/numbers.vim"
+Bundle "sjbach/lusty"
