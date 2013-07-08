@@ -9,19 +9,6 @@ filetype plugin indent on " required!
 set background=dark
 set nocompatible
 
-" Wildmenu completion
-"""""""""""""""""""""
-set wildmenu
-set wildmode=list:longest
-set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
-set wildignore+=*.spl                            " compiled spelling word lists
-set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store                       " OSX bullshit
-set wildignore+=*.luac                           " Lua byte code
-set wildignore+=*.pyc                            " Python byte code
-set wildignore+=**.class                          " Cursed Java class files
 set statusline=\[%t%m]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [LINE=%04l,COL=%04v]\ %{fugitive#statusline()}
 set laststatus=2
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
@@ -60,7 +47,6 @@ set incsearch     " show search matches as you type
 set history=1000         " remember more commands and search history
 set title                " change the terminal's title
 set noerrorbells         " don't beep
-set guifont=Menlo\ for\ Powerline:h11
 
 "Persistent undo is like a local version control system that you don't have to
 "manage. I think I will use this feature a lot.
@@ -72,13 +58,6 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 nnoremap <F8> :UndotreeToggle<cr>
 
-" Remove the toolbar if we're running under a GUI (e.g. MacVIM).
-if has("gui_running")
-  set guioptions=-t
-endif
-
-" Special characters for hilighting non-priting spaces/tabs/etc.
-"set list listchars=tab:»\ ,trail:·
 
 " Default Tabs & spaces
 set tabstop=4     " a tab is four spaces
@@ -105,38 +84,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 """""""""""""""""""""""""""
 nnoremap / /\v
 vnoremap / /\v
-
-
-" General auto-commands
-"""""""""""""""""""""""
-autocmd FileType * setlocal colorcolumn=0
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-
-" Get rid of trailing whitespace highlighting in mutt.
-autocmd FileType mail highlight clear ExtraWhitespace
-autocmd FileType mail setlocal listchars=
-
-" Reformat XML files
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
-
-" Crontab auto-commands
-"""""""""""""""""""""""
-autocmd FileType crontab setlocal backupcopy=yes
-
-" turn-on distraction free writing mode for markdown files
-" au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
-
-function! DistractionFreeWriting()
-    colorscheme iawriter
-    set background=light
-    set lines=60 columns=100           " size of the editable area
-    set fuoptions=background:#00f5f6f6 " macvim specific setting for editor's background color
-    set guioptions-=r                  " remove right scrollbar
-    set laststatus=2                   " don't show status line
-    set noruler                        " don't show ruler
-    set fullscreen                     " go to fullscreen editing mode
-    set linebreak                      " break the lines on words
-endfunction
 
 
 " Toggle spellcheck in normal mode
@@ -187,20 +134,6 @@ cmap w!! w !sudo tee % >/dev/null
 " Plugin configurations
 """""""""""""""""""""""
 
-" Pyflakes
-"autocmd BufWritePost *.py call Flake8()
-let g:flake8_ignore="E128,E501"
-let g:syntastic_python_checker_args='--ignore=E501,E128'
-
-" Gist
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 2
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
-
-" TaskList
-"map <leader>l <Plug>TaskList
-
 " TagBar
 nmap <F2> :TagbarToggle<CR>
 let g:tagbar_type_ruby = {
@@ -219,14 +152,6 @@ let g:tagbar_type_ruby = {
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
-
-" SnipMate
-"imap <C-\> <Plug>snipMateNextOrTrigger
-"smap <C-\> <Plug>snipMateNextOrTrigger
-
-" Sparkup
-"let g:sparkupExecuteMapping = '<c-y>'
-"let g:sparkupNextMapping = '<c-k>'
 
 " Jedi
 let g:jedi#goto_command = "<leader>g"

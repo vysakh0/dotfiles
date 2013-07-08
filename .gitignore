@@ -1,4 +1,4 @@
 *.swp
 *~
-.vim/bundle/
-.vim/undodir/
+vim/bundle/
+vim/undodir/

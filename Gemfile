@@ -8,3 +8,4 @@ gem 'rails_apps_composer'
 gem 'tmuxinator'
 gem "knife-solo", ">= 0.3.0pre3"
 gem "berkshelf"
+gem "tmuxinator"

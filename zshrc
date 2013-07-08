@@ -13,16 +13,11 @@ BASE="$HOME/dotfiles/zsh"
 CORE=(
 key_bindings
 # "tmux" needs to be before "navigation" because of current-tmux-session
-#tmux
-#navigation
-#colors
+tmux
 editor
 aliases
 path
 options
-#completion
-#vcs
-#prompt
 ruby
 rbenv
 )
@@ -34,9 +29,6 @@ rbenv
 EXTRA=(
 git
 rails
-#hitch
-postgres
-# arduino
 )
 
 for core in $CORE
