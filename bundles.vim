@@ -4,49 +4,43 @@ filetype off
 " Vundle setup
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+"Hmm, I started to use vunble, when rm rfed my .vim folder once, so I switched
+"to Vundle and made my dotfiles ;)
 Bundle 'gmarik/vundle'
 
-" General enhancements
-"Bundle 'tpope/vim-characterize.git'
-"Bundle 'tpope/vim-commentary.git'
-"Bundle 'tpope/vim-dispatch.git'
-"Bundle 'tpope/vim-eunuch.git'
+"I am not using this, I switch to tmux instead to see git log using tig or use
+"git flow
 Bundle 'tpope/vim-fugitive.git'
-"Bundle 'tpope/vim-ragtag.git'
-"Bundle 'tpope/vim-repeat.git'
-"Bundle 'tpope/vim-scriptease.git'
-"Bundle 'tpope/vim-sensible.git'
-"Bundle 'tpope/vim-sleuth.git'
-Bundle 'tpope/vim-surround.git'
-"Bundle 'tpope/vim-tbone.git'
-"Bundle 'tpope/vim-unimpaired.git'
-"Bundle 'nelstrom/vim-visual-star-search'
-"Bundle 'nelstrom/vim-docopen'
-"Bundle 'vim-scripts/prettyprint.vim.git'
 
+"This is one of the best plugin from tpope, especially when used visual mode
+":)
+Bundle 'tpope/vim-surround.git'
+
+"Unite.vim does the job but still got comfortable with ctrlp
 Bundle 'kien/ctrlp.vim.git'
+
+"Tried setting this up, but some error when uploading, if it worked
+"it would be really nice
 Bundle 'vim-scripts/Gist.vim'
+
+"For python projects this is very handy, in most of ther projects is, it is
+"not, but let it be there
 Bundle 'majutsushi/tagbar'
+
+"I use this once in a file, really handy
 Bundle 'mileszs/ack.vim'
+
+"I use this more often :D even now ;)
 Bundle 'scrooloose/nerdcommenter'
+
+"NerdTree is pretty much a habit now, to create,edit/destroy is the best thing
+"abt it
 Bundle "scrooloose/nerdtree"
 
-
-Bundle 'pangloss/vim-javascript.git'
-Bundle 'godlygeek/tabular.git'
-"Bundle 'kongo2002/vim-space.git'
-Bundle 'kana/vim-vspec.git'
-"Bundle 'nelstrom/vim-qargs.git'
-"Bundle 'vim-scripts/vimwiki.git'
+"Probably this has a less use, when i need to algin things up
+"Bundle 'godlygeek/tabular.git'
 
 
-" Custom textobjects
-"Bundle 'kana/vim-textobj-user.git'
-"Bundle 'kana/vim-textobj-entire.git'
-"Bundle 'kana/vim-textobj-indent.git'
-"Bundle 'kana/vim-textobj-syntax.git'
-"Bundle 'kana/vim-textobj-line.git'
-"Bundle 'nelstrom/vim-textobj-rubyblock.git'
 
 " Colorschemes
 Bundle 'altercation/vim-colors-solarized.git'
@@ -55,9 +49,15 @@ Bundle 'altercation/vim-colors-solarized.git'
 
 " Ruby enhancements
 Bundle 'tpope/vim-bundler.git'
+
+"If you are a rubyist you would need this endwise plugin ;)
 Bundle 'tpope/vim-endwise.git'
+
+"I don't know how useful, need to explore more both rails, rake vim
 Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-rake.git'
+
+"Once i read the docs of vim-ruby, i find its use especially vim or vam cmds
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Keithbsmiley/rspec.vim'
 
@@ -65,43 +65,51 @@ Bundle 'Keithbsmiley/rspec.vim'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'nelstrom/vim-markdown-folding.git'
 
-"Snipmates
+"Snipmates - yup you need all these stuffs ;)
 Bundle 'Rip-Rip/clang_complete'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-"Bundle 'honza/vim-snippets'
-"Bundle "garbas/vim-snipmate"
-Bundle "SirVer/ultisnips"
+Bundle 'honza/vim-snippets'
+Bundle "garbas/vim-snipmate"
 
-"Autocompletion with you complete me
-Bundle "Valloric/YouCompleteMe"
+"Tried this ultisnips for making it play nice with ycm, but like vim-snippets,
+"i.e what i need
+"Bundle "SirVer/ultisnips"
 
+"Autocompletion with you complete me, conflicting with vim-snippets though and
+"i am not using this much, so i don need this :/
+"Bundle "Valloric/YouCompleteMe"
+
+"Nice recent plugin to have
 Bundle "myusuf3/numbers.vim"
 
 
-"Tile management
+"Tile management- hmm, using it a lot
 Bundle "spolu/dwm.vim"
 
-"Mimicking some Sublime's feature
+"Mimicking some Sublime's feature, nice feature should use more often
 
 Bundle "terryma/vim-multiple-cursors"
 
 "For latex
 Bundle "jcf/vim-latex"
 
-"for Ruby instant output as command
+"for Ruby instant output as command, does not work sometime in some file
 Bundle "t9md/vim-ruby-xmpfilter"
 
 Bundle "ervandew/supertab"
 Bundle "kshenoy/vim-signature"
 
+"The mother of all plugin :D
 Bundle "Shougo/unite.vim"
 
+"I am using this while writing commit messages for models ;) nice use though
 Bundle "dhruvasagar/vim-table-mode"
 
-
+"This is a savior when editing goes whack :D
 Bundle "mbbill/undotree"
 
+"This is better than powerline plugin :)
 Bundle "bling/vim-airline"
 Bundle "myusuf3/numbers.vim"
 Bundle "sjbach/lusty"

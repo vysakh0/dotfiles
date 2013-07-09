@@ -9,7 +9,9 @@ filetype plugin indent on " required!
 set background=dark
 set nocompatible
 
-set statusline=\[%t%m]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [LINE=%04l,COL=%04v]\ %{fugitive#statusline()}
+"Probably i don't need this status line made using fugitive plugin, now there
+"is airline ;)
+"set statusline=\[%t%m]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [LINE=%04l,COL=%04v]\ %{fugitive#statusline()}
 set laststatus=2
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
@@ -194,10 +196,13 @@ nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 
 "Ulti
-let g:UltiSnipsExpandTrigger = '<c-l>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+"let g:UltiSnipsExpandTrigger = '<c-l>'
+"let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+"let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
+"Snipmates
+	:imap <C-J> <Plug>snipMateNextOrTrigger
+	:smap <C-J> <Plug>snipMateNextOrTrigger
 
 "Recover from accidental undo
 inoremap <c-u> <c-g>u<c-u>
