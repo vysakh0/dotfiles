@@ -48,7 +48,7 @@ Bundle 'altercation/vim-colors-solarized.git'
 "Bundle 'nelstrom/vim-blackboard.git'
 
 " Ruby enhancements
-Bundle 'tpope/vim-bundler.git'
+"Bundle 'tpope/vim-bundler.git'
 
 "If you are a rubyist you would need this endwise plugin ;)
 Bundle 'tpope/vim-endwise.git'
@@ -113,3 +113,6 @@ Bundle "mbbill/undotree"
 Bundle "bling/vim-airline"
 Bundle "myusuf3/numbers.vim"
 Bundle "sjbach/lusty"
+
+"Need easy motion desperately :D
+Bundle "Lokaltog/vim-easymotion"

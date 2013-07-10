@@ -1,8 +1,11 @@
 "vim: nowrap fdm=marker
 source ~/dotfiles/bundles.vim
-runtime ftplugin/man.vim
+"runtime ftplugin/man.vim
 
 filetype plugin indent on " required!
+
+"Change leader key, comma is easier than \
+let mapleader=","
 
 " Configurations
 """"""""""""""""
@@ -35,11 +38,11 @@ syntax enable
 
 set number        " always show line numbers
 set hidden        " Allow un-saved buffers in background
-set clipboard=unnamed " Share system clipboard.
+set clipboard=unnamed " Share system clipboard but this is not working for me!
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
-set ffs=unix,dos,mac "Default file types
-set wrap        " wrap lines
+"set ffs=unix,dos,mac "Default file types
+set  nowrap        " don't wrap lines ;)
 set linebreak
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
@@ -128,7 +131,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Genral
 nmap <F4> :set hls! <cr>
-
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
 
@@ -168,7 +170,7 @@ let g:syntastic_puppet_lint_disable = 0
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
 
-" Terminal
+" This is not working in most case or has use, so lemme something else
 nmap <buffer> <F7> <Plug>(xmpfilter-run)
 xmap <buffer> <F7> <Plug>(xmpfilter-run)
 imap <buffer> <F7> <Plug>(xmpfilter-run)
@@ -177,18 +179,21 @@ nmap <buffer> <F6> <Plug>(xmpfilter-mark)
 xmap <buffer> <F6> <Plug>(xmpfilter-mark)
 imap <buffer> <F6> <Plug>(xmpfilter-mark)
 
-"NERDTree toggle
+"Let me toggle the set paste thing, which i more often, I am a script kiddy ;)
+set pastetoggle=<F6>
 
+
+"NERDTree toggle
 noremap <F3> :NERDTreeToggle<CR>
-"open vimrc
-noremap <leader>vm :tabe ~/.vimrc <CR>
+
+"Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
 "abbreviations
 abbreviate lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
 
 
 "Unite vim
-nnoremap <C-i> :Unite file_rec<cr>
+nnoremap <C-j> :Unite file_rec<cr>
 nnoremap <space>a :Unite file_rec -auto-preview<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 let g:unite_source_history_yank_enable = 1
@@ -201,9 +206,18 @@ nnoremap <space>s :Unite -quick-match buffer<cr>
 "let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 "Snipmates
-	:imap <C-J> <Plug>snipMateNextOrTrigger
-	:smap <C-J> <Plug>snipMateNextOrTrigger
+	":imap <C-J> <Plug>snipMateNextOrTrigger
+	":smap <C-J> <Plug>snipMateNextOrTrigger
 
 "Recover from accidental undo
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+" Quickly edit/reload the vimrc file
+ nmap <silent> <leader>ev :e $MYVIMRC<CR>
+ nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+"go into ex-mode will be lot quicker ;) :D Aw! i am so used to :
+nnoremap ; :
+
+
