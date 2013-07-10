@@ -4,15 +4,18 @@ ZSH_THEME="kolo"
 #if [[ -n $TMUX ]]; then
 # Let's make sure we're in tmux boots before loading anything. Without this if,
 # everything loads in the "real", non-tmux terminal.
-plugins=(git git-flow command-not-found rails4 ubuntu zsh-syntax-highlighting)
+plugins=(git git-flow command-not-found rails4 zsh-syntax-highlighting vundle extract)
 
 source $ZSH/oh-my-zsh.sh
 
-#BASE="$HOME/dotfiles/zsh"
-#source $BASE/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin
 export PATH 
 export TERM=xterm-256color
 eval $(dircolors ~/.dir_colours)
-~/./days
+#~/./days
 #fi
+BASE="$HOME/dotfiles/zsh"
+
+source $BASE/aliases.zsh
+
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
