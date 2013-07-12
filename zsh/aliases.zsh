@@ -1,6 +1,7 @@
-alias q="vim ~/.zshrc"
-alias qq="source ~/.zshrc"
-alias qv="vim ~/.vimrc"
+alias z="vim ~/.zshrc"
+alias sz="source ~/.zshrc"
+alias vv="vim ~/.vimrc"
+alias sv="source ~/.vimrc"
 
 # alias to open the dotfiles directory
 alias dv="cd ~/dotfiles; vim +NERDTree"
@@ -23,15 +24,18 @@ alias -s py=vim
 alias -s erb=vim
 alias -s com=chromium-browser
 
+# Vim aliases
+alias v="vim -p"
+alias vi="vim -p"
 # Vim-style line editing
 bindkey -v
 # I want my bck-i-search
 bindkey -M viins "^r" history-incremental-search-backward
 bindkey -M vicmd "f" history-incremental-search-backward
 
-#git aliases
-alias gpo="git push origin"
+#git alias
 alias gcm="git commit -m"
+alias gpo="git push origin"
 
 #git flow related aliases
 alias gf="git flow"

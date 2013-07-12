@@ -15,7 +15,8 @@ eval $(dircolors ~/.dir_colours)
 #~/./days
 #fi
 BASE="$HOME/dotfiles/zsh"
-
 source $BASE/aliases.zsh
+#DISABLE_CORRECTION=”true”
+unsetopt correct_all
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
