@@ -116,3 +116,7 @@ Bundle "sjbach/lusty"
 
 "Need easy motion desperately :D
 Bundle "Lokaltog/vim-easymotion"
+
+"people see this tagbar on steroids lets see :)
+
+Bundle "Shougo/unite-outline"

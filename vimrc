@@ -41,12 +41,18 @@ set hidden        " Allow un-saved buffers in background
 set clipboard=unnamed " Share system clipboard but this is not working for me!
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
+
+set scrolloff=9999
+
+" Turnon tab completion for filenames, helptops, options et cetera
+set wildmode=list:longest,full
+set wildmenu
 "set ffs=unix,dos,mac "Default file types
-set  nowrap        " don't wrap lines ;)
+set  wrap        " wrap lines ;)
 set linebreak
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
-                  "  case-sensitive otherwise
+"  case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set history=1000         " remember more commands and search history
@@ -71,7 +77,7 @@ set softtabstop=4
 set expandtab
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab      " insert tabs on the start of a line according to
-                  "    shiftwidth, not tabstop
+"    shiftwidth, not tabstop
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 
@@ -141,16 +147,16 @@ cmap w!! w !sudo tee % >/dev/null
 " TagBar
 nmap <F2> :TagbarToggle<CR>
 let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'v:variables',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-    \ }
+            \ 'kinds' : [
+            \ 'm:modules',
+            \ 'c:classes',
+            \ 'd:describes',
+            \ 'C:contexts',
+            \ 'v:variables',
+            \ 'f:methods',
+            \ 'F:singleton methods'
+            \ ]
+            \ }
 
 " crtl-p
 let g:ctrlp_map = '<c-p>'
@@ -206,18 +212,23 @@ nnoremap <space>s :Unite -quick-match buffer<cr>
 "let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
 "Snipmates
-	":imap <C-J> <Plug>snipMateNextOrTrigger
-	":smap <C-J> <Plug>snipMateNextOrTrigger
+":imap <C-J> <Plug>snipMateNextOrTrigger
+":smap <C-J> <Plug>snipMateNextOrTrigger
 
 "Recover from accidental undo
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
 " Quickly edit/reload the vimrc file
- nmap <silent> <leader>ev :e $MYVIMRC<CR>
- nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "go into ex-mode will be lot quicker ;) :D Aw! i am so used to :
 nnoremap ; :
 
+"to create a new line in cmd mode
+nmap K i<cr><esc>k$
 
+"I am going to use this hide option quite often ;) instead of using tabs,
+"buffer is way cool :D
+nnoremap <space>h :hide<cr>
