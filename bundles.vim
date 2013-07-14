@@ -17,7 +17,8 @@ Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround.git'
 
 "Unite.vim does the job but still got comfortable with ctrlp
-Bundle 'kien/ctrlp.vim.git'
+"Bundle 'kien/ctrlp.vim.git'
+"That was my old comment, unite vim is just super awesome :)
 
 "Tried setting this up, but some error when uploading, if it worked
 "it would be really nice

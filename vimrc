@@ -159,9 +159,9 @@ let g:tagbar_type_ruby = {
             \ }
 
 " crtl-p
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
 
 " Jedi
 let g:jedi#goto_command = "<leader>g"
@@ -199,7 +199,7 @@ abbreviate lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Ves
 
 
 "Unite vim
-nnoremap <C-j> :Unite file_rec<cr>
+nnoremap <C-p> :Unite file_rec<cr>
 nnoremap <space>a :Unite file_rec -auto-preview<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 let g:unite_source_history_yank_enable = 1
