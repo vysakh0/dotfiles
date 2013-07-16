@@ -136,7 +136,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 """"""""""""""""""
 
 " Genral
-nmap <F4> :set hls! <cr>
+nnoremap <leader><space> :set hls! <cr>
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
 
@@ -167,7 +167,6 @@ let g:tagbar_type_ruby = {
 let g:jedi#goto_command = "<leader>g"
 
 " Double rainbow - What does it mean!?
-set laststatus=2
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 0
 let g:syntastic_puppet_lint_disable = 0
@@ -199,12 +198,14 @@ abbreviate lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Ves
 
 
 "Unite vim
-nnoremap <C-p> :Unite file_rec<cr>
+"nnoremap <C-p> :U :nite file_rec<cr>
+noremap <space>r :<C-u>Unite -start-insert file_rec<CR>
 nnoremap <space>a :Unite file_rec -auto-preview<cr>
 nnoremap <space>/ :Unite grep:.<cr>
 let g:unite_source_history_yank_enable = 1
 nnoremap <space>y :Unite history/yank<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <space>m :<C-u>Unite -start-insert file_mru<CR>
 
 "Ulti
 "let g:UltiSnipsExpandTrigger = '<c-l>'
@@ -226,9 +227,26 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "go into ex-mode will be lot quicker ;) :D Aw! i am so used to :
 nnoremap ; :
 
-"to create a new line in cmd mode
-nmap K i<cr><esc>k$
+"to create a new line in cmd mode 
+
+
+nmap <leader>o i<cr><esc>k$
+
 
 "I am going to use this hide option quite often ;) instead of using tabs,
 "buffer is way cool :D
 nnoremap <space>h :hide<cr>
+
+"I am using wrap, so this is really handy :D
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+
+"These abbreviations is my savior :D
+cnoreabbrev Wq w
+cnoreabbrev W w
+cnoreabbrev WQ wq
+cnoreabbrev X x  "I should remember this :D if were to show demo on encyption 
+cnoreabbrev Q q
+
