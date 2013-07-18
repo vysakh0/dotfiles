@@ -136,7 +136,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 """"""""""""""""""
 
 " Genral
-nnoremap <leader><space> :set hls! <cr>
+nnoremap <leader><space> :noh <cr>
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
 
@@ -157,20 +157,6 @@ let g:tagbar_type_ruby = {
             \ 'F:singleton methods'
             \ ]
             \ }
-
-" crtl-p
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files --exclude-standard -co']
-
-" Jedi
-let g:jedi#goto_command = "<leader>g"
-
-" Double rainbow - What does it mean!?
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_jump = 0
-let g:syntastic_puppet_lint_disable = 0
-
 
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
@@ -199,6 +185,7 @@ abbreviate lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Ves
 
 "Unite vim
 "nnoremap <C-p> :U :nite file_rec<cr>
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
 noremap <space>r :<C-u>Unite -start-insert file_rec<CR>
 nnoremap <space>a :Unite file_rec -auto-preview<cr>
 nnoremap <space>/ :Unite grep:.<cr>
@@ -224,14 +211,14 @@ inoremap <c-w> <c-g>u<c-w>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-"go into ex-mode will be lot quicker ;) :D Aw! i am so used to :
-nnoremap ; :
 
-"to create a new line in cmd mode 
+"to create a new line cmd mode without going to insert
 
+nmap <leader>k O<esc>k0
+nmap <leader>j o<esc>j0
 
-nmap <leader>o i<cr><esc>k$
-
+"Break a line into two and retain cursor position
+nmap <leader>b i<cr><esc>k$
 
 "I am going to use this hide option quite often ;) instead of using tabs,
 "buffer is way cool :D
@@ -249,4 +236,21 @@ cnoreabbrev W w
 cnoreabbrev WQ wq
 cnoreabbrev X x  "I should remember this :D if were to show demo on encyption 
 cnoreabbrev Q q
+
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARROW KEYS ARE UNACCEPTABLE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
+"To paste content from system clipboard into Vim, I use this too often.
+nnoremap<leader>p :set paste!<CR>
+
+"Inherit Activercord base for model created with Rails vim
+imap <c-b> <<space>ActiveRecord::Base<cr>
 

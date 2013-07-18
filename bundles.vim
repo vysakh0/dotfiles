@@ -125,3 +125,6 @@ Bundle "Shougo/unite-outline"
 Bundle "mhinz/vim-startify"
 "not sure how i missed this plugin, it was there in my old config
 Bundle "scrooloose/syntastic"
+
+" Unite needs vimproc for certain searches
+Bundle 'Shougo/vimproc'
