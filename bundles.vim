@@ -26,7 +26,7 @@ Bundle 'vim-scripts/Gist.vim'
 
 "For python projects this is very handy, in most of ther projects is, it is
 "not, but let it be there
-Bundle 'majutsushi/tagbar'
+"Bundle 'majutsushi/tagbar'
 
 "I use this once in a file, really handy
 Bundle 'mileszs/ack.vim'
@@ -67,11 +67,7 @@ Bundle 'tpope/vim-markdown.git'
 Bundle 'nelstrom/vim-markdown-folding.git'
 
 "Snipmates - yup you need all these stuffs ;)
-Bundle 'Rip-Rip/clang_complete'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
 Bundle 'honza/vim-snippets'
-Bundle "garbas/vim-snipmate"
 
 "Tried this ultisnips for making it play nice with ycm, but like vim-snippets,
 "i.e what i need
@@ -99,6 +95,8 @@ Bundle "jcf/vim-latex"
 Bundle "t9md/vim-ruby-xmpfilter"
 
 Bundle "ervandew/supertab"
+
+"Needed if you are using marks too often
 Bundle "kshenoy/vim-signature"
 
 "The mother of all plugin :D
@@ -112,8 +110,11 @@ Bundle "mbbill/undotree"
 
 "This is better than powerline plugin :)
 Bundle "bling/vim-airline"
+
+"Really handy when to do delele set of lines, otherwise easymotion does the
+"job
 Bundle "myusuf3/numbers.vim"
-Bundle "sjbach/lusty"
+"Bundle "sjbach/lusty"
 
 "Need easy motion desperately :D
 Bundle "Lokaltog/vim-easymotion"
@@ -128,3 +129,22 @@ Bundle "scrooloose/syntastic"
 
 " Unite needs vimproc for certain searches
 Bundle 'Shougo/vimproc'
+
+Bundle 'christoomey/vim-tmux-navigator'
+
+Bundle 'othree/html5.vim'
+
+Bundle 'Yggdroot/indentLine'
+
+"Not comfortable with youcompleteme
+Bundle 'Shougo/neocomplete'
+
+"This is a deadly combination
+Bundle 'Shougo/neosnippet'
+
+
+Bundle 'Rip-Rip/clang_complete'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+
+Bundle 'godlygeek/tabular'
