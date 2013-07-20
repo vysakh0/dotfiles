@@ -12,6 +12,9 @@ autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
 """""""""""""""""""""
 "autocmd filetype ruby setlocal noexpandtab shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
 let g:neocomplete#force_omni_input_patterns.ruby =  '[^. *\t]\.\w*\|\h\w*::'
 
 " HTML configurations
