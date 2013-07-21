@@ -147,4 +147,20 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 
+"for alignment etc, making code readability
 Bundle 'godlygeek/tabular'
+
+"Now  going to use more of buffer, this shows in statusline
+Bundle 'bling/vim-bufferline'
+
+" autocompleting quotes :D
+Bundle 'Raimondi/delimitMate'
+
+"beautiful git log
+Bundle 'gregsexton/gitv'
+
+"extracting a portion of texts into a buffer
+Bundle 'chrisbra/NrrwRgn'
+
+"Golden ratio
+Bundle 'roman/golden-ratio'

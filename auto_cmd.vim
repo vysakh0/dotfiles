@@ -10,8 +10,7 @@ au VimResized * exe "normal! \<c-w>="
 autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
 " Ruby Configurations
 """""""""""""""""""""
-"autocmd filetype ruby setlocal noexpandtab shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
+autocmd filetype ruby setlocal noexpandtab shiftwidth=2 tabstop=2
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif

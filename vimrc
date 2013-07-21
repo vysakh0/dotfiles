@@ -94,6 +94,7 @@ set foldmethod=indent
 set foldlevel=99
 
 
+set t_Co=256 "why you no tell me correct colors?!?!
 " Highlight VCS conflict markers
 """"""""""""""""""""""""""""""""
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -160,7 +161,9 @@ imap <c-b> <<space>ActiveRecord::Base<cr>
 nnoremap <leader><space> :noh <cr>
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
-
+""
+"Let me toggle the set paste thing, which i more often, I am a script kiddy ;)
+set pastetoggle=<F6>
 "Abbreviations
 
 iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
@@ -181,3 +184,6 @@ source ~/dotfiles/auto_cmd.vim
 
 source ~/dotfiles/plugin_config.vim
 
+"buffer statusline
+let g:bufferline_echo=0
+set statusline=%{bufferline#generate_string()}
