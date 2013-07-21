@@ -9,7 +9,7 @@ plugins=(git git-flow command-not-found rails4 zsh-syntax-highlighting vundle ex
 source $ZSH/oh-my-zsh.sh
 
 PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin
-export PATH 
+export PATH
 export TERM=xterm-256color
 eval $(dircolors ~/.dir_colours)
 #~/./days
@@ -20,4 +20,6 @@ source $BASE/aliases.zsh
 unsetopt correct_all
 
 export EDITOR='vim'
+#open tmux with utf-8 support instead of relying on local, got from dhruvsagar post
+alias tmux="tmux -u"
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
