@@ -18,7 +18,7 @@ let g:neocomplete#force_omni_input_patterns.ruby =  '[^. *\t]\.\w*\|\h\w*::'
 
 " HTML configurations
 """""""""""""""""""""
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
+autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 " Python configurations
 """""""""""""""""""""""
