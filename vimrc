@@ -35,7 +35,7 @@ set clipboard=unnamed " Share system clipboard but this is not working for me!
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
 
-set scrolloff=9999
+set scrolloff=3
 
 
 " Turnon tab completion for filenames, helptops, options et cetera
