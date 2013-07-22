@@ -161,8 +161,20 @@ imap <c-b> <<space>ActiveRecord::Base<cr>
 nnoremap <leader><space> :noh <cr>
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
+
+"map Y behave something similar to D, C, yank till the end from current
+
+nnoremap Y y$
+
+"Map tab all, split panes into tabs
+nnoremap <leader>tb :tab ball<CR>
+
+"Make buffer into vertical panes
+nnoremap <leader>vb :vert ba<CR>
+
 ""
 "Let me toggle the set paste thing, which i more often, I am a script kiddy ;)
+
 set pastetoggle=<F6>
 "Abbreviations
 
