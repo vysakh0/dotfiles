@@ -46,12 +46,11 @@ imap <buffer> <F6> <Plug>(xmpfilter-mark)
 "let g:EasyMotion_leader_key = '<Leader>'
 
 " Necomplete + Neo snippets key-mappings.
-let g:neocomplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-i>     <Plug>(neosnippet_expand_or_jump)
+smap <C-i>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-i>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -64,7 +63,10 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " For snippet_complete marker.
 if has('conceal')
     set conceallevel=2 concealcursor=i
+
 endif
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#data_directory='~/.vim/.cache/neocomplete'
 
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -137,7 +139,7 @@ nnoremap <silent> [unite]fc :Unite file_rec/async<cr>
 " Custom mappings for the unite buffer
   " Enable navigation with control-j and control-k in insert mode
 "nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-nnoremap <silent> [unite]o :<C-u>Unite -no-split -buffer-name=outline outline<cr>
+"nnoremap <silent> [unite]o :<C-u>Unite -no-split -buffer-name=outline outline<cr>
 
 
 "Syntastic customization

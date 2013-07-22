@@ -7,6 +7,7 @@ filetype plugin indent on " required!
 "Change leader key, comma is easier than \
 let mapleader=","
 
+
 " Configurations
 """"""""""""""""
 set background=dark
@@ -140,9 +141,6 @@ nnoremap 0 g0
 nnoremap $ g$
 
 
-" Insert a hash rocket with <c-l>
-imap <c-l> <space>=><space>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -187,15 +185,12 @@ cnoreabbrev WQ wq
 " I should remember this :D if were to use encyption
 cnoreabbrev X x
 cnoreabbrev Q q
-
-
 "File related settings
 source ~/dotfiles/auto_cmd.vim
 
 "Plugins configuration
-
 source ~/dotfiles/plugin_config.vim
-
 "buffer statusline
 let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
+

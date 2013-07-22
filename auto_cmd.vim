@@ -10,7 +10,7 @@ au VimResized * exe "normal! \<c-w>="
 autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
 " Ruby Configurations
 """""""""""""""""""""
-autocmd filetype ruby setlocal noexpandtab shiftwidth=2 tabstop=2
+autocmd filetype ruby setlocal shiftwidth=2 tabstop=2
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
@@ -47,3 +47,6 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+
+"Erb for snippets
+au BufNewFile,BufRead *.erb set filetype=eruby.html
