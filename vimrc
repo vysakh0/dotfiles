@@ -194,3 +194,24 @@ source ~/dotfiles/plugin_config.vim
 let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
 
+"make a word caps, handy when using constants, dont use shift ;)
+
+nnoremap <C-u> <esc>g~iw
+
+"mappings suited to my current project
+nnoremap <leader>1 :,$norm A,18,49<CR>
+nnoremap <leader>2 :,$norm A,50,54<CR>
+nnoremap <leader>3 :,$norm A,55,64<CR>
+nnoremap <leader>4 :,$norm A,65,69<CR>
+nnoremap <leader>5 :,$norm A,70,74<CR>
+nnoremap <leader>6 :,$norm A,75,79<CR>
+nnoremap <leader>7 :,$norm A,80,84<CR>
+nnoremap <leader>8 :,$norm A,18,40<CR>
+nnoremap <leader>9 :,$norm A,41,45<CR>
+nnoremap <leader>0 :,$norm A,46,55<CR>
+
+
+nnoremap <leader>nc :.,$norm ICouple,<CR>
+nnoremap <leader>ni :.,$norm IIndividual,<CR>
+nnoremap <leader>nf :.,$norm IFamily,<CR>
+

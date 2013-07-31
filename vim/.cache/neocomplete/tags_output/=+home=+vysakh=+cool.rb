@@ -4,5 +4,4 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-cool	/home/vysakh/cool.rb	/^def cool$/;"	f
-wow	/home/vysakh/cool.rb	/^def wow$/;"	f
+hi	/home/vysakh/cool.rb	/^def hi$/;"	f

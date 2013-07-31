@@ -1,6 +1,10 @@
 
 " Plugin configurations
 """""""""""""""""""""""
+"Tagbar config
+noremap <F2> :Tagbar<CR>
+nnoremap <leader>tb :Tagbar<CR>
+
 "NERDTree toggle
 noremap <F3> :NERDTreeToggle<CR>
 
@@ -70,6 +74,7 @@ let g:neocomplete#data_directory='~/.vim/.cache/neocomplete'
 
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>ga :Git add -A<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>

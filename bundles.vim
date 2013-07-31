@@ -26,7 +26,7 @@ Bundle 'vim-scripts/Gist.vim'
 
 "For python projects this is very handy, in most of ther projects is, it is
 "not, but let it be there
-"Bundle 'majutsushi/tagbar'
+Bundle 'majutsushi/tagbar'
 
 "I use this once in a file, really handy
 Bundle 'mileszs/ack.vim'
@@ -94,7 +94,7 @@ Bundle "jcf/vim-latex"
 "for Ruby instant output as command, does not work sometime in some file
 Bundle "t9md/vim-ruby-xmpfilter"
 
-Bundle "ervandew/supertab"
+"Bundle "ervandew/supertab"
 
 "Needed if you are using marks too often
 Bundle "kshenoy/vim-signature"
@@ -162,5 +162,15 @@ Bundle 'gregsexton/gitv'
 "extracting a portion of texts into a buffer
 Bundle 'chrisbra/NrrwRgn'
 
+
 "Golden ratio
 Bundle 'roman/golden-ratio'
+
+"Coffescript plugin
+Bundle 'kchmck/vim-coffee-script'
+
+"Css coloring
+Bundle 'ap/vim-css-color'
+
+"Base16 colors, it has all the needed color scheme :D
+Bundle 'chriskempson/base16-vim'
