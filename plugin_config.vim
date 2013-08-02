@@ -154,3 +154,11 @@ let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 
 
+"Rails vim
+"Create command abbreviations that auto corrects ;)
+
+cnoreabbrev rco Rco
+cnoreabbrev rmo Rmo
+cnoreabbrev rview Rview
+cnoreabbrev rv Rview
+cnoreabbrev rx Rextract
