@@ -126,7 +126,7 @@ nnoremap [unite] <nop>
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <silent> [unite]t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <silent> [unite]t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:! file_mru<cr>
 nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <silent> [unite]o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
@@ -137,6 +137,8 @@ nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 nnoremap <silent> [unite]ft :Unite file_rec/async -default-action=tabopen<cr>
 nnoremap <silent> [unite]fs :Unite file_rec/async -default-action=split<cr>
 nnoremap <silent> [unite]fv :Unite file_rec/async -default-action=vsplit<cr>
+nnoremap <silent> [unite]fp :Unite file_rec/async -default-action=preview<cr>
+nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
 nnoremap <silent> [unite]fc :Unite file_rec/async<cr>
 
 

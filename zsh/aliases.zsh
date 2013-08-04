@@ -22,6 +22,7 @@ alias -s html=vim
 alias -s rb=vim
 alias -s py=vim
 alias -s erb=vim
+alias -s pdf=evince
 alias -s com=chromium-browser
 
 # Vim aliases

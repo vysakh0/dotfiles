@@ -210,8 +210,9 @@ nnoremap <leader>8 :,$norm A,18,40<CR>
 nnoremap <leader>9 :,$norm A,41,45<CR>
 nnoremap <leader>0 :,$norm A,46,55<CR>
 
-
 nnoremap <leader>nc :.,$norm ICouple,<CR>
 nnoremap <leader>ni :.,$norm IIndividual,<CR>
 nnoremap <leader>nf :.,$norm IFamily,<CR>
 
+"map jj to escape to go to normal mode
+inoremap jj <Esc>

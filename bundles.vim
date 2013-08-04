@@ -174,3 +174,6 @@ Bundle 'ap/vim-css-color'
 
 "Base16 colors, it has all the needed color scheme :D
 Bundle 'chriskempson/base16-vim'
+
+"Live html css editing"
+Bundle 'jaxbot/brolink.vim'

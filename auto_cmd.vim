@@ -50,3 +50,5 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 "Erb for snippets
 au BufNewFile,BufRead *.erb set filetype=eruby.html
+
+au BufNewFile,BufRead *.hbs set filetype=hbs.html
