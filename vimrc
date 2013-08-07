@@ -8,18 +8,13 @@ filetype plugin indent on " required!
 let mapleader=","
 
 
-" Configurations
-""""""""""""""""
-set background=dark
+" SETTINGS/CONFIGURATIONS
 set nocompatible
 
-"Probably i don't need this status line made using fugitive plugin, now there
-"is airline ;)
-"set statusline=\[%t%m]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [LINE=%04l,COL=%04v]\ %{fugitive#statusline()}
-set laststatus=2
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
-
+" vim color theme
+set background=dark
 if !has("gui_running")
     "colorscheme chance-of-storm
     colorscheme solarized
@@ -35,11 +30,13 @@ set hidden        " Allow un-saved buffers in background
 set clipboard=unnamed " Share system clipboard but this is not working for me!
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
+set scrolloff=3    " setting the page on scrolling the screen
+set history=1000         " remember more commands and search history
+set title                " change the terminal's title
+set noerrorbells         " don't beep
 
-set scrolloff=3
 
-
-" Turnon tab completion for filenames, helptops, options et cetera
+" Turn on tab completion for filenames, helptops, options et cetera
 set wildmode=list:longest,full
 set wildmenu
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
@@ -53,21 +50,20 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set wildignore+=*/.nx/**,*.app
 
-"set ffs=unix,dos,mac "Default file types
+" Wrapping and line breaks"
 set  wrap        " wrap lines ;)
 set linebreak
+
+" Search related settings
 set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
-"  case-sensitive otherwise
 set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
-set history=1000         " remember more commands and search history
-set title                " change the terminal's title
-set noerrorbells         " don't beep
+nnoremap / /\v
+vnoremap / /\v
 
 "Persistent undo is like a local version control system that you don't have to
 "manage. I think I will use this feature a lot.
-
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000 "maximum number of changes that can be undone
@@ -78,6 +74,7 @@ if has('conceal')
     set conceallevel=1
     set listchars+=conceal:Δ
 endif
+
 " Default Tabs & spaces
 set tabstop=4     " a tab is four spaces
 set shiftwidth=4  " number of spaces to use for autoindenting
@@ -90,28 +87,15 @@ set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 
 " General Code Folding
-""""""""""""""""""""""
 set foldmethod=indent
 set foldlevel=99
-
-
-set t_Co=256 "why you no tell me correct colors?!?!
-" Highlight VCS conflict markers
-""""""""""""""""""""""""""""""""
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" I CAN HAZ NORMAL REGEXES?
-"""""""""""""""""""""""""""
-nnoremap / /\v
-vnoremap / /\v
-
 
 " Toggle spellcheck in normal mode
 :map <F5> :setlocal spell! spelllang=en_us<CR>
 
 
-" Custom mappings
-""""""""""""""""""
+" CUSTOM MAPPINGS
+
 "Recover from accidental undo
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
@@ -121,9 +105,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>bv :e ~/dotfiles/bundles.vim<CR>
 
-
 "to create a new line cmd mode without going to insert
-
 nmap <leader>k O<esc>k0
 nmap <leader>j o<esc>j0
 
@@ -141,9 +123,7 @@ nnoremap 0 g0
 nnoremap $ g$
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ARROW KEYS ARE UNACCEPTABLE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" arrow keys are unacceptable
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
@@ -155,13 +135,13 @@ nnoremap<leader>p :set paste!<CR>
 "Inherit Activercord base for model created with Rails vim
 imap <c-b> <<space>ActiveRecord::Base<cr>
 
-" Genral
+" unhighlight the search terms
 nnoremap <leader><space> :noh <cr>
+
 " Fix those pesky situations where you edit & need sudo to save
 cmap w!! w !sudo tee % >/dev/null
 
 "map Y behave something similar to D, C, yank till the end from current
-
 nnoremap Y y$
 
 "Map tab all, split panes into tabs
@@ -170,32 +150,10 @@ nnoremap <leader>tb :tab ball<CR>
 "Make buffer into vertical panes
 nnoremap <leader>vb :vert ba<CR>
 
-""
 "Let me toggle the set paste thing, which i more often, I am a script kiddy ;)
-
 set pastetoggle=<F6>
-"Abbreviations
-
-iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
-
-"These abbreviations is my savior :D
-cnoreabbrev Wq w
-cnoreabbrev W w
-cnoreabbrev WQ wq
-" I should remember this :D if were to use encyption
-cnoreabbrev X x
-cnoreabbrev Q q
-"File related settings
-source ~/dotfiles/auto_cmd.vim
-
-"Plugins configuration
-source ~/dotfiles/plugin_config.vim
-"buffer statusline
-let g:bufferline_echo=0
-set statusline=%{bufferline#generate_string()}
 
 "make a word caps, handy when using constants, dont use shift ;)
-
 nnoremap <C-u> <esc>g~iw
 
 "mappings suited to my current project
@@ -216,3 +174,25 @@ nnoremap <leader>nf :.,$norm IFamily,<CR>
 
 "map jj to escape to go to normal mode
 inoremap jj <Esc>
+
+"ABBREVIATIONS
+
+iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
+
+"These abbreviations is my savior :D
+cnoreabbrev Wq w
+cnoreabbrev W w
+cnoreabbrev WQ wq
+" I should remember this :D if were to use encyption
+cnoreabbrev X x
+cnoreabbrev Q q
+
+"FILE RELATED SETTINGS
+source ~/dotfiles/auto_cmd.vim
+
+"PLUGINS CONFIGURATION
+source ~/dotfiles/plugin_config.vim
+"buffer statusline
+let g:bufferline_echo=0
+set statusline=%{bufferline#generate_string()}
+
