@@ -1,6 +1,6 @@
-
-" Plugin configurations
+" PLUGIN CONFIGURATIONS
 """""""""""""""""""""""
+
 "Tagbar config
 noremap <F2> :Tagbar<CR>
 nnoremap <leader>tb :Tagbar<CR>
@@ -25,29 +25,6 @@ imap <buffer> <F7> <Plug>(xmpfilter-run)
 nmap <buffer> <F6> <Plug>(xmpfilter-mark)
 xmap <buffer> <F6> <Plug>(xmpfilter-mark)
 imap <buffer> <F6> <Plug>(xmpfilter-mark)
-
-"Unite vim
-"nnoremap <C-p> :U :nite file_rec<cr>
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-"noremap <space>r :<C-u>Unite -start-insert file_rec<CR>
-"nnoremap <space>a :Unite file_rec -auto-preview<cr>
-"nnoremap <space>/ :Unite grep:.<cr>
-"let g:unite_source_history_yank_enable = 1
-"nnoremap <space>y :Unite history/yank<cr>
-"nnoremap <space>s :Unite -quick-match buffer<cr>
-"nnoremap <space>m :<C-u>Unite -start-insert file_mru<CR>
-
-"Ulti
-"let g:UltiSnipsExpandTrigger = '<c-l>'
-"let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-"let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-
-"Snipmates
-":imap <C-J> <Plug>snipMateNextOrTrigger
-":smap <C-J> <Plug>snipMateNextOrTrigger
-
-
-"let g:EasyMotion_leader_key = '<Leader>'
 
 " Necomplete + Neo snippets key-mappings.
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
@@ -103,27 +80,9 @@ vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
-
-"Unite related mappings
-"call unite#filters#matcher_default#use(['matcher_fuzzy'])
-
-"nmap <space> [unite]
-"nnoremap [unite] <nop>
-
-"nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr><c-u>
-"nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async<cr><c-u>
-"nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-"nnoremap <silent> [unite]r :<C-u>Unite -toggle -auto-resize file_mru<cr>
-"nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-"nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
-"nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-"nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-"nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-
-""Unite outline, people say it is tagbar on steroids, not sure
+" Unite
 nmap <space> [unite]
 nnoremap [unite] <nop>
-" Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <silent> [unite]t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:! file_mru<cr>
@@ -141,14 +100,6 @@ nnoremap <silent> [unite]fp :Unite file_rec/async -default-action=preview<cr>
 nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
 nnoremap <silent> [unite]fc :Unite file_rec/async<cr>
 
-
-
-" Custom mappings for the unite buffer
-  " Enable navigation with control-j and control-k in insert mode
-"nnoremap <silent> [unite]o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-"nnoremap <silent> [unite]o :<C-u>Unite -no-split -buffer-name=outline outline<cr>
-
-
 "Syntastic customization
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '✠'
@@ -158,7 +109,6 @@ let g:syntastic_style_warning_symbol = '≈'
 
 "Rails vim
 "Create command abbreviations that auto corrects ;)
-
 cnoreabbrev rco Rco
 cnoreabbrev rmo Rmo
 cnoreabbrev rview Rview

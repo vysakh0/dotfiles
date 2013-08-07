@@ -4,12 +4,12 @@ filetype off
 " Vundle setup
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 "Hmm, I started to use vunble, when rm rfed my .vim folder once, so I switched
 "to Vundle and made my dotfiles ;)
 Bundle 'gmarik/vundle'
 
-"I am not using this, I switch to tmux instead to see git log using tig or use
-"git flow
+" Wow, Gwrite is super cool, it has changed my git workflow
 Bundle 'tpope/vim-fugitive.git'
 
 "This is one of the best plugin from tpope, especially when used visual mode
@@ -18,7 +18,6 @@ Bundle 'tpope/vim-surround.git'
 
 "Unite.vim does the job but still got comfortable with ctrlp
 "Bundle 'kien/ctrlp.vim.git'
-"That was my old comment, unite vim is just super awesome :)
 
 "Tried setting this up, but some error when uploading, if it worked
 "it would be really nice
@@ -37,11 +36,6 @@ Bundle 'scrooloose/nerdcommenter'
 "NerdTree is pretty much a habit now, to create,edit/destroy is the best thing
 "abt it
 Bundle "scrooloose/nerdtree"
-
-"Probably this has a less use, when i need to algin things up
-"Bundle 'godlygeek/tabular.git'
-
-
 
 " Colorschemes
 Bundle 'altercation/vim-colors-solarized.git'
@@ -162,7 +156,6 @@ Bundle 'gregsexton/gitv'
 "extracting a portion of texts into a buffer
 Bundle 'chrisbra/NrrwRgn'
 
-
 "Golden ratio
 Bundle 'roman/golden-ratio'
 
@@ -175,5 +168,5 @@ Bundle 'ap/vim-css-color'
 "Base16 colors, it has all the needed color scheme :D
 Bundle 'chriskempson/base16-vim'
 
-"Live html css editing"
-Bundle 'jaxbot/brolink.vim'
+"Tmux stuff :D"
+Bundle 'jgdavey/tslime.vim'
