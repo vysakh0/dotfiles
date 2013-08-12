@@ -170,3 +170,8 @@ Bundle 'chriskempson/base16-vim'
 
 "Tmux stuff :D"
 Bundle 'jgdavey/tslime.vim'
+
+Bundle 'tpope/vim-dispatch'
+
+"Signify the git marks"
+Bundle 'mhinz/vim-signify'

@@ -114,3 +114,20 @@ cnoreabbrev rmo Rmo
 cnoreabbrev rview Rview
 cnoreabbrev rv Rview
 cnoreabbrev rx Rextract
+
+"Vim dispatch, change compiler for language specific"
+autocmd FileType ruby let b:dispatch = 'ruby %'
+autocmd FileType python let b:dispatch = 'python %'
+
+nnoremap <leader>d :Dispatch<CR>
+nnoremap <space>d :Dispatch
+
+"Tslime "
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
+
+"Vim signify"
+let g:signify_mapping_next_hunk = '<leader>gj'
+let g:signify_mapping_prev_hunk = '<leader>gk'
+let g:signify_mapping_toggle_highlight = '<leader>gh'

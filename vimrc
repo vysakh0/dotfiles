@@ -105,6 +105,9 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>bv :e ~/dotfiles/bundles.vim<CR>
 
+"Vundle install"
+nmap <silent> <leader>bi :so $MYVIMRC<CR>:BundleInstall <CR>
+
 "to create a new line cmd mode without going to insert
 nmap <leader>k O<esc>k0
 nmap <leader>j o<esc>j0
