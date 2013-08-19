@@ -35,7 +35,6 @@ bindkey -M viins "^r" history-incremental-search-backward
 bindkey -M vicmd "f" history-incremental-search-backward
 
 #git alias
-alias gcm="git commit -m"
 alias gpo="git push origin"
 alias gpl="git pull origin"
 alias gpod="git push origin develop"

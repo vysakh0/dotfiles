@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="vysakh"
+ZSH_THEME="robbyrussell"
 
 #if [[ -n $TMUX ]]; then
 # Let's make sure we're in tmux boots before loading anything. Without this if,
