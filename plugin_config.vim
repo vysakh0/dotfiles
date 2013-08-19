@@ -116,18 +116,41 @@ cnoreabbrev rv Rview
 cnoreabbrev rx Rextract
 
 "Vim dispatch, change compiler for language specific"
-autocmd FileType ruby let b:dispatch = 'ruby %'
+"autocmd FileType ruby let b:dispatch = 'ruby %'
 autocmd FileType python let b:dispatch = 'python %'
+autocmd FileType java let b:dispatch = 'javac %'
+autocmd FileType javascript let b:dispatch = 'node %'
 
 nnoremap <leader>d :Dispatch<CR>
-nnoremap <space>d :Dispatch
+nnoremap <space>d :Dispatch<space>
 
-"Tslime "
-vmap <C-c><C-c> <Plug>SendSelectionToTmux
-nmap <C-c><C-c> <Plug>NormalModeSendToTmux
-nmap <C-c>r <Plug>SetTmuxVars
+""Tslime "
+"vmap <leader>t <Plug>SendSelectionToTmux
+"nmap <leader>t <Plug>NormalModeSendToTmux
+"nmap <leader>r <Plug>SetTmuxVars
 
 "Vim signify"
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
 let g:signify_mapping_toggle_highlight = '<leader>gh'
+
+"emmet zencoding
+ let g:user_emmet_settings = {
+   \  'php' : {
+   \    'extends' : 'html',
+   \    'filters' : 'c',
+   \  },
+   \  'xml' : {
+   \    'extends' : 'html',
+   \  },
+   \  'haml' : {
+   \    'extends' : 'html',
+   \  },
+   \  'eruby' : {
+   \    'extends' : 'html',
+   \  },
+   \}
+  let g:user_emmet_leader_key = '<c>'
+
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1

@@ -35,7 +35,8 @@ set history=1000         " remember more commands and search history
 set title                " change the terminal's title
 set noerrorbells         " don't beep
 
-
+"higlight cursor position
+set cursorline
 " Turn on tab completion for filenames, helptops, options et cetera
 set wildmode=list:longest,full
 set wildmenu
@@ -175,9 +176,6 @@ nnoremap <leader>nc :.,$norm ICouple,<CR>
 nnoremap <leader>ni :.,$norm IIndividual,<CR>
 nnoremap <leader>nf :.,$norm IFamily,<CR>
 
-"map jj to escape to go to normal mode
-inoremap jj <Esc>
-
 "ABBREVIATIONS
 
 iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
@@ -199,3 +197,13 @@ source ~/dotfiles/plugin_config.vim
 let g:bufferline_echo=0
 set statusline=%{bufferline#generate_string()}
 
+"ex mode movement
+vnoremap <leader>m  :m
+vnoremap <leader>t  :t
+
+nnoremap <leader>w :w<cr>
+nnoremap <leader>x :x<cr>
+nnoremap <leader>q :q<cr>
+nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>te :tabedit
