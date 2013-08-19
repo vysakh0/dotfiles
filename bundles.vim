@@ -19,8 +19,8 @@ Bundle 'tpope/vim-surround.git'
 "Unite.vim does the job but still got comfortable with ctrlp
 "Bundle 'kien/ctrlp.vim.git'
 
-"Tried setting this up, but some error when uploading, if it worked
 "it would be really nice
+Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
 
 "For python projects this is very handy, in most of ther projects is, it is
@@ -149,6 +149,7 @@ Bundle 'bling/vim-bufferline'
 
 " autocompleting quotes :D
 Bundle 'Raimondi/delimitMate'
+"
 
 "beautiful git log
 Bundle 'gregsexton/gitv'
@@ -175,3 +176,6 @@ Bundle 'tpope/vim-dispatch'
 
 "Signify the git marks"
 Bundle 'mhinz/vim-signify'
+
+"Zen coding
+Bundle 'mattn/emmet-vim'
