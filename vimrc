@@ -25,18 +25,19 @@ endif
 " Basic
 syntax enable
 
-set number        " always show line numbers
-set hidden        " Allow un-saved buffers in background
-set clipboard=unnamed " Share system clipboard but this is not working for me!
+set number
+set hidden
+set clipboard=unnamed
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
 set scrolloff=3    " setting the page on scrolling the screen
-set history=1000         " remember more commands and search history
-set title                " change the terminal's title
-set noerrorbells         " don't beep
+set history=1000
+set title
+set noerrorbells
 
 "higlight cursor position
 set cursorline
+
 " Turn on tab completion for filenames, helptops, options et cetera
 set wildmode=list:longest,full
 set wildmenu
@@ -52,14 +53,14 @@ set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/*
 set wildignore+=*/.nx/**,*.app
 
 " Wrapping and line breaks"
-set  wrap        " wrap lines ;)
+set  wrap
 set linebreak
 
 " Search related settings
-set showmatch     " set show matching parenthesis
-set ignorecase    " ignore case when searching
-set hlsearch      " highlight search terms
-set incsearch     " show search matches as you type
+set showmatch
+set ignorecase
+set hlsearch
+set incsearch
 nnoremap / /\v
 vnoremap / /\v
 
@@ -77,8 +78,8 @@ if has('conceal')
 endif
 
 " Default Tabs & spaces
-set tabstop=4     " a tab is four spaces
-set shiftwidth=4  " number of spaces to use for autoindenting
+set tabstop=4
+set shiftwidth=4
 set softtabstop=4
 set expandtab
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
@@ -126,13 +127,6 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
-
-" arrow keys are unacceptable
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
 "To paste content from system clipboard into Vim, I use this too often.
 nnoremap<leader>p :set paste!<CR>
 
@@ -159,22 +153,6 @@ set pastetoggle=<F6>
 
 "make a word caps, handy when using constants, dont use shift ;)
 nnoremap <C-u> <esc>g~iw
-
-"mappings suited to my current project
-nnoremap <leader>1 :,$norm A,18,49<CR>
-nnoremap <leader>2 :,$norm A,50,54<CR>
-nnoremap <leader>3 :,$norm A,55,64<CR>
-nnoremap <leader>4 :,$norm A,65,69<CR>
-nnoremap <leader>5 :,$norm A,70,74<CR>
-nnoremap <leader>6 :,$norm A,75,79<CR>
-nnoremap <leader>7 :,$norm A,80,84<CR>
-nnoremap <leader>8 :,$norm A,18,40<CR>
-nnoremap <leader>9 :,$norm A,41,45<CR>
-nnoremap <leader>0 :,$norm A,46,55<CR>
-
-nnoremap <leader>nc :.,$norm ICouple,<CR>
-nnoremap <leader>ni :.,$norm IIndividual,<CR>
-nnoremap <leader>nf :.,$norm IFamily,<CR>
 
 "ABBREVIATIONS
 
@@ -206,4 +184,12 @@ nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>tc :tabclose<cr>
-nnoremap <leader>te :tabedit
+nnoremap <leader>te :tabedit<space>
+nnoremap <leader>e :edit<space>
+nnoremap <leader>s :%s/
+
+" Make arrowkey do something usefull, resize the viewports accordingly
+nnoremap <Left> :vertical resize +5<CR>
+nnoremap <Right> :vertical resize -5<CR>
+nnoremap <Up> :resize +5<CR>
+nnoremap <Down> :resize -5<CR>

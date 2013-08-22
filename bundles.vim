@@ -147,9 +147,8 @@ Bundle 'godlygeek/tabular'
 "Now  going to use more of buffer, this shows in statusline
 Bundle 'bling/vim-bufferline'
 
-" autocompleting quotes :D
+" autocompleting quotes, etc :D
 Bundle 'Raimondi/delimitMate'
-"
 
 "beautiful git log
 Bundle 'gregsexton/gitv'
@@ -157,13 +156,12 @@ Bundle 'gregsexton/gitv'
 "extracting a portion of texts into a buffer
 Bundle 'chrisbra/NrrwRgn'
 
-"Golden ratio
+"reszing the panes automagically ;)
 Bundle 'roman/golden-ratio'
 
 "Coffescript plugin
 Bundle 'kchmck/vim-coffee-script'
 
-"Css coloring
 Bundle 'ap/vim-css-color'
 
 "Base16 colors, it has all the needed color scheme :D

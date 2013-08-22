@@ -150,7 +150,6 @@ let g:signify_mapping_toggle_highlight = '<leader>gh'
    \    'extends' : 'html',
    \  },
    \}
-  let g:user_emmet_leader_key = '<c>'
 
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
