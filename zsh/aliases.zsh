@@ -52,6 +52,10 @@ alias be="bundle exec"
 alias bi="bundle check || bundle install"
 alias binstubs="bundle --binstubs=./bin/stubs"
 
+#rails
+alias rgc="rails g controller"
+alias rgsc="rails g scaffold_controller"
+
 # ctags
 alias tagit='ctags -R -f ./.git/tags .'
 

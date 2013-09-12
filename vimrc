@@ -8,6 +8,7 @@ filetype plugin indent on " required!
 let mapleader=","
 
 
+
 " SETTINGS/CONFIGURATIONS
 set nocompatible
 
@@ -98,14 +99,15 @@ set foldlevel=99
 
 " CUSTOM MAPPINGS
 
-"Recover from accidental undo
+"Recover FROM accidental undo
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-nmap <silent> <leader>bv :e ~/dotfiles/bundles.vim<CR>
+nmap <silent> <leader>eb :e ~/dotfiles/bundles.vim<CR>
+nmap <silent> <leader>ep :e ~/dotfiles/plugin_config.vim<CR>
 
 "Vundle install"
 nmap <silent> <leader>bi :so $MYVIMRC<CR>:BundleInstall <CR>
@@ -151,12 +153,10 @@ nnoremap <leader>vb :vert ba<CR>
 "Let me toggle the set paste thing, which i more often, I am a script kiddy ;)
 set pastetoggle=<F6>
 
-"make a word caps, handy when using constants, dont use shift ;)
-nnoremap <C-u> <esc>g~iw
-
 "ABBREVIATIONS
 
 iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
+
 
 "These abbreviations is my savior :D
 cnoreabbrev Wq w
@@ -193,3 +193,8 @@ nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
+
+"save session using startify when closing all tabs"
+:"nnoremap <leader>qa :SSave<CR><CR>y<CR><esc>:qa<CR>
+
+"cnoreabbrev qa :SSave<CR><CR>y<CR><esc>:qa<CR>

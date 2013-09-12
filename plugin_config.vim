@@ -1,10 +1,6 @@
 " PLUGIN CONFIGURATIONS
 """""""""""""""""""""""
 
-"Tagbar config
-noremap <F2> :Tagbar<CR>
-nnoremap <leader>tb :Tagbar<CR>
-
 "NERDTree toggle
 noremap <F3> :NERDTreeToggle<CR>
 
@@ -16,15 +12,6 @@ nnoremap <F8> :UndotreeToggle<cr>
 
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
-
-" This is not working in most case or has use, so lemme something else
-nmap <buffer> <F7> <Plug>(xmpfilter-run)
-xmap <buffer> <F7> <Plug>(xmpfilter-run)
-imap <buffer> <F7> <Plug>(xmpfilter-run)
-
-nmap <buffer> <F6> <Plug>(xmpfilter-mark)
-xmap <buffer> <F6> <Plug>(xmpfilter-mark)
-imap <buffer> <F6> <Plug>(xmpfilter-mark)
 
 " Necomplete + Neo snippets key-mappings.
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
@@ -64,6 +51,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 "For gitv plugin
 nnoremap <silent> <leader>gv :Gitv<CR>
+"this setting would show the history of a file, really nice to see how your
+"file transforms"
 nnoremap <silent> <leader>gV :Gitv!<CR>
 
 "Tabular pluugin
@@ -86,6 +75,7 @@ nnoremap [unite] <nop>
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <silent> [unite]t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:! file_mru<cr>
+nnoremap <silent> [unite]v :<C-u>Unite -start-insert -no-split -buffer-name=file_vcs file/vcs<CR>
 nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <silent> [unite]o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
@@ -99,6 +89,7 @@ nnoremap <silent> [unite]fv :Unite file_rec/async -default-action=vsplit<cr>
 nnoremap <silent> [unite]fp :Unite file_rec/async -default-action=preview<cr>
 nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
 nnoremap <silent> [unite]fc :Unite file_rec/async<cr>
+let g:unite_source_rec_async_command = 'ack -f --nofilter'
 
 "Syntastic customization
 let g:syntastic_error_symbol = '✗'
@@ -153,3 +144,8 @@ let g:signify_mapping_toggle_highlight = '<leader>gh'
 
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
+
+"Startify related settings"
+let g:startify_bookmarks = [ '~/.vimrc', '~/dotfiles/plugin_config.vim' ]
+let g:startify_session_autoload = 0
+let g:startify_change_to_dir = 0

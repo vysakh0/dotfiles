@@ -20,7 +20,9 @@ source $BASE/aliases.zsh
 unsetopt correct_all
 
 export EDITOR='vim'
+export VISUAL=vim
 #open tmux with utf-8 support instead of relying on local, got from dhruvsagar post
 alias tmux="tmux -u"
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 source ~/dotfiles/zsh/syntax-highlight/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+xhost local:vysakh > /dev/null

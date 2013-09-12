@@ -11,6 +11,8 @@ autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
 " Ruby Configurations
 """""""""""""""""""""
 autocmd filetype ruby setlocal shiftwidth=2 tabstop=2
+autocmd filetype ruby iabbr rmi require 'minitest/autorun'
+autocmd filetype ruby iabbr rmp require 'minitest/pride'
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif

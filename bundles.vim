@@ -25,7 +25,7 @@ Bundle 'vim-scripts/Gist.vim'
 
 "For python projects this is very handy, in most of ther projects is, it is
 "not, but let it be there
-Bundle 'majutsushi/tagbar'
+"Bundle 'majutsushi/tagbar'
 
 "I use this once in a file, really handy
 Bundle 'mileszs/ack.vim'
@@ -72,7 +72,7 @@ Bundle 'honza/vim-snippets'
 "Bundle "Valloric/YouCompleteMe"
 
 "Nice recent plugin to have
-Bundle "myusuf3/numbers.vim"
+"Bundle "myusuf3/numbers.vim"
 
 
 "Tile management- hmm, using it a lot
@@ -107,7 +107,6 @@ Bundle "bling/vim-airline"
 
 "Really handy when to do delele set of lines, otherwise easymotion does the
 "job
-Bundle "myusuf3/numbers.vim"
 "Bundle "sjbach/lusty"
 
 "Need easy motion desperately :D
@@ -177,3 +176,5 @@ Bundle 'mhinz/vim-signify'
 
 "Zen coding
 Bundle 'mattn/emmet-vim'
+
+Bundle 'm2mdas/unite-file-vcs'
