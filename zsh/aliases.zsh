@@ -57,7 +57,7 @@ alias rgc="rails g controller"
 alias rgsc="rails g scaffold_controller"
 
 # ctags
-alias tagit='ctags -R -f ./.git/tags .'
+alias tagit='ctags -R --exclude=.git --exclude=log *'
 
 function b {
   if [[ $# == 0 ]]

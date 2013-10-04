@@ -36,19 +36,19 @@ au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 expandtab
 
 " Javascript configurations
 """""""""""""""""""""""""""
-au BufNewFile,BufReadPost *.js setlocal shiftwidth=2 expandtab
+au BufNewFile,BufReadPost *.js setl sw=2 sts=2 et
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-" Make sure we hilight extra whitespace in the most annoying way possible.
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+"" Make sure we hilight extra whitespace in the most annoying way possible.
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"match ExtraWhitespace /\s\+$/
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 "Erb for snippets
 au BufNewFile,BufRead *.erb set filetype=eruby.html

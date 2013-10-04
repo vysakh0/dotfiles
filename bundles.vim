@@ -72,7 +72,7 @@ Bundle 'honza/vim-snippets'
 "Bundle "Valloric/YouCompleteMe"
 
 "Nice recent plugin to have
-"Bundle "myusuf3/numbers.vim"
+Bundle "myusuf3/numbers.vim"
 
 
 "Tile management- hmm, using it a lot
@@ -103,7 +103,7 @@ Bundle "dhruvasagar/vim-table-mode"
 Bundle "mbbill/undotree"
 
 "This is better than powerline plugin :)
-Bundle "bling/vim-airline"
+"Bundle "bling/vim-airline"
 
 "Really handy when to do delele set of lines, otherwise easymotion does the
 "job
@@ -156,7 +156,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'chrisbra/NrrwRgn'
 
 "reszing the panes automagically ;)
-Bundle 'roman/golden-ratio'
+"Bundle 'roman/golden-ratio'
 
 "Coffescript plugin
 Bundle 'kchmck/vim-coffee-script'
@@ -178,3 +178,15 @@ Bundle 'mhinz/vim-signify'
 Bundle 'mattn/emmet-vim'
 
 Bundle 'm2mdas/unite-file-vcs'
+
+Bundle 'Shougo/vimfiler.vim'
+
+Bundle 'pangloss/vim-javascript'
+
+Bundle 'itchyny/lightline.vim'
+
+Bundle 'mattboehm/vim-unstack'
+
+Bundle 'tpope/vim-repeat'
+
+Bundle 'matze/vim-move'

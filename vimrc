@@ -7,7 +7,9 @@ filetype plugin indent on " required!
 "Change leader key, comma is easier than \
 let mapleader=","
 
-
+if !has('gui_running')
+    set t_Co=256
+endif
 
 " SETTINGS/CONFIGURATIONS
 set nocompatible
@@ -78,6 +80,8 @@ if has('conceal')
     set listchars+=conceal:Δ
 endif
 
+"set status line for status plugin to show in single file editing"
+set laststatus=2
 " Default Tabs & spaces
 set tabstop=4
 set shiftwidth=4
@@ -158,13 +162,17 @@ set pastetoggle=<F6>
 iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
 
 
+
 "These abbreviations is my savior :D
+
+iabbr rma require 'minitest/autorun'
 cnoreabbrev Wq w
 cnoreabbrev W w
 cnoreabbrev WQ wq
 " I should remember this :D if were to use encyption
 cnoreabbrev X x
 cnoreabbrev Q q
+
 
 "FILE RELATED SETTINGS
 source ~/dotfiles/auto_cmd.vim
@@ -182,6 +190,7 @@ vnoremap <leader>t  :t
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>qa :q<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>te :tabedit<space>
@@ -198,3 +207,14 @@ nnoremap <Down> :resize -5<CR>
 :"nnoremap <leader>qa :SSave<CR><CR>y<CR><esc>:qa<CR>
 
 "cnoreabbrev qa :SSave<CR><CR>y<CR><esc>:qa<CR>
+
+"nnoremap <C-j> :m .+1<CR>==
+"nnoremap <C-k> :m .-2<CR>==
+
+""Insert mode
+"inoremap <C-k> <ESC>:m .-2<CR>==gi
+"inoremap <C-j> <ESC>:m .+1<CR>==gi
+
+"" Visual mode
+"vnoremap <C-j> :m '>+1<CR>gv=gv
+"vnoremap <C-k> :m '<-2<CR>gv=gv"
