@@ -1,5 +1,5 @@
 "vim: nowrap fdm=marker
-source ~/dotfiles/bundles.vim
+silent so ~/dotfiles/vim/bundles.vim
 "runtime ftplugin/man.vim
 
 filetype plugin indent on " required!
@@ -110,8 +110,8 @@ inoremap <c-w> <c-g>u<c-w>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-nmap <silent> <leader>eb :e ~/dotfiles/bundles.vim<CR>
-nmap <silent> <leader>ep :e ~/dotfiles/plugin_config.vim<CR>
+nmap <silent> <leader>eb :e ~/dotfiles/vim/bundles.vim<CR>
+nmap <silent> <leader>ep :e ~/dotfiles/vim/plugin_config.vim<CR>
 
 "Vundle install"
 nmap <silent> <leader>bi :so $MYVIMRC<CR>:BundleInstall <CR>
@@ -175,13 +175,10 @@ cnoreabbrev Q q
 
 
 "FILE RELATED SETTINGS
-source ~/dotfiles/auto_cmd.vim
+source ~/dotfiles/vim/auto_cmd.vim
 
 "PLUGINS CONFIGURATION
-source ~/dotfiles/plugin_config.vim
-"buffer statusline
-let g:bufferline_echo=0
-set statusline=%{bufferline#generate_string()}
+source ~/dotfiles/vim/plugin_config.vim
 
 "ex mode movement
 vnoremap <leader>m  :m
@@ -203,9 +200,14 @@ nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
 
-"save session using startify when closing all tabs"
-:"nnoremap <leader>qa :SSave<CR><CR>y<CR><esc>:qa<CR>
+nnoremap <leader>rf :e Gemfile<CR>
+nnoremap <leader>rr :e config/routes.rb<CR>
+nnoremap <leader>rv :Rview<space>
+nnoremap <leader>rc :Rcontroller<space>
+nnoremap <leader>rg :Rgenerate<space>
+nnoremap <leader>rm :Rmodel<space>
 
+"save session using startify when closing all tabs"
 "cnoreabbrev qa :SSave<CR><CR>y<CR><esc>:qa<CR>
 
 "nnoremap <C-j> :m .+1<CR>==

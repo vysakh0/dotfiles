@@ -55,6 +55,11 @@ alias binstubs="bundle --binstubs=./bin/stubs"
 #rails
 alias rgc="rails g controller"
 alias rgsc="rails g scaffold_controller"
+alias cy="cap deploy"
+
+#node stuf
+alias ni="npm install"
+alias boi="bower install"
 
 # ctags
 alias tagit='ctags -R --exclude=.git --exclude=log *'

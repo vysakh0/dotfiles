@@ -69,7 +69,7 @@ vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
-" Unite
+" U1nite
 nmap <space> [unite]
 nnoremap [unite] <nop>
 let g:unite_source_history_yank_enable = 1
@@ -78,8 +78,9 @@ nnoremap <silent> [unite]t :<C-u>Unite -no-split -buffer-name=files   -start-ins
 nnoremap <silent> [unite]vv :<C-u>Unite -start-insert -no-split -buffer-name=file_vcs file/vcs<CR>
 nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
 nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <silent> [unite]o :<C-u>Unite -no-split -buffer-name=outline  -auto-preview outline<cr>
-nnoremap <silent> [unite]y :<C-u>Unite -split -buffer-name=yank    history/yank<cr>
+nnoremap <silent> [unite]op :<C-u>Unite -no-split -buffer-name=outline  -auto-preview outline<cr>
+nnoremap <silent> [unite]oo :<C-u>Unite -no-split -quick-match -buffer-name=outline  outline<cr>
+nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yank    history/yank<cr>
 nnoremap <silent> [unite]e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
 nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
@@ -114,7 +115,7 @@ autocmd FileType java let b:dispatch = 'javac %'
 autocmd FileType javascript let b:dispatch = 'node %'
 
 nnoremap <leader>d :Dispatch<CR>
-nnoremap <space>d :Dispatch<space>
+nnoremap <space>d :Dispatch rspec %<CR>
 
 ""Tslime "
 "vmap <leader>t <Plug>SendSelectionToTmux
@@ -216,3 +217,5 @@ let g:startify_custom_header = [
             \"                             ;'';;;;:,:,:::::        ",
             \"                             '';;;;',:,:::+         ",
             \]"]
+
+nnoremap <leader>np :Nyancat<CR>
