@@ -28,7 +28,6 @@ Bundle 'Shougo/vimfiler.vim'
 "Scoorloose"
 
 Bundle 'scrooloose/nerdcommenter'
-Bundle "scrooloose/nerdtree"
 Bundle "scrooloose/syntastic"
 
 Bundle 'gmarik/vundle'
@@ -40,6 +39,8 @@ Bundle "myusuf3/numbers.vim"
 Bundle 'mattn/webapi-vim'
 Bundle 'vim-scripts/Gist.vim'
 Bundle 'nelstrom/vim-markdown-folding.git'
+
+Bundle 'elzr/vim-json'
 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Keithbsmiley/rspec.vim'

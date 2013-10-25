@@ -1,9 +1,5 @@
 " PLUGIN CONFIGURATIONS
 """""""""""""""""""""""
-
-"NERDTree toggle
-noremap <F3> :NERDTreeToggle<CR>
-
 "Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
 
@@ -117,11 +113,6 @@ autocmd FileType javascript let b:dispatch = 'node %'
 nnoremap <leader>d :Dispatch<CR>
 nnoremap <space>d :Dispatch rspec %<CR>
 
-""Tslime "
-"vmap <leader>t <Plug>SendSelectionToTmux
-"nmap <leader>t <Plug>NormalModeSendToTmux
-"nmap <leader>r <Plug>SetTmuxVars
-
 "Vim signify"
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
@@ -148,15 +139,16 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
 "Startify related settings"
-let g:startify_bookmarks = [ '~/.vimrc', '~/dotfiles/plugin_config.vim' ]
+let g:startify_bookmarks = [ '~/.vimrc', '~/dotfiles/vim/plugin_config.vim' ]
 let g:startify_session_autoload = 0
 let g:startify_change_to_dir = 0
 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_clipboard = 0
 let g:vimfiler_safe_mode_by_default = 0
-nnoremap <silent>   <leader>vf   :<C-u>VimFiler -find<CR>
-nnoremap<silent> <leader>v   :<C-u>VimFilerExplorer<CR>
+nnoremap <silent>   <leader>f   :VimFiler<CR>
+nnoremap <silent>   <leader>vt   :VimFilerTab<CR>
+nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
 
 let g:lightline = {
       \ 'colorscheme': 'solarized',
@@ -176,8 +168,6 @@ let g:lightline = {
       \ }
       \ }
 
-"vim move plugin"
-let g:move_key_modifier = 'C'
 
 let g:startify_custom_header = [
             \"                                          .'+,       ",

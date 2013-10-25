@@ -187,7 +187,7 @@ vnoremap <leader>t  :t
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
-nnoremap <leader>qa :q<cr>
+nnoremap <space>q :qa<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>te :tabedit<space>
