@@ -135,6 +135,8 @@ let g:user_emmet_settings = {
             \  },
             \}
 
+"Vimshell
+nnoremap <space><space>s :VimShell<CR>
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
@@ -150,7 +152,6 @@ nnoremap <leader>np :Nyancat<CR>
 
 "Startify related settings"
 nnoremap <leader><leader>s :Startify<CR>
-nnoremap <space><space>s :SSave<CR>
 let g:startify_files_number        = 8
 let g:startify_session_persistence = 1
 let g:startify_session_autoload    = 1

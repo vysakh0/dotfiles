@@ -3,7 +3,7 @@ THE DOTFILES
 
 #### Vim
 
-Vim is my favorite text editor. This repo has the custom mappings, plugins etc I use, still making it more productive. This a [post i wrote about Vim](http://vysakh0.github.io/learning-vim-steering-hacking/)
+Vim is my favorite text editor. This repo has the custom mappings, plugins etc I use, still making it more productive. [This a post i wrote about Vim](http://vysakh0.github.io/learning-vim-steering-hacking/)
 
 ##### Directory structure
 
@@ -14,7 +14,7 @@ Vim is my favorite text editor. This repo has the custom mappings, plugins etc I
 
 #### Zsh
 
-I have used very less of my own customization(except for zsh/aliases.zsh) and used oh-my-zsh, its plugin. This is a small post I wrote about [zsh](vysakh0.github.io/flying-start-with-zsh-shell/)
+I have used very less of my own customization(except for zsh/aliases.zsh) and used oh-my-zsh, its plugin.  [This is a small post I wrote about zsh](vysakh0.github.io/flying-start-with-zsh-shell/)
 
 ##### Files and dirs
 
@@ -98,8 +98,8 @@ sudo apt-get install cowsay
 
 # vim
 ln -s dotfiles/vim/vimrc ~/.vimrc
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleInstall
+git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+vim +NeoBundleInstall
 
 #zsh
 ln -s dotfiles/zsh/zshrc ~/.zshrc

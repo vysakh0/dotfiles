@@ -1,82 +1,80 @@
-set nocompatible
-filetype off
-
-" Vundle setup
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
+if has('vim_starting')
+    set nocompatible               " Be iMproved
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
 "Tpope's awesomeness
 
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-endwise.git'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-rake.git'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-markdown.git'
+NeoBundle 'tpope/vim-fugitive.git'
+NeoBundle 'tpope/vim-surround.git'
+NeoBundle 'tpope/vim-endwise.git'
+NeoBundle 'tpope/vim-rails.git'
+NeoBundle 'tpope/vim-rake.git'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-markdown.git'
 
 "Shougo's awesomeness
 
-Bundle "Shougo/unite.vim"
-Bundle "Shougo/unite-outline"
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/vimfiler.vim'
-
+NeoBundle "Shougo/unite.vim"
+NeoBundle "Shougo/unite-outline"
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
 "Scoorloose"
 
-Bundle 'scrooloose/nerdcommenter'
-Bundle "scrooloose/syntastic"
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle "scrooloose/syntastic"
+NeoBundle "scrooloose/nerdtree"
 
-Bundle 'gmarik/vundle'
+NeoBundle "Lokaltog/vim-easymotion"
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle "myusuf3/numbers.vim"
 
-Bundle "Lokaltog/vim-easymotion"
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle "myusuf3/numbers.vim"
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'vim-scripts/Gist.vim'
+NeoBundle 'nelstrom/vim-markdown-folding.git'
 
-Bundle 'mattn/webapi-vim'
-Bundle 'vim-scripts/Gist.vim'
-Bundle 'nelstrom/vim-markdown-folding.git'
+NeoBundle 'elzr/vim-json'
 
-Bundle 'elzr/vim-json'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'Keithbsmiley/rspec.vim'
 
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'Keithbsmiley/rspec.vim'
+NeoBundle "mhinz/vim-startify"
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'altercation/vim-colors-solarized.git'
+NeoBundle 'honza/vim-snippets'
+NeoBundle "spolu/dwm.vim"
 
-Bundle "mhinz/vim-startify"
-Bundle 'mileszs/ack.vim'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'honza/vim-snippets'
-Bundle "spolu/dwm.vim"
+NeoBundle "terryma/vim-multiple-cursors"
+NeoBundle "jcf/vim-latex"
+NeoBundle "mbbill/undotree"
 
-Bundle "terryma/vim-multiple-cursors"
-Bundle "jcf/vim-latex"
-Bundle "mbbill/undotree"
+NeoBundle "tomtom/tlib_vim"
+NeoBundle "dhruvasagar/vim-table-mode"
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'Yggdroot/indentLine'
 
-Bundle "tomtom/tlib_vim"
-Bundle "dhruvasagar/vim-table-mode"
-Bundle 'godlygeek/tabular'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Yggdroot/indentLine'
+NeoBundle "kshenoy/vim-signature"
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'm2mdas/unite-file-vcs'
+NeoBundle 'mhinz/vim-signify'
 
-Bundle "kshenoy/vim-signature"
-Bundle 'gregsexton/gitv'
-Bundle 'm2mdas/unite-file-vcs'
-Bundle 'mhinz/vim-signify'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'ap/vim-css-color'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mattn/emmet-vim'
 
-Bundle 'othree/html5.vim'
-Bundle 'ap/vim-css-color'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mattn/emmet-vim'
+NeoBundle 'itchyny/lightline.vim'
 
-Bundle 'itchyny/lightline.vim'
+NeoBundle 'koron/nyancat-vim'
 
-Bundle 'koron/nyancat-vim'
-
-Bundle 'dsawardekar/ember.vim'
-Bundle 'dsawardekar/portkey'
-Bundle 'nono/vim-handlebars'
-"Bundle 'matze/vim-move'
+NeoBundle 'dsawardekar/ember.vim'
+NeoBundle 'dsawardekar/portkey'
+NeoBundle 'nono/vim-handlebars'
+"NeoBundle 'matze/vim-move'
