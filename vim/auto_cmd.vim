@@ -11,6 +11,7 @@ autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
 " Ruby Configurations
 """""""""""""""""""""
 autocmd filetype ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal colorcolumn=80
 autocmd filetype ruby iabbr rmi require 'minitest/autorun'
 autocmd filetype ruby iabbr rmp require 'minitest/pride'
 if !exists('g:neocomplete#force_omni_input_patterns')
@@ -37,6 +38,7 @@ au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 expandtab
 " Javascript configurations
 """""""""""""""""""""""""""
 au BufNewFile,BufReadPost *.js setl sw=2 sts=2 et
+autocmd FileType javascript setlocal colorcolumn=80
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

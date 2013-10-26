@@ -1,17 +1,49 @@
 #ember handle bar related snippets, to load this see auto_config.vim
 snippet     lit
-abbr        #linkTo
+abbr        #link-to
 options     head
-    {{#linkTo '${1}'}} ${2} {{/linkTo}}
+    {{#link-to '${1}'}} ${2} {{/link-to}}
 
-snippet     each
+snippet     e
 abbr        #each
 options     head
     {{#each ${1}}}
         ${2}
     {{/each}}
 
+snippet     ein
+abbr        #each in
+options     head
+    {{#each ${1} in ${2}}}
+        ${3}
+    {{/each}}
+
 snippet     out
 abbr        outlet
 options     head
     {{outlet}}
+
+snippet     #if
+abbr        ifblock
+options     head
+    {{#if ${1}}}
+        ${2}
+    {{/if}}
+
+snippet     #ife
+abbr        ifblock
+options     head
+    {{#if ${1}}}
+        ${2}
+    {{else}}
+        ${3}
+    {{/if}}
+
+
+snippet     #unless
+abbr        unlessblock
+options     head
+    {{#unless ${1}}}
+        ${2}
+    {{/unless}}
+
