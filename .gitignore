@@ -1,5 +1,6 @@
 *.swp
 *~
 vim/bundle/
+vim/session/
 vim/undodir/
 vim/.cache/
