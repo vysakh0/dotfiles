@@ -97,11 +97,12 @@ let g:syntastic_style_warning_symbol = '≈'
 
 "Rails vim
 "Create command abbreviations that auto corrects ;)
-cnoreabbrev rco Rco
-cnoreabbrev rmo Rmo
-cnoreabbrev rview Rview
-cnoreabbrev rv Rview
-cnoreabbrev rx Rextract
+nnoremap <leader>rf :e Gemfile<CR>
+nnoremap <leader>rr :e config/routes.rb<CR>
+nnoremap <leader>rv :Rview<space>
+nnoremap <leader>rc :Rcontroller<space>
+nnoremap <leader>rg :Rgenerate<space>
+nnoremap <leader>rm :Rmodel<space>
 
 "Vim dispatch, change compiler for language specific"
 "autocmd FileType ruby let b:dispatch = 'ruby %'

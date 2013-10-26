@@ -45,6 +45,10 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
+" change filetypes
+au BufNewFile,BufRead *.erb set filetype=eruby.html
+au BufNewFile,BufRead *.hbs set filetype=handlebars.html
+
 "" Make sure we hilight extra whitespace in the most annoying way possible.
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "match ExtraWhitespace /\s\+$/
@@ -52,7 +56,3 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 "autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
-"Erb for snippets
-au BufNewFile,BufRead *.erb set filetype=eruby.html
-
-au BufNewFile,BufRead *.hbs set filetype=handlebars.html

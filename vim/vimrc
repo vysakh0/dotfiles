@@ -148,20 +148,9 @@ cmap w!! w !sudo tee % >/dev/null
 "map Y behave something similar to D, C, yank till the end from current
 nnoremap Y y$
 
-"Map tab all, split panes into tabs
-nnoremap <leader>tb :tab ball<CR>
-
-"Make buffer into vertical panes
-nnoremap <leader>vb :vert ba<CR>
-
-"Let me toggle the set paste thing, which i more often, I am a script kiddy ;)
-set pastetoggle=<F6>
-
 "ABBREVIATIONS
 
 iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibulum bibendum hendrerit ante.<CR>Phasellus vitae enim id erat fringilla fermentum.<CR>Pellentesque tellus. Cras eros magna, pretium ac, tincidunt id, tincidunt eget, mi.<CR>Fusce tristique sollicitudin eros. Nam augue nisi, volutpat non, cursus a, aliquam ac, magna.<CR>Sed rhoncus, ipsum vitae semper ultrices, ante nunc faucibus nunc, sed iaculis elit metus condimentum turpis.<CR>Suspendisse suscipit. Nulla eget nulla. Aliquam varius sem quis tortor. Proin eu dolor a lacus lobortis luctus.<CR>Phasellus interdum. Maecenas quis sem. Nulla facilisi.
-
-
 
 "These abbreviations is my savior :D
 
@@ -180,9 +169,9 @@ source ~/dotfiles/vim/auto_cmd.vim
 "PLUGINS CONFIGURATION
 source ~/dotfiles/vim/plugin_config.vim
 
-"ex mode movement
-vnoremap <leader>m  :m
+"ex mode mappings, save shift key(2 keys :o)
 vnoremap <leader>t  :t
+vnoremap <leader>m  :m
 
 nnoremap <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
@@ -199,24 +188,3 @@ nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
-
-nnoremap <leader>rf :e Gemfile<CR>
-nnoremap <leader>rr :e config/routes.rb<CR>
-nnoremap <leader>rv :Rview<space>
-nnoremap <leader>rc :Rcontroller<space>
-nnoremap <leader>rg :Rgenerate<space>
-nnoremap <leader>rm :Rmodel<space>
-
-"save session using startify when closing all tabs"
-"cnoreabbrev qa :SSave<CR><CR>y<CR><esc>:qa<CR>
-
-"nnoremap <C-j> :m .+1<CR>==
-"nnoremap <C-k> :m .-2<CR>==
-
-""Insert mode
-"inoremap <C-k> <ESC>:m .-2<CR>==gi
-"inoremap <C-j> <ESC>:m .+1<CR>==gi
-
-"" Visual mode
-"vnoremap <C-j> :m '>+1<CR>gv=gv
-"vnoremap <C-k> :m '<-2<CR>gv=gv"
