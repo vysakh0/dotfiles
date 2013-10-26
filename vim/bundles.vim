@@ -77,4 +77,6 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'koron/nyancat-vim'
 
 Bundle 'dsawardekar/ember.vim'
+Bundle 'dsawardekar/portkey'
+Bundle 'nono/vim-handlebars'
 "Bundle 'matze/vim-move'

@@ -55,4 +55,4 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "Erb for snippets
 au BufNewFile,BufRead *.erb set filetype=eruby.html
 
-au BufNewFile,BufRead *.hbs set filetype=hbs.html
+au BufNewFile,BufRead *.hbs set filetype=handlebars.html
