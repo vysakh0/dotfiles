@@ -1,4 +1,4 @@
-MY DOTFILES
+THE DOTFILES
 ===========
 
 #### Vim
@@ -27,7 +27,7 @@ You should have Vim  and zsh already installed. You need lua, ruby, python suppo
 
 ##### Vim installation
 
-*Install lua*
+**Install lua**
 ```bash
 curl -R -O http://www.lua.org/ftp/lua-5.2.2.tar.gz
 tar zxf lua-5.2.2.tar.gz
@@ -37,7 +37,7 @@ sudo cp src/lua /usr/local/bin/lua
 sudo cp -r src /usr/local/include/
 ```
 
-*Install Ruby using rbenv*
+**Install Ruby using rbenv**
 
 ```bash
 # installing rbenv
@@ -50,7 +50,7 @@ source ~/.profile
 sudo apt-get install libreadline-dev libssl-dev zlib1g-dev build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev
 
 # installing ruby using rbenv
-CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 2.0.0-p0  #if the above dependencies are installed
+CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 2.0.0-p247  #if the above dependencies are installed
 
 or
 
@@ -61,7 +61,7 @@ rbenv global 2.0.0-p247
 
 Python should be available in most distros.
 
-*Install latest Vim*
+**Install latest Vim**
 
 ```bash
 wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
@@ -75,7 +75,7 @@ cd vim74
     --with-lua-prefix=/usr/local --enable-luainterp \
     --enable-gui=gtk2 --enable-cscope --prefix=/usr
 
-make VIMRUNTIMEDIR=/usr/share/vim/vim74a
+make VIMRUNTIMEDIR=/usr/share/vim/vim74
 sudo make install
 ```
 
@@ -85,15 +85,19 @@ sudo make install
 sudo apt-get update && sudo apt-get install zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 chsh -s /bin/zsh
-logout or Reboot
 ```
+logout or Reboot
 
-##### Install the settings from the repo
+### Install the settings from the repo
 
 ```bash
 git clone git:github.com/vysakh0/dotfiles.git
+
+# vim
 ln -s dotfiles/vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall
+
+#zsh
 ln -s dotfiles/zsh/zshrc ~/.zshrc
 ```
