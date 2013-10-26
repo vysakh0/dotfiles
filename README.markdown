@@ -91,7 +91,9 @@ logout or Reboot
 ### Install the settings from the repo
 
 ```bash
-git clone git:github.com/vysakh0/dotfiles.git
+git clone git@github.com:vysakh0/dotfiles.git
+#make sure you have cowsay installed ;)
+sudo apt-get install cowsay
 
 # vim
 ln -s dotfiles/vim/vimrc ~/.vimrc

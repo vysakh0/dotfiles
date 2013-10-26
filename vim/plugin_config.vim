@@ -138,10 +138,6 @@ let g:user_emmet_settings = {
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-"Startify related settings"
-let g:startify_bookmarks = [ '~/.vimrc', '~/dotfiles/vim/plugin_config.vim' ]
-let g:startify_session_autoload = 0
-let g:startify_change_to_dir = 0
 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_clipboard = 0
@@ -151,61 +147,66 @@ nnoremap <silent>   <leader>vt   :VimFilerTab<CR>
 nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
 
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'readonly': '(&filetype!="help"&& &readonly)',
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ }
-      \ }
+            \ 'colorscheme': 'solarized',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component': {
+            \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+            \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+            \ },
+            \ 'component_visible_condition': {
+            \   'readonly': '(&filetype!="help"&& &readonly)',
+            \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+            \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+            \ }
+            \ }
 
-
-let g:startify_custom_header = [
-            \"                                          .'+,       ",
-            \"                                         @#####,     ",
-            \"                                        #######@     ",
-            \"          VIM - Vi IMproved            .'++'+###     ",
-            \"                                       ;'+'++##,    ",
-            \"    Help poor children in Uganda!      +++#'++##,    ",
-            \"                                       '+;;#'+#++    ",
-            \"                                       +#'#+++#++    ",
-            \"                                       ++++;+###.    ",
-            \"                                       '#'+++##'     ",
-            \"                                       ;:;++++#'     ",
-            \"                                        ++++##+,     ",
-            \"                    . .,:,:,`           #+##:.,,     ",
-            \"          ``..,`.'#;@++++++++#+`       ;,#;.,::,:    ",
-            \"    +'++:;'':;;+;,:+';VIM;;'++;      ,::,::,::,.    ",
-            \"                  `+#+''';;'+##     .::,:,:,,,,,,   ",
-            \"                   #'+#++':::+++     ,,,:,,,,,,:,;   ",
-            \"                   '++#@+#+'++##   :,,:,:,,,,,,,,   ",
-            \"                    ;#++:   #+++##  :,,:::,,,,,,,,   ",
-            \"                    +'++#    `#;++#;::::,,,,,,,,,,   ",
-            \"                    #++'#   :+#+'+@;::,,,,,,,,,,,   ",
-            \"                    #++''+  .#++'+;::,,,,,,,,,,,,   ",
-            \"                    ;@#++'+  @#++@:::,,,,,,,,,,,:   ",
-            \"                       ##++'++;'##,:,,,,,,,,,,:,,'   ",
-            \"                         #++'++##'::,,,,,,,,,,,,,:   ",
-            \"                          ,#+'++':::,,,,,,,,,,:,.    ",
-            \"                            @#'++#;:,,,,,,,,,,,,;    ",
-            \"                             @+'+++::,,,,,,,,,:     ",
-            \"                              #++'+#,,,,,,,:,:;     ",
-            \"                              :'+++++#:,,,,,,,,      ",
-            \"                              ::,##+++#.,,,::,,      ",
-            \"                              ,::,##++'#:,,,,,`      ",
-            \"                              '';;:,+#'':::,::       ",
-            \"                             `:;;;';:,:::::,:        ",
-            \"                             ;'';;;;:,:,:::::        ",
-            \"                             '';;;;',:,:::+         ",
-            \]"]
 
 nnoremap <leader>np :Nyancat<CR>
+
+"Startify related settings"
+nnoremap <leader><leader>s :Startify<CR>
+nnoremap <space><space>s :SSave<CR>
+let g:startify_files_number        = 8
+let g:startify_session_persistence = 1
+let g:startify_session_autoload    = 1
+let g:startify_enable_special      = 0
+let g:startify_files_number        = 5
+
+
+let g:startify_skiplist = [
+            \ 'COMMIT_EDITMSG',
+            \ $VIMRUNTIME .'/doc',
+            \ 'bundle/.*/doc',
+            \ ]
+
+let g:startify_bookmarks = [
+            \ '~/.vimrc',
+            \ ]
+
+let g:startify_custom_header =
+            \ map(split(system('tips | cowsay -f apt I will show you how great i am'), '\n'), '"   ". v:val') + ['']
+
+hi StartifyBracket ctermfg=240
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyFooter  ctermfg=240
+hi StartifyFile    ctermfg=111
+
+
+"Ember vim mappings
+nnoremap er :Eroute<space>
+nnoremap em :Emodel<space>
+nnoremap ec :Econtroller<space>
+nnoremap et :Etemplate<space>
+nnoremap es :Estylesheet<space>
+nnoremap eg :Egrunt<space>
+nnoremap ear :Eapp router<CR>
+nnoremap eaa :Eapp app<CR>
+

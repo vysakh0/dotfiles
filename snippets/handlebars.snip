@@ -2,7 +2,7 @@
 snippet     lit
 abbr        #link-to
 options     head
-    {{#link-to '${1}'}} ${2} {{/link-to}}
+    {{#link-to '${1}' ${2}}} ${3} {{/link-to}}
 
 snippet     e
 abbr        #each
@@ -47,3 +47,23 @@ options     head
         ${2}
     {{/unless}}
 
+snippet     bind
+abbr        bind-element attributes
+options     head
+    {{bind-attr ${1}=${2}}}
+
+snippet     bindc
+abbr        bind-class names
+options     head
+    {{bind-attr class="${1}"}}
+
+snippet     act
+abbr        action
+options     head
+    {{action "${1}" ${2}}}
+
+
+snippet     #in
+abbr        input
+options     head
+    {{input type="${1}" value=${2}}}

@@ -4,7 +4,7 @@ silent so ~/dotfiles/vim/bundles.vim
 
 filetype plugin indent on " required!
 
-"Change leader key, comma is easier than \
+"Change leader key, ecomma is easier than \
 let mapleader=","
 
 if !has('gui_running')
