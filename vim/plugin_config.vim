@@ -151,6 +151,12 @@ nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
 
 nnoremap <leader>np :Nyancat<CR>
 
+"Matchit ftw
+runtime! macros/matchit.vim
+au Filetype css,javascript
+            \ let b:match_words = &matchpairs
+
+
 "Startify related settings"
 nnoremap <leader><leader>s :Startify<CR>
 let g:startify_files_number        = 8
