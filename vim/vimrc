@@ -7,9 +7,7 @@ filetype plugin indent on " required!
 "Change leader key, ecomma is easier than \
 let mapleader=","
 
-if !has('gui_running')
-    set t_Co=256
-endif
+set t_Co=256
 
 " SETTINGS/CONFIGURATIONS
 set nocompatible
@@ -17,13 +15,13 @@ set nocompatible
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
 " vim color theme
-set background=dark
 if !has("gui_running")
     "colorscheme chance-of-storm
-    colorscheme solarized
+    colorscheme molokai
 else
-    colorscheme solarized
+    colorscheme molokai
 endif
+set background=dark
 
 " Basic
 syntax enable
@@ -114,7 +112,6 @@ nmap <silent> <leader>eb :e ~/dotfiles/vim/bundles.vim<CR>
 nmap <silent> <leader>ep :e ~/dotfiles/vim/plugin_config.vim<CR>
 
 "Vundle install"
-nmap <silent> <leader>bi :so $MYVIMRC<CR>:NeoBundleInstall <CR>
 
 "to create a new line cmd mode without going to insert
 nmap <leader>k O<esc>k0
@@ -188,3 +185,4 @@ nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
 nnoremap <Down> :resize -5<CR>
+cmap rx Rextract
