@@ -2,35 +2,30 @@
 """""""""""""""""""""""
 "Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#data_directory='~/.vim/.cache/neocomplete'
 
-"Undotreetoggle
-nnoremap <F8> :UndotreeToggle<cr>
+" Necomplete + Neo snippets key-mappings.
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-"mult cursor  plugin
-let g:multi_cursor_next_key='<C-m>'
+imap <C-i>     <Plug>(neosnippet_expand_or_jump)
+smap <C-i>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-i>     <Plug>(neosnippet_expand_target)
 
-"" Necomplete + Neo snippets key-mappings.
-"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-"imap <C-i>     <Plug>(neosnippet_expand_or_jump)
-"smap <C-i>     <Plug>(neosnippet_expand_or_jump)
-"xmap <C-i>     <Plug>(neosnippet_expand_target)
-
-"" SuperTab like snippets behavior.
-"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            "\ "\<Plug>(neosnippet_expand_or_jump)"
-            "\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            "\ "\<Plug>(neosnippet_expand_or_jump)"
-            "\: "\<TAB>"
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            \ "\<Plug>(neosnippet_expand_or_jump)"
+            \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
     set conceallevel=2 concealcursor=i
 
 endif
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#data_directory='~/.vim/.cache/neocomplete'
 
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -51,19 +46,22 @@ nnoremap <silent> <leader>gv :Gitv<CR>
 "file transforms"
 nnoremap <silent> <leader>gV :Gitv!<CR>
 
-"Tabular pluugin
-nmap <Leader>a& :Tabularize /&<CR>
-vmap <Leader>a& :Tabularize /&<CR>
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-nmap <Leader>a:: :Tabularize /:\zs<CR>
-vmap <Leader>a:: :Tabularize /:\zs<CR>
-nmap <Leader>a, :Tabularize /,<CR>
-vmap <Leader>a, :Tabularize /,<CR>
-nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+""Tabular pluugin
+"nmap <Leader>a& :Tabularize /&<CR>
+"vmap <Leader>a& :Tabularize /&<CR>
+"nmap <Leader>a= :Tabularize /=<CR>
+"vmap <Leader>a= :Tabularize /=<CR>
+"nmap <Leader>a: :Tabularize /:<CR>
+"vmap <Leader>a: :Tabularize /:<CR>
+"nmap <Leader>a:: :Tabularize /:\zs<CR>
+"vmap <Leader>a:: :Tabularize /:\zs<CR>
+"nmap <Leader>a, :Tabularize /,<CR>
+"vmap <Leader>a, :Tabularize /,<CR>
+"nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+"vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+"
+
+vnoremap <silent> <Leader>a :EasyAlign<Enter>
 
 " U1nite
 nmap <space> [unite]
@@ -97,9 +95,13 @@ let g:syntastic_style_warning_symbol = '≈'
 
 "Rails vim
 "Create command abbreviations that auto corrects ;)
-nnoremap <leader>rf :e Gemfile<CR>
+nnoremap <leader>rf :find<space>
+nnoremap <leader>gg :e Gemfile<CR>
 nnoremap <leader>rr :e config/routes.rb<CR>
 nnoremap <leader>rv :Rview<space>
+nnoremap <leader>rl :Rlayout<space>
+nnoremap <leader>rj :Rjavascript<space>
+nnoremap <leader>rs :Rstylesheet<space>
 nnoremap <leader>rc :Rcontroller<space>
 nnoremap <leader>rg :Rgenerate<space>
 nnoremap <leader>rm :Rmodel<space>
@@ -168,6 +170,7 @@ let g:startify_session_persistence = 1
 let g:startify_session_autoload    = 1
 let g:startify_enable_special      = 0
 let g:startify_files_number        = 5
+let g:startify_change_to_dir       = 0
 
 
 let g:startify_skiplist = [
