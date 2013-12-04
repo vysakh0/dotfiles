@@ -27,3 +27,6 @@ alias tmux="tmux -u"
 
 source ~/dotfiles/zsh/syntax-highlight/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 xhost local:vysakh > /dev/null
+
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
