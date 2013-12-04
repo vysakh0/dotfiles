@@ -9,20 +9,20 @@ nnoremap <F8> :UndotreeToggle<cr>
 "mult cursor  plugin
 let g:multi_cursor_next_key='<C-m>'
 
-" Necomplete + Neo snippets key-mappings.
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+"" Necomplete + Neo snippets key-mappings.
+"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-imap <C-i>     <Plug>(neosnippet_expand_or_jump)
-smap <C-i>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-i>     <Plug>(neosnippet_expand_target)
+"imap <C-i>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-i>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-i>     <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)"
-            \: "\<TAB>"
+"" SuperTab like snippets behavior.
+"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            "\ "\<Plug>(neosnippet_expand_or_jump)"
+            "\: pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+            "\ "\<Plug>(neosnippet_expand_or_jump)"
+            "\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -112,7 +112,11 @@ autocmd FileType java let b:dispatch = 'javac %'
 autocmd FileType javascript let b:dispatch = 'node %'
 
 nnoremap <leader>d :Dispatch<CR>
-nnoremap <space>d :Dispatch rspec %<CR>
+nnoremap <space>d :Dispatch bundle exec rspec %<CR>
+nnoremap <leader>bc :Dispatch bundle check <CR>
+nnoremap <leader>bi :Dispatch bundle install<CR>
+
+"nmap <silent> <leader>bi :so MYVIMRC<CR>:NeoBundleInstall <CR>
 
 "Vim signify"
 let g:signify_mapping_next_hunk = '<leader>gj'
@@ -199,92 +203,4 @@ nnoremap eg :Egrunt<space>
 nnoremap ear :Eapp router<CR>
 nnoremap eaa :Eapp app<CR>
 
-"Lightline plugin"
-"
-let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
-            \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-            \ },
-            \ 'component_function': {
-            \   'fugitive': 'MyFugitive',
-            \   'filename': 'MyFilename',
-            \   'fileformat': 'MyFileformat',
-            \   'filetype': 'MyFiletype',
-            \   'fileencoding': 'MyFileencoding',
-            \   'mode': 'MyMode',
-            \ },
-            \ 'component_expand': {
-            \   'syntastic': 'SyntasticStatuslineFlag',
-            \ },
-            \ 'component_type': {
-            \   'syntastic': 'error',
-            \ },
-            \ 'subseparator': { 'left': '|', 'right': '|' }
-            \ }
-
-function! MyModified()
-    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-    return &ft !~? 'help' && &readonly ? 'RO' : ''
-endfunction
-
-function! MyFilename()
-    let fname = expand('%:t')
-    return  &ft == 'vimfiler' ? vimfiler#get_status_string() :
-                \ &ft == 'unite' ? unite#get_status_string() :
-                \ &ft == 'vimshell' ? vimshell#get_status_string() :
-                \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-                \ ('' != fname ? fname : '[No Name]') .
-                \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyFugitive()
-    try
-        if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-            let mark = ''  " edit here for cool mark
-            let _ = fugitive#head()
-            return strlen(_) ? mark._ : ''
-        endif
-    catch
-    endtry
-    return ''
-endfunction
-
-function! MyFileformat()
-    return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-    let fname = expand('%:t')
-    return  &ft == 'unite' ? 'Unite' :
-                \ &ft == 'vimfiler' ? 'VimFiler' :
-                \ &ft == 'vimshell' ? 'VimShell' :
-                \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-
-augroup AutoSyntastic
-    autocmd!
-    autocmd BufWritePost *.c,*.cpp,*.rb,*.py,*.js call s:syntastic()
-augroup END
-function! s:syntastic()
-    SyntasticCheck
-    call lightline#update()
-endfunction
-
-let g:unite_force_overwrite_statusline = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
-
+let g:airline#extensions#tabline#enabled = 1

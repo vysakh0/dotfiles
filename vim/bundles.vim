@@ -10,7 +10,6 @@ NeoBundle 'tpope/vim-surround.git'
 NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'tpope/vim-rails.git'
 NeoBundle 'tpope/vim-rake.git'
-NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-markdown.git'
 
@@ -22,20 +21,18 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/vimshell.vim'
 NeoBundleFetch 'Shougo/neobundle.vim'
-"Scoorloose"
 
+"Scoorloose"
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle "scrooloose/syntastic"
-NeoBundle "scrooloose/nerdtree"
 
 NeoBundle "Lokaltog/vim-easymotion"
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle "myusuf3/numbers.vim"
 
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'vim-scripts/Gist.vim'
+"NeoBundle 'mattn/webapi-vim'
+"NeoBundle 'vim-scripts/Gist.vim'
 NeoBundle 'nelstrom/vim-markdown-folding.git'
 
 NeoBundle 'elzr/vim-json'
@@ -44,18 +41,16 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Keithbsmiley/rspec.vim'
 
 NeoBundle "mhinz/vim-startify"
-NeoBundle 'mileszs/ack.vim'
 NeoBundle 'altercation/vim-colors-solarized.git'
 NeoBundle 'honza/vim-snippets'
 NeoBundle "spolu/dwm.vim"
 
-NeoBundle "terryma/vim-multiple-cursors"
 NeoBundle "jcf/vim-latex"
-NeoBundle "mbbill/undotree"
 
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "dhruvasagar/vim-table-mode"
-NeoBundle 'godlygeek/tabular'
+"NeoBundle 'godlygeek/tabular'
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
 
@@ -66,15 +61,23 @@ NeoBundle 'mhinz/vim-signify'
 
 NeoBundle 'othree/html5.vim'
 NeoBundle 'ap/vim-css-color'
+"color picker"
+NeoBundle 'Rykka/colorv.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/emmet-vim'
 
-NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'bling/vim-airline'
 
 NeoBundle 'koron/nyancat-vim'
 
-NeoBundle 'dsawardekar/ember.vim'
-NeoBundle 'dsawardekar/portkey'
+"NeoBundle 'dsawardekar/ember.vim'
+"NeoBundle 'dsawardekar/portkey'
 NeoBundle 'nono/vim-handlebars'
 "NeoBundle 'matze/vim-move'
+
+"NeoBundle 'chrisbra/csv.vim'
+"
+NeoBundle 'Zuckonit/vim-airline-tomato'
+
