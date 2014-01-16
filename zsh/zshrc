@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 #if [[ -n $TMUX ]]; then
 # Let's make sure we're in tmux boots before loading anything. Without this if,
 # everything loads in the "real", non-tmux terminal.
-plugins=(git git-flow command-not-found rails4 zsh-syntax-highlighting vundle extract)
+plugins=(git git-flow command-not-found rails zsh-syntax-highlighting vundle extract)
 
 source $ZSH/oh-my-zsh.sh
 

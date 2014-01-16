@@ -81,3 +81,9 @@ NeoBundle 'nono/vim-handlebars'
 "
 NeoBundle 'Zuckonit/vim-airline-tomato'
 
+NeoBundle 'tpope/vim-vinegar'
+
+NeoBundle 'bilalq/lite-dfm'
+
+NeoBundle 'junegunn/goyo.vim'
+NeoBundle 'terryma/vim-multiple-cursors'

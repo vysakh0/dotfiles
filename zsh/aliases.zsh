@@ -56,6 +56,7 @@ alias binstubs="bundle --binstubs=./bin/stubs"
 alias rgc="rails g controller"
 alias rgsc="rails g scaffold_controller"
 alias cy="cap deploy"
+alias rdbm='rake db:migrate;rake db:test:prepare'
 
 #node stuf
 alias ni="npm install"

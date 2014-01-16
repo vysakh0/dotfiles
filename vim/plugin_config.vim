@@ -27,6 +27,19 @@ if has('conceal')
 
 endif
 
+
+"multi-cursor
+let g:multi_cursor_next_key='<C-m>'
+function! Multiple_cursors_before()
+    exe 'NeoCompleteLock'
+    echo 'Disabled autocomplete'
+endfunction
+
+function! Multiple_cursors_after()
+    exe 'NeoCompleteUnlock'
+    echo 'Enabled autocomplete'
+endfunction
+
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>ga :Git add -A<CR>
@@ -207,3 +220,5 @@ nnoremap ear :Eapp router<CR>
 nnoremap eaa :Eapp app<CR>
 
 let g:airline#extensions#tabline#enabled = 1
+
+nnoremap <Leader>z :LiteDFMToggle<CR>:silent !tmux set status > /dev/null 2>&1<CR>:redraw!<CR>
