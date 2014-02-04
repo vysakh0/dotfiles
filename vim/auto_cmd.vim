@@ -3,6 +3,7 @@ set autowriteall " Auto-save files when switching buffers or leaving vim.
 au FocusLost * silent! :wa
 au TabLeave * silent! :wa
 
+let g:mustache_abbreviations = 1
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
@@ -49,7 +50,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " change filetypes
 au BufNewFile,BufRead *.erb set filetype=eruby.html
-au BufNewFile,BufRead *.hbs set filetype=handlebars.html
 
 "" Make sure we hilight extra whitespace in the most annoying way possible.
 "highlight ExtraWhitespace ctermbg=red guibg=red

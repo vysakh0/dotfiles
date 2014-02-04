@@ -6,8 +6,10 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#data_directory='~/.vim/.cache/neocomplete'
 
-" Necomplete + Neo snippets key-mappings.
+ "Necomplete + Neo snippets key-mappings.
+ "
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 imap <C-i>     <Plug>(neosnippet_expand_or_jump)
 smap <C-i>     <Plug>(neosnippet_expand_or_jump)
@@ -21,7 +23,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
             \: "\<TAB>"
 
-" For snippet_complete marker.
 if has('conceal')
     set conceallevel=2 concealcursor=i
 
@@ -88,9 +89,9 @@ nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-ins
 nnoremap <silent> [unite]op :<C-u>Unite -no-split -buffer-name=outline  -auto-preview outline<cr>
 nnoremap <silent> [unite]oo :<C-u>Unite -no-split -quick-match -buffer-name=outline  outline<cr>
 nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-nnoremap <silent> [unite]e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <silent> [unite]s :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+nnoremap <silent> [unite]e :<C-u>Unite -quick-match buffer<cr>
 nnoremap <silent> [unite]ft :Unite file_rec/async -default-action=tabopen<cr>
 nnoremap <silent> [unite]fs :Unite file_rec/async -default-action=split<cr>
 nnoremap <silent> [unite]fv :Unite file_rec/async -default-action=vsplit<cr>
@@ -118,6 +119,19 @@ nnoremap <leader>rs :Rstylesheet<space>
 nnoremap <leader>rc :Rcontroller<space>
 nnoremap <leader>rg :Rgenerate<space>
 nnoremap <leader>rm :Rmodel<space>
+nnoremap <leader>rec :Rgenerate ember:controller<space>
+nnoremap <leader>rem :Rgenerate ember:model<space>
+nnoremap <leader>rer :Rgenerate ember:route<space>
+nnoremap <leader>ret :Rgenerate ember:template<space>
+nnoremap <leader>res :Rgenerate ember:resource<space>
+
+"Ember projections using rails vime
+nnoremap <leader>em :Ejmodel <space>
+nnoremap <leader>ec :Ejcontroller <space>
+nnoremap <leader>ev :Ejview <space>
+nnoremap <leader>eu :Ejrouter <CR>
+nnoremap <leader>er :Ejroute <space>
+nnoremap <leader>et :Ejtemplate <space>
 
 "Vim dispatch, change compiler for language specific"
 "autocmd FileType ruby let b:dispatch = 'ruby %'
@@ -154,11 +168,6 @@ let g:user_emmet_settings = {
             \    'extends' : 'html',
             \  },
             \}
-
-"Vimshell
-nnoremap <space><space>s :VimShell<CR>
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
 
 
 let g:vimfiler_as_default_explorer = 1
@@ -210,14 +219,14 @@ hi StartifyFile    ctermfg=111
 
 
 "Ember vim mappings
-nnoremap er :Eroute<space>
-nnoremap em :Emodel<space>
-nnoremap ec :Econtroller<space>
-nnoremap et :Etemplate<space>
-nnoremap es :Estylesheet<space>
-nnoremap eg :Egrunt<space>
-nnoremap ear :Eapp router<CR>
-nnoremap eaa :Eapp app<CR>
+"nnoremap er :Eroute<space>
+"nnoremap em :Emodel<space>
+"nnoremap ec :Econtroller<space>
+"nnoremap et :Etemplate<space>
+"nnoremap es :Estylesheet<space>
+"nnoremap eg :Egrunt<space>
+"nnoremap ear :Eapp router<CR>
+"nnoremap eaa :Eapp app<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 

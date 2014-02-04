@@ -1,4 +1,4 @@
-"vim: nowrap fdm=marker
+"vime: nowrap fdm=marker
 silent so ~/dotfiles/vim/bundles.vim
 "runtime ftplugin/man.vim
 
@@ -106,7 +106,7 @@ inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>vv :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>eb :e ~/dotfiles/vim/bundles.vim<CR>
 nmap <silent> <leader>ep :e ~/dotfiles/vim/plugin_config.vim<CR>
@@ -130,7 +130,7 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g$
 
-"To paste content from system clipboard into Vim, I use this too often.
+"To pasuuuute content from system clipboard into Vim, I use this too often.
 nnoremap<leader>p :set paste!<CR>
 
 "Inherit Activercord base for model created with Rails vim
@@ -183,6 +183,4 @@ nnoremap <leader>s :%s/
 " Make arrowkey do something usefull, resize the viewports accordingly
 nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
-nnoremap <Up> :resize +5<CR>
-nnoremap <Down> :resize -5<CR>
 cmap rx Rextract

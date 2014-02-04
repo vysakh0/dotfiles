@@ -21,13 +21,16 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'mustache/vim-mustache-handlebars'
 "Scoorloose"
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle "scrooloose/syntastic"
 
-NeoBundle "Lokaltog/vim-easymotion"
+"NeoBundle "Lokaltog/vim-easymotion"
+NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle "myusuf3/numbers.vim"
 
@@ -74,7 +77,7 @@ NeoBundle 'koron/nyancat-vim'
 
 "NeoBundle 'dsawardekar/ember.vim'
 "NeoBundle 'dsawardekar/portkey'
-NeoBundle 'nono/vim-handlebars'
+"NeoBundle 'nono/vim-handlebars'
 "NeoBundle 'matze/vim-move'
 
 "NeoBundle 'chrisbra/csv.vim'
@@ -87,3 +90,6 @@ NeoBundle 'bilalq/lite-dfm'
 
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
+
+NeoBundle 'tpope/vim-abolish'
+
