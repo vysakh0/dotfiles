@@ -1,0 +1,69 @@
+#ember handle bar related snippets, to load this see auto_config.vim
+snippet     lit
+abbr        #link-to
+options     head
+    {{#link-to '${1}' ${2}}} ${3} {{/link-to}}
+
+snippet     e
+abbr        #each
+options     head
+    {{#each ${1}}}
+        ${2}
+    {{/each}}
+
+snippet     ein
+abbr        #each in
+options     head
+    {{#each ${1} in ${2}}}
+        ${3}
+    {{/each}}
+
+snippet     out
+abbr        outlet
+options     head
+    {{outlet}}
+
+snippet     #if
+abbr        ifblock
+options     head
+    {{#if ${1}}}
+        ${2}
+    {{/if}}
+
+snippet     #ife
+abbr        ifblock
+options     head
+    {{#if ${1}}}
+        ${2}
+    {{else}}
+        ${3}
+    {{/if}}
+
+
+snippet     #unless
+abbr        unlessblock
+options     head
+    {{#unless ${1}}}
+        ${2}
+    {{/unless}}
+
+snippet     bind
+abbr        bind-element attributes
+options     head
+    {{bind-attr ${1}=${2}}}
+
+snippet     bindc
+abbr        bind-class names
+options     head
+    {{bind-attr class="${1}"}}
+
+snippet     act
+abbr        action
+options     head
+    {{action "${1}" ${2}}}
+
+
+snippet     #in
+abbr        input
+options     head
+    {{input type="${1}" value=${2}}}

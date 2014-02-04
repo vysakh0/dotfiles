@@ -1,0 +1,19 @@
+snippet eg
+ ${1:this}.get('${2:#:property}');
+
+snippet es
+ ${1:this}.set('${2:#:property}', ${3:#:value});
+
+# Computer properties
+
+snippet ep
+ ${1:#:property_name}: function() {
+    ${0:#://body...}
+ }.property('${3:#:property}'),
+
+# Observes
+snippet eo
+ ${1:#:property_name}: function() {
+    ${0:#://body...}
+ }.observes('${3:#:property}'),
+
