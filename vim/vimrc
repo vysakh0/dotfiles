@@ -69,7 +69,7 @@ vnoremap / /\v
 "manage. I think I will use this feature a lot.
 set undodir=~/.vim/undodir
 set undofile
-set undolevels=1000 "maximum number of changes that can be undone
+set undolevels=1000 "maximum number of set changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 
@@ -184,3 +184,16 @@ nnoremap <leader>s :%s/
 nnoremap <Left> :vertical resize +5<CR>
 nnoremap <Right> :vertical resize -5<CR>
 cmap rx Rextract
+
+" currently selected text with default register
+
+" currently selected text with default register
+" without yanking it
+nnoremap <leader>r "_diwP
+vnoremap <leader>r "_dP
+
+nnoremap <leader>cj :lcd app/assets/javascripts<CR>
+
+iabbr fkrs Faker::Lorem.sentence
+iabbr fkrp Faker::Lorem.paragraph
+

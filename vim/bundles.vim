@@ -12,12 +12,20 @@ NeoBundle 'tpope/vim-rails.git'
 NeoBundle 'tpope/vim-rake.git'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-markdown.git'
+NeoBundle 'tpope/vim-abolish'
 
 "Shougo's awesomeness
 
 NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/unite-outline"
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -29,13 +37,10 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle "scrooloose/syntastic"
 
-"NeoBundle "Lokaltog/vim-easymotion"
-NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle "myusuf3/numbers.vim"
 
-"NeoBundle 'mattn/webapi-vim'
-"NeoBundle 'vim-scripts/Gist.vim'
 NeoBundle 'nelstrom/vim-markdown-folding.git'
 
 NeoBundle 'elzr/vim-json'
@@ -46,9 +51,6 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 NeoBundle "mhinz/vim-startify"
 NeoBundle 'altercation/vim-colors-solarized.git'
 NeoBundle 'honza/vim-snippets'
-NeoBundle "spolu/dwm.vim"
-
-NeoBundle "jcf/vim-latex"
 
 NeoBundle "tomtom/tlib_vim"
 NeoBundle "dhruvasagar/vim-table-mode"
@@ -70,18 +72,10 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/emmet-vim'
 
-"NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'bling/vim-airline'
 
 NeoBundle 'koron/nyancat-vim'
 
-"NeoBundle 'dsawardekar/ember.vim'
-"NeoBundle 'dsawardekar/portkey'
-"NeoBundle 'nono/vim-handlebars'
-"NeoBundle 'matze/vim-move'
-
-"NeoBundle 'chrisbra/csv.vim'
-"
 NeoBundle 'Zuckonit/vim-airline-tomato'
 
 NeoBundle 'tpope/vim-vinegar'
@@ -89,7 +83,5 @@ NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'bilalq/lite-dfm'
 
 NeoBundle 'junegunn/goyo.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-
-NeoBundle 'tpope/vim-abolish'
-
+NeoBundle 'kris89/vim-multiple-cursors'
+NeoBundle 'justinmk/vim-sneak'
