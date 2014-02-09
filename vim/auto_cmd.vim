@@ -50,6 +50,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " change filetypes
 au BufNewFile,BufRead *.erb set filetype=eruby.html
+au BufNewFile,BufRead *.es6 set filetype=javascript
 
 "" Make sure we hilight extra whitespace in the most annoying way possible.
 "highlight ExtraWhitespace ctermbg=red guibg=red

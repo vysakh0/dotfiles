@@ -11,7 +11,6 @@ set t_Co=256
 
 " SETTINGS/CONFIGURATIONS
 set nocompatible
-
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
 " vim color theme
@@ -196,4 +195,7 @@ nnoremap <leader>cj :lcd app/assets/javascripts<CR>
 
 iabbr fkrs Faker::Lorem.sentence
 iabbr fkrp Faker::Lorem.paragraph
+iabbr eakr gem 'ember-appkit-rails', github: 'dockyard/ember-appkit-rails', branch: 'teaspoon'
 
+
+nnoremap <leader>ct :Ctags<CR>

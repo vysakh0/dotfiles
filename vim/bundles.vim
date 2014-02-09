@@ -32,6 +32,8 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'tsukkee/unite-tag'
+
 NeoBundle 'mustache/vim-mustache-handlebars'
 "Scoorloose"
 NeoBundle 'scrooloose/nerdcommenter'
@@ -85,3 +87,4 @@ NeoBundle 'bilalq/lite-dfm'
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'kris89/vim-multiple-cursors'
 NeoBundle 'justinmk/vim-sneak'
+

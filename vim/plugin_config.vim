@@ -64,7 +64,8 @@ let g:unite_source_grep_default_opts = "-iRHn"
             \ . " --exclude-dir='.git'"
             \ . " --exclude-dir='node_modules'"
 let g:unite_source_rec_async_command = 'ack -f --nofilter'
-nnoremap <silent> [unite]t :<C-u>UniteWithCurrentDir -no-split -buffer-name=files   -start-insert  file_mru<cr>
+nnoremap <silent> [unite]tt :Unite -start-insert -no-split tag <cr>
+nnoremap <silent> [unite]tf :Unite -start-insert -no-split tag/file <cr>
 nnoremap <silent> [unite]vv :<C-u>Unite -start-insert -no-split -buffer-name=file_vcs file/vcs<CR>
 nnoremap <silent> [unite]f :<C-u>Unite -start-insert file_rec<cr>
 nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
@@ -110,10 +111,12 @@ nnoremap <leader>rkr :Rake db:rollback<CR>
 nnoremap <leader>rkd :Rake db:drop<CR>
 
 "Rails generate vim
+nnoremap <leader>rg :Rgenerate <space>
 nnoremap <leader>rgc :Rgenerate controller<space>
 nnoremap <leader>rgm :Rgenerate model<space>
 nnoremap <leader>rgd :Rgenerate migration<space>
 nnoremap <leader>rgr :Rgenerate resource<space>
+nnoremap <leader>rgs :Rgenerate scaffold<space>
 nnoremap <leader>rgt :Rgenerate task<space>
 "Destroy
 nnoremap <leader>rdc :Rdestroy controller<space>
@@ -124,6 +127,7 @@ nnoremap <leader>rdt :Rdestroy task<space>
 
 nnoremap <leader>rm :Rmodel<space>
 nnoremap <leader>rec :Rgenerate ember:controller<space>
+nnoremap <leader>reb :Rgenerate ember:bootstrap<CR>
 nnoremap <leader>rem :Rgenerate ember:model<space>
 nnoremap <leader>rer :Rgenerate ember:route<space>
 nnoremap <leader>ret :Rgenerate ember:template<space>
@@ -188,6 +192,7 @@ nnoremap <leader>d :Dispatch<CR>
 nnoremap <space>d :Dispatch bundle exec rspec %<CR>
 nnoremap <leader>bc :Dispatch bundle check <CR>
 nnoremap <leader>bi :Dispatch bundle install<CR>
+nnoremap <leader>bl :Dispatch bundle install<CR>
 
 "nmap <silent> <leader>bi :so MYVIMRC<CR>:NeoBundleInstall <CR>
 
