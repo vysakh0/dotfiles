@@ -38,7 +38,7 @@ bindkey -M vicmd "f" history-incremental-search-backward
 alias gpo="git push origin"
 alias gpl="git pull origin"
 alias gpod="git push origin develop"
-alias gpld="git pull origin develop"
+alias gpld="git pull --rebase origin develop"
 
 #git flow related aliases
 alias gf="git flow"

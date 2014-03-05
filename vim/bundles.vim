@@ -13,11 +13,13 @@ NeoBundle 'tpope/vim-rake.git'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-markdown.git'
 NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-eunuch'
 
 "Shougo's awesomeness
 
 NeoBundle "Shougo/unite.vim"
 NeoBundle "Shougo/unite-outline"
+NeoBundle "osyo-manga/unite-quickfix"
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -80,11 +82,11 @@ NeoBundle 'koron/nyancat-vim'
 
 NeoBundle 'Zuckonit/vim-airline-tomato'
 
-NeoBundle 'tpope/vim-vinegar'
-
 NeoBundle 'bilalq/lite-dfm'
 
 NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'kris89/vim-multiple-cursors'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'nelstrom/vim-textobj-rubyblock'
+NeoBundle 'kana/vim-textobj-user'
 

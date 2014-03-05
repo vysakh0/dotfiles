@@ -176,8 +176,8 @@ nnoremap <space>q :qa<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>te :tabedit<space>
-nnoremap <leader>e :edit<space>
-nnoremap <leader>s :%s/
+nnoremap <leader>ee :edit<space>
+nnoremap <leader>ss :%s/
 
 " Make arrowkey do something usefull, resize the viewports accordingly
 nnoremap <Left> :vertical resize +5<CR>
@@ -191,11 +191,10 @@ cmap rx Rextract
 nnoremap <leader>r "_diwP
 vnoremap <leader>r "_dP
 
-nnoremap <leader>cj :lcd app/assets/javascripts<CR>
 
 iabbr fkrs Faker::Lorem.sentence
 iabbr fkrp Faker::Lorem.paragraph
-iabbr eakr gem 'ember-appkit-rails', github: 'dockyard/ember-appkit-rails', branch: 'teaspoon'
+iabbr eakr gem 'ember-appkit-rails', github: 'dockyard/ember-appkit-rails'
 
 
 nnoremap <leader>ct :Ctags<CR>

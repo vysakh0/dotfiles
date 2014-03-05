@@ -27,25 +27,6 @@ if has('conceal')
     set conceallevel=2 concealcursor=i
 
 endif
-"Fugitive related key mappings
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>ga :Git add -A<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>
-nnoremap <silent> <leader>gr :Gremove<CR>
-autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
-"For gitv plugin
-nnoremap <silent> <leader>gv :Gitv<CR>
-"this setting would show the history of a file, really nice to see how your
-"file transforms"
-nnoremap <silent> <leader>gV :Gitv!<CR>
-
 vnoremap <silent> <Leader>a :EasyAlign<Enter>
 
 " U1nite
@@ -82,6 +63,78 @@ nnoremap <silent> [unite]fp :Unite -no-split -buffer-name=files -default-action=
 nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
 nnoremap <silent> [unite]fc :Unite file_rec/async<cr>
 
+let g:unite_source_menu_menus = {}
+let g:unite_source_menu_menus.git = {
+    \ 'description' : '            gestionar repositorios git
+        \                            ⌘ [espacio]g',
+    \}
+let g:unite_source_menu_menus.git.command_candidates = [
+    \['▷ tig                                                        ⌘ ,gt',
+        \'normal ,gt'],
+    \['▷ git status       (Fugitive)                                ⌘ ,gs',
+        \'Gstatus'],
+    \['▷ git diff         (Fugitive)                                ⌘ ,gd',
+        \'Gdiff'],
+    \['▷ git commit       (Fugitive)                                ⌘ ,gc',
+        \'Gcommit'],
+    \['▷ git log          (Gitv)                                    ⌘ ,gl',
+        \'Gitv'],
+    \['▷ git history      (Gitv)                                    ⌘ ,gh',
+        \'Gitv!'],
+    \['▷ git blame        (Fugitive)                                ⌘ ,gb',
+        \'Gblame'],
+    \['▷ git stage        (Fugitive)                                ⌘ ,gw',
+        \'Gwrite'],
+    \['▷ git checkout     (Fugitive)                                ⌘ ,go',
+        \'Gread'],
+    \['▷ git rm           (Fugitive)                                ⌘ ,gr',
+        \'Gremove'],
+    \['▷ git mv           (Fugitive)                                ⌘ ,gm',
+        \'exe "Git mv " input("destino: ")'],
+    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
+        \'Git! push'],
+    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
+        \'Git! pull'],
+    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
+        \'exe "Git! " input("comando git: ")'],
+    \['▷ git cd           (Fugitive)',
+        \'Gcd'],
+    \]
+nnoremap <silent>[unite]g :Unite -silent -start-insert menu:git<CR>
+
+"Fugitive related key mappings
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>ga :Git add -A<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>go :Gread<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Glame<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gP :Git pull<CR>
+nnoremap <silent> <leader>gi :exe "Git " input("enter a git command : ")<CR>
+nnoremap <silent> <leader>gm :exe "Git mv " input("destination : ")<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>
+nnoremap <silent> <leader>gr :Gremove<CR>
+autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+"For gitv plugin
+nnoremap <silent> <leader>gl :Gitv<CR>
+"this setting would show the history of a file, really nice to see how your
+"file transforms"
+nnoremap <silent> <leader>gh :Gitv!<CR>
+
+
+
+"Enunch
+nmap <leader>u [eunuch]
+nnoremap [eunuch] <nop>
+
+nnoremap [eunuch]u :Unlink<CR>
+nnoremap [eunuch]r :Remove<CR>
+nnoremap [eunuch]m :exe ":Move " input("destination : ")<CR>
+nnoremap [eunuch]c :Chmod<space>
+
 "Syntastic customization
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '✠'
@@ -97,6 +150,8 @@ nnoremap <leader>rr :e config/routes.rb<CR>
 nnoremap <leader>rv :Rview<space>
 nnoremap <leader>rl :Rlayout<space>
 nnoremap <leader>rj :Rjavascript<space>
+nnoremap <leader>ro :Rserializer<space>
+nnoremap <leader>ru :Rspec serializers/
 nnoremap <leader>re :Renvironment<space>
 nnoremap <leader>rt :Rspec<space>
 nnoremap <leader>rf :Rfixtures<space>
@@ -127,13 +182,21 @@ nnoremap <leader>rdt :Rdestroy task<space>
 
 nnoremap <leader>rm :Rmodel<space>
 nnoremap <leader>rec :Rgenerate ember:controller<space>
-nnoremap <leader>reb :Rgenerate ember:bootstrap<CR>
+nnoremap <leader>reb :Rgenerate ember:bootstrap -n App<CR>
 nnoremap <leader>rem :Rgenerate ember:model<space>
 nnoremap <leader>rer :Rgenerate ember:route<space>
 nnoremap <leader>ret :Rgenerate ember:template<space>
 nnoremap <leader>res :Rgenerate ember:resource<space>
 
 let g:rails_projections = {
+            \ "app/serializers/*_serializer.rb": {
+            \ "command": "serializer",
+            \ "affinity": "model",
+            \ "test": "spec/serializers/%s_spec.rb",
+            \ "related": "app/models/%s.rb",
+            \ "template": "class %SSerializer < ActiveModel::Serializer\nend"
+            \ },
+            \
             \ "app/assets/javascripts/models/*.js": {
             \ "command": "jmodel",
             \ "alternate": "spec/javascripts/models/%s_spec.js",
@@ -192,7 +255,7 @@ nnoremap <leader>d :Dispatch<CR>
 nnoremap <space>d :Dispatch bundle exec rspec %<CR>
 nnoremap <leader>bc :Dispatch bundle check <CR>
 nnoremap <leader>bi :Dispatch bundle install<CR>
-nnoremap <leader>bl :Dispatch bundle install<CR>
+nnoremap <leader>bl :Dispatch bundle install --local<CR>
 
 "nmap <silent> <leader>bi :so MYVIMRC<CR>:NeoBundleInstall <CR>
 
@@ -222,9 +285,16 @@ let g:user_emmet_settings = {
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_enable_clipboard = 0
 let g:vimfiler_safe_mode_by_default = 0
-nnoremap <silent>   <leader>f   :VimFiler<CR>
-nnoremap <silent>   <leader>vt   :VimFilerTab<CR>
+nmap <leader>f [vfiler]
+nnoremap [vfiler] <nop>
+nnoremap <silent>   [vfiler]f   :VimFiler<CR>
+nnoremap <silent>   [vfiler]t   :VimFilerTab<CR>
+nnoremap <silent>   [vfiler]e   :VimFilerExplorer<CR>
 nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
+nnoremap [vfiler]j :VimFilerCreate app/assets/javascripts<CR>
+nnoremap [vfiler]s :VimFilerCreate spec<CR>
+nnoremap [vfiler]c :VimFilerCreate config<CR>
+nnoremap [vfiler]m :VimFilerCreate db/migrate<CR>
 
 nnoremap <leader>np :Nyancat<CR>
 
