@@ -79,7 +79,7 @@ let g:unite_source_menu_menus.git.command_candidates = [
         \'Gcommit'],
     \['▷ git log          (Gitv)                                    ⌘ ,gl',
         \'Gitv'],
-    \['▷ git history      (Gitv)                                    ⌘ ,gh',
+    \['▷ git history      (Gitv)                                    ⌘ ,gv',
         \'Gitv!'],
     \['▷ git blame        (Fugitive)                                ⌘ ,gb',
         \'Gblame'],
@@ -108,7 +108,7 @@ nnoremap <silent> <leader>ga :Git add -A<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>go :Gread<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Glame<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gP :Git pull<CR>
 nnoremap <silent> <leader>gi :exe "Git " input("enter a git command : ")<CR>
@@ -122,7 +122,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 nnoremap <silent> <leader>gl :Gitv<CR>
 "this setting would show the history of a file, really nice to see how your
 "file transforms"
-nnoremap <silent> <leader>gh :Gitv!<CR>
+nnoremap <silent> <leader>gv :Gitv!<CR>
 
 
 
@@ -132,7 +132,11 @@ nnoremap [eunuch] <nop>
 
 nnoremap [eunuch]u :Unlink<CR>
 nnoremap [eunuch]r :Remove<CR>
-nnoremap [eunuch]m :exe ":Move " input("destination : ")<CR>
+nnoremap [eunuch]f :Find<space>
+nnoremap [eunuch]l :Locate<space>
+nnoremap [eunuch]s :SudoWrite<CR>
+nnoremap [eunuch]e :SudoEdit<CR>
+nnoremap [eunuch]m :Move <space>
 nnoremap [eunuch]c :Chmod<space>
 
 "Syntastic customization
@@ -147,6 +151,7 @@ let g:syntastic_style_warning_symbol = '≈'
 nnoremap <leader>rf :find<space>
 nnoremap <leader>gg :e Gemfile<CR>
 nnoremap <leader>rr :e config/routes.rb<CR>
+nnoremap <leader>rq :Rtask<space>
 nnoremap <leader>rv :Rview<space>
 nnoremap <leader>rl :Rlayout<space>
 nnoremap <leader>rj :Rjavascript<space>
@@ -158,6 +163,8 @@ nnoremap <leader>rf :Rfixtures<space>
 nnoremap <leader>rh :Rschema<space>
 nnoremap <leader>rs :Rstylesheet<space>
 nnoremap <leader>rc :Rcontroller<space>
+nnoremap <leader>rp :Rpreview<space>
+nnoremap <leader>rn :Rmailer<space>
 
 "Rake
 nnoremap <leader>rkk :Rake<space>
@@ -173,6 +180,7 @@ nnoremap <leader>rgd :Rgenerate migration<space>
 nnoremap <leader>rgr :Rgenerate resource<space>
 nnoremap <leader>rgs :Rgenerate scaffold<space>
 nnoremap <leader>rgt :Rgenerate task<space>
+nnoremap <leader>rgl :Rgenerate mailer<space>
 "Destroy
 nnoremap <leader>rdc :Rdestroy controller<space>
 nnoremap <leader>rdm :Rdestroy model<space>
@@ -189,60 +197,41 @@ nnoremap <leader>ret :Rgenerate ember:template<space>
 nnoremap <leader>res :Rgenerate ember:resource<space>
 
 let g:rails_projections = {
+            \ "spec/mailers/previews/*_preview.rb": {
+            \ "command": "preview",
+            \ "alternate": "app/mailers/%s.rb",
+            \ "template": "class %SPreview < ActionMailer::Preview\nend"
+            \ },
+            \
             \ "app/serializers/*_serializer.rb": {
             \ "command": "serializer",
             \ "affinity": "model",
             \ "test": "spec/serializers/%s_spec.rb",
             \ "related": "app/models/%s.rb",
             \ "template": "class %SSerializer < ActiveModel::Serializer\nend"
-            \ },
-            \
-            \ "app/assets/javascripts/models/*.js": {
-            \ "command": "jmodel",
-            \ "alternate": "spec/javascripts/models/%s_spec.js",
-            \ "template": "App.%S = DS.Model.extend"
-            \ },
-            \
-            \ "app/assets/javascripts/controllers/*_controller.js": {
-            \ "command": "jcontroller",
-            \ "alternate": "spec/javascripts/controllers/%s_spec.js",
-            \ "template": "App.%SController = Ember.ObjectController.extend"
-            \ },
-            \
-            \ "app/assets/javascripts/views/*_view.js": {
-            \ "command": "jview",
-            \ "alternate": "spec/javascripts/views/%s_spec.js",
-            \ "related": "app/assets/javascripts/templates/%s.hbs",
-            \ "template": "%SView = Ember.View.extend"
-            \ },
-            \
-            \ "app/assets/javascripts/router.js": {
-            \ "command": "jrouter"
-            \ },
-            \
-            \ "app/assets/javascripts/routes/*_route.js": {
-            \ "command": "jroute",
-            \ "alternate": "spec/javascripts/routes/%s_spec.js",
-            \ "template": "App.%SRoute = Ember.Route.extend"
-            \ },
-            \
-            \ "spec/javascripts/*_spec.js": {
-            \ "command": "jspec",
-            \ "alternate": "app/assets/javascripts/%s.js"
-            \ },
-            \
-            \ "app/assets/javascripts/templates/*.hbs": {
-            \ "command": "template",
-            \ "alternate": "app/assets/javascripts/views/%s.js"
             \ }
             \ }
-"Ember projections using rails vime
-nnoremap <leader>em :Ejmodel <space>
-nnoremap <leader>ec :Ejcontroller <space>
-nnoremap <leader>ev :Ejview <space>
-nnoremap <leader>eu :Ejrouter <CR>
-nnoremap <leader>er :Ejroute <space>
+"Ember projections using ember-cli
+nnoremap <leader>em :Emodel <space>
+nnoremap <leader>ea :Eapp <space>
+nnoremap <leader>ec :Econtroller <space>
+nnoremap <leader>eo :Ecomponent<space>
+nnoremap <leader>es :Estylesheet<space>
+nnoremap <leader>ev :Eview <space>
+nnoremap <leader>eu :e app/router.js<CR>
+nnoremap <space>eb :e Brocfile.js<CR>
+nnoremap <space>ep :e package.json<CR>
+nnoremap <leader>er :Eroute <space>
 nnoremap <leader>et :Etemplate <space>
+
+"Ember projections using rails.vim
+nmap <leader>a [ember-rails]
+nnoremap [ember-rails]em :Ejmodel <space>
+nnoremap [ember-rails]ec :Ejcontroller <space>
+nnoremap [ember-rails]eo :Ejcomponent<space>
+nnoremap [ember-rails]ev :Ejview <space>
+nnoremap [ember-rails]er :Ejroute <space>
+nnoremap [ember-rails]et :Etemplate <space>
 
 "Vim dispatch, change compiler for language specific"
 "autocmd FileType ruby let b:dispatch = 'ruby %'
@@ -292,8 +281,10 @@ nnoremap <silent>   [vfiler]t   :VimFilerTab<CR>
 nnoremap <silent>   [vfiler]e   :VimFilerExplorer<CR>
 nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
 nnoremap [vfiler]j :VimFilerCreate app/assets/javascripts<CR>
+nnoremap [vfiler]a :VimFilerCreate app<CR>
 nnoremap [vfiler]s :VimFilerCreate spec<CR>
 nnoremap [vfiler]c :VimFilerCreate config<CR>
+nnoremap [vfiler]b :VimFilerBufferDir<CR>
 nnoremap [vfiler]m :VimFilerCreate db/migrate<CR>
 
 nnoremap <leader>np :Nyancat<CR>
@@ -350,3 +341,4 @@ hi StartifyFile    ctermfg=111
 let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <Leader>z :LiteDFMToggle<CR>:silent !tmux set status > /dev/null 2>&1<CR>:redraw!<CR>
+

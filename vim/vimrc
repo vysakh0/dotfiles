@@ -196,5 +196,13 @@ iabbr fkrs Faker::Lorem.sentence
 iabbr fkrp Faker::Lorem.paragraph
 iabbr eakr gem 'ember-appkit-rails', github: 'dockyard/ember-appkit-rails'
 
+"Rails project
+cnoreabbrev ra app/
+cnoreabbrev rj app/assets/javascripts/
+cnoreabbrev rs app/assets/stylesheets/
+cnoreabbrev rt spec/
+cnoreabbrev rc config/
 
 nnoremap <leader>ct :Ctags<CR>
+
+iabbr ed export default

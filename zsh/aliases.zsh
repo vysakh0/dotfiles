@@ -1,3 +1,4 @@
+alias st="~/./start-mod.sh"
 alias z="vim ~/.zshrc"
 alias sz="source ~/.zshrc"
 alias vv="vim ~/.vimrc"

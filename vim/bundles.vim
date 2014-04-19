@@ -4,6 +4,8 @@ if has('vim_starting')
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 "Tpope's awesomeness
+NeoBundle 'dsawardekar/ember.vim'
+NeoBundle 'dsawardekar/portkey'
 
 NeoBundle 'tpope/vim-fugitive.git'
 NeoBundle 'tpope/vim-surround.git'
@@ -14,6 +16,7 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-markdown.git'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-projectile'
 
 "Shougo's awesomeness
 
@@ -90,3 +93,7 @@ NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 
+NeoBundle 'sickill/vim-pasta'
+"NeoBundle "wookiehangover/jshint.vim"
+"
+NeoBundle 'wellle/targets.vim'
