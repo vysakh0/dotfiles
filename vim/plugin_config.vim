@@ -109,10 +109,10 @@ nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>go :Gread<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gP :Git pull<CR>
+nnoremap <silent> <leader>gp :Gpush<space>
+nnoremap <silent> <leader>gP :Gpull<space>
 nnoremap <silent> <leader>gi :exe "Git " input("enter a git command : ")<CR>
-nnoremap <silent> <leader>gm :exe "Git mv " input("destination : ")<CR>
+nnoremap <silent> <leader>gm :Gmerge<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
 nnoremap <silent> <leader>gr :Gremove<CR>
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
