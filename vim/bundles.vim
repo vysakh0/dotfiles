@@ -98,3 +98,4 @@ NeoBundle 'sickill/vim-pasta'
 "NeoBundle "wookiehangover/jshint.vim"
 "
 NeoBundle 'wellle/targets.vim'
+NeoBundle 'chriskempson/base16'
