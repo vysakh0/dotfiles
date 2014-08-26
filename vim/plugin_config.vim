@@ -1,4 +1,4 @@
-" PLUGIN CONFIGURATIONS
+"r PLUGIN CONFIGURATIONS
 """""""""""""""""""""""
 "Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
@@ -341,4 +341,14 @@ hi StartifyFile    ctermfg=111
 let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <Leader>z :LiteDFMToggle<CR>:silent !tmux set status > /dev/null 2>&1<CR>:redraw!<CR>
+let g:github_access_token = "aee4fee386a9ae8369ff38ee2c9c23b2a80f2369"
+function! Multiple_cursors_before()
+    exe 'NeoCompleteLock'
+    echo 'Disabled autocomplete'
+endfunction
+
+function! Multiple_cursors_after()
+    exe 'NeoCompleteUnlock'
+    echo 'Enabled autocomplete'
+endfunction
 

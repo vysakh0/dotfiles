@@ -67,3 +67,13 @@ snippet     #in
 abbr        input
 options     head
     {{input type="${1}" value=${2}}}
+
+snippet     #es
+abbr        select
+options     head
+    {{view Ember.Select content=${1} name="${2}" optionLabelPath="${3}" value=${4} prompt="Select ${5}"}}
+
+snippet hbs
+  <script type="text/x-handlebars" data-template-name="${1}">
+    ${2}
+  </script>

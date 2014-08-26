@@ -17,6 +17,7 @@ NeoBundle 'tpope/vim-markdown.git'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-projectile'
+NeoBundle 'kris89/vim-multiple-cursors'
 
 "Shougo's awesomeness
 
@@ -34,6 +35,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.vim'
+
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -88,7 +90,6 @@ NeoBundle 'Zuckonit/vim-airline-tomato'
 NeoBundle 'bilalq/lite-dfm'
 
 NeoBundle 'junegunn/goyo.vim'
-NeoBundle 'kris89/vim-multiple-cursors'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'

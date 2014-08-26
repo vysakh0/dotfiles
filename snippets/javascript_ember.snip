@@ -1,19 +1,77 @@
 snippet eg
- ${1:this}.get('${2:#:property}');
+ ${1:this.}get('${2:#:property}');
 
 snippet es
- ${1:this}.set('${2:#:property}', ${3:#:value});
+ ${1:this.}set('${2:#:property}', ${3:#:value});
 
 # Computer properties
 
 snippet ep
  ${1:#:property_name}: function() {
     ${0:#://body...}
- }.property('${3:#:property}'),
+ }.property('${3:#:property}')
 
 # Observes
 snippet eo
  ${1:#:property_name}: function() {
-    ${0:#://body...}
- }.observes('${3:#:property}'),
+  ${0:#://body...}
+ }.observes('${3:#:property}')
 
+snippet moc
+ model: function() {
+    return this.store.createRecord('${1:#:modelName}');
+ }
+
+snippet mof
+ model: function() {
+    return this.store.find('${1:#:modelName}');
+ }
+
+snippet er
+ Ember.Route.extend({
+    ${0:#://body..}
+ })
+
+snippet eac
+ App = Ember.Application.create();
+
+snippet eu
+ App.Router.map(function(){
+   ${0:#://body..}
+ })
+
+snippet tr
+  this.resource('${1:#:name}');
+
+snippet to
+  this.route('${1:#:name}');
+
+snippet eco
+ Ember.ObjectController.extend({
+    ${0:#://body..}
+ })
+
+snippet eca
+ Ember.ArrayController.extend({
+    ${0:#://body..}
+ })
+
+snippet em
+ DS.Model.extend({
+  ${0:#://body..}
+ })
+
+snippet db
+  ${1:#:attr}: DS.belongsTo('${2:#:attr-type}')
+
+snippet dh
+  ${1:#:attr}: DS.hasMany('${2:#:attr-type}')
+
+snippet da
+  ${1:#:attr}: DS.attr('${2:#:attr-type}')
+
+snippet sc
+ setupController: function(controller, model) {
+    controller.set('model', model);
+    ${0:#://body...}
+ }
