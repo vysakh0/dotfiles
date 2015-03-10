@@ -77,7 +77,7 @@ if has('conceal')
 endif
 
 "set status line for status plugin to show in single file editing"
-set laststatus=2
+"set laststatus=2
 " Default Tabs & spaces
 set tabstop=4
 set shiftwidth=4
@@ -150,6 +150,7 @@ iabbr lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.<CR>Vestibul
 "These abbreviations is my savior :D
 
 iabbr rma require 'minitest/autorun'
+iabbr ime import Ember from 'ember';
 cnoreabbrev Wq w
 cnoreabbrev W w
 cnoreabbrev WQ wq
@@ -194,11 +195,11 @@ vnoremap <leader>r "_dP
 iabbr fkrs Faker::Lorem.sentence
 iabbr fkrp Faker::Lorem.paragraph
 iabbr eakr gem 'ember-appkit-rails', github: 'dockyard/ember-appkit-rails'
+iabbr ha  auth_hash = request.env['omniauth.auth']
 
 "Rails project
 cnoreabbrev ra app/
 cnoreabbrev rj app/assets/javascripts/
-cnoreabbrev rs app/assets/stylesheets/
 cnoreabbrev rt spec/
 cnoreabbrev rc config/
 

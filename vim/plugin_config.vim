@@ -165,6 +165,7 @@ nnoremap <leader>rs :Rstylesheet<space>
 nnoremap <leader>rc :Rcontroller<space>
 nnoremap <leader>rp :Rpreview<space>
 nnoremap <leader>rn :Rmailer<space>
+nnoremap <leader>ri :Rinitializer<space>
 
 "Rake
 nnoremap <leader>rkk :Rake<space>
@@ -341,7 +342,7 @@ hi StartifyFile    ctermfg=111
 let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <Leader>z :LiteDFMToggle<CR>:silent !tmux set status > /dev/null 2>&1<CR>:redraw!<CR>
-let g:github_access_token = "aee4fee386a9ae8369ff38ee2c9c23b2a80f2369"
+"let g:github_access_token = ""
 function! Multiple_cursors_before()
     exe 'NeoCompleteLock'
     echo 'Disabled autocomplete'

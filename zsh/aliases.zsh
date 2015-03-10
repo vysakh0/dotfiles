@@ -1,5 +1,36 @@
+# expand aliases similar to vim
+
+typeset -a ealiases
+ealiases=()
+
+function ealias()
+{
+alias $1
+ealiases+=(${1%%\=*})
+}
+
+function expand-ealias()
+{
+if [[ $LBUFFER =~ "(^|[;|&])\s*(${(j:|:)ealiases})\$" ]]; then
+    zle _expand_alias
+    zle expand-word
+fi
+zle magic-space
+}
+
+zle -N expand-ealias
+
+bindkey -M viins ' '    expand-ealias
+bindkey -M viins '^ '   magic-space     # control-space to bypass completion
+bindkey -M isearch " "  magic-space # normal space during searches
+
+
+alias t="tmux"
+
+# aliases
 alias st="~/./start-mod.sh"
 alias z="vim ~/.zshrc"
+alias az="vim ~/dotfiles/zsh/aliases.zsh"
 alias sz="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
 alias sv="source ~/.vimrc"
@@ -27,8 +58,8 @@ alias -s pdf=evince
 alias -s com=chromium-browser
 
 # Vim aliases
-alias v="vim -p"
-alias vi="vim -p"
+ealias v="vim "
+ealias vi="vim "
 # Vim-style line editing
 bindkey -v
 # I want my bck-i-search
@@ -49,22 +80,42 @@ alias gff="git flow feature"
 RUBYOPT=rubygems
 
 # Bundler
-alias be="bundle exec"
-alias bi="bundle check || bundle install"
-alias binstubs="bundle --binstubs=./bin/stubs"
+ealias be="bundle exec"
+ealias b="bundle"
+ealias bi="bundle check || bundle install"
+ealias binstubs="bundle --binstubs=./bin/stubs"
 
 #rails
-alias rgc="rails g controller"
-alias rgsc="rails g scaffold_controller"
-alias cy="cap deploy"
-alias rdbm='rake db:migrate;rake db:test:prepare'
+ealias rgc="rails g controller"
+ealias rgsc="rails g scaffold_controller"
+ealias rgm="rails g model"
+ealias rc="rails console"
+ealias rn="rails new "
+ealias cy="cap deploy"
+ealias rdbm='rake db:migrate'
+
+#rails
+alias egc="ember generate controller"
+alias egr="ember generate route"
+alias egt="ember generate template"
+alias egm="ember generate model"
+alias egx="ember generate mixin"
+alias egi="ember generate initializer"
+alias egv="ember generate view"
+alias egs="ember generate resource" # think scaffold?
 
 #node stuf
 alias ni="npm install"
+alias nis="npm install --save-dev"
 alias boi="bower install"
+alias bis="bower install --save"
 
 # ctags
 alias tagit='ctags -R --exclude=.git --exclude=log *'
+
+# asciidoctor
+alias asp="ruby ~/ascii/asciidoctor-pdf/bin/asciidoctor-pdf"
+alias ase="ruby ~/ascii/asciidoctor-epub3/bin/asciidoctor-epub3 -D output"
 
 function b {
   if [[ $# == 0 ]]
@@ -74,3 +125,4 @@ function b {
     bundle "$@"
   fi
 }
+

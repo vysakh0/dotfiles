@@ -85,7 +85,7 @@ NeoBundle 'bling/vim-airline'
 
 NeoBundle 'koron/nyancat-vim'
 
-NeoBundle 'Zuckonit/vim-airline-tomato'
+"NeoBundle 'Zuckonit/vim-airline-tomato'
 
 NeoBundle 'bilalq/lite-dfm'
 
@@ -99,3 +99,9 @@ NeoBundle 'sickill/vim-pasta'
 "
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'chriskempson/base16'
+
+NeoBundle 'wting/rust.vim'
+NeoBundle 'dahu/vim-asciidoc'
+NeoBundle 'dahu/vimple'
+NeoBundle 'dahu/Asif'
+

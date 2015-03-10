@@ -22,6 +22,17 @@ snippet moc
     return this.store.createRecord('${1:#:modelName}');
  }
 
+snippet scr
+ this.store.createRecord('${1:#:modelName}', {
+  ${2:#:param}
+ });
+
+snippet ssr
+    ${1:#:_name}.save().then(function(res) {
+        ${2:#://body...}
+    }, function(err){
+    });
+
 snippet mof
  model: function() {
     return this.store.find('${1:#:modelName}');
@@ -74,4 +85,10 @@ snippet sc
  setupController: function(controller, model) {
     controller.set('model', model);
     ${0:#://body...}
+ }
+snippet ac
+ actions: {
+    ${1:#:function_name}: function(${2:#:params}) {
+        ${0:#://body...}
+    }
  }

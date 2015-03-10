@@ -59,3 +59,4 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 "autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 "autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
+
