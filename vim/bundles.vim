@@ -104,4 +104,6 @@ NeoBundle 'wting/rust.vim'
 NeoBundle 'dahu/vim-asciidoc'
 NeoBundle 'dahu/vimple'
 NeoBundle 'dahu/Asif'
+NeoBundle 'osyo-manga/vim-monster'
+NeoBundle 'osyo-manga/vim-over'
 

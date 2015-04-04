@@ -316,9 +316,6 @@ let g:startify_bookmarks = [
             \ '~/dotfiles/vim/vimrc',
             \ ]
 
-let g:startify_custom_header =
-            \ map(split(system('tips | cowsay -f apt I will show you how great i am'), '\n'), '"   ". v:val') + ['']
-
 hi StartifyBracket ctermfg=240
 hi StartifyNumber  ctermfg=215
 hi StartifyPath    ctermfg=245
@@ -353,3 +350,11 @@ function! Multiple_cursors_after()
     echo 'Enabled autocomplete'
 endfunction
 
+"vim-monster for ruby autocomplete
+" Set async completion.
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
+" Use neocomplete.vim
+let g:neocomplete#force_omni_input_patterns = {
+\   'ruby' : '[^. *\t]\.\|\h\w*::',
+\}

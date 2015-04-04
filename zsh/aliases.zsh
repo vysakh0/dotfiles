@@ -24,6 +24,10 @@ bindkey -M viins ' '    expand-ealias
 bindkey -M viins '^ '   magic-space     # control-space to bypass completion
 bindkey -M isearch " "  magic-space # normal space during searches
 
+#rails_zen
+
+alias rzmg="rails_zen model g "
+alias rzma="rails_zen model act "
 
 alias t="tmux"
 
@@ -65,6 +69,7 @@ bindkey -v
 # I want my bck-i-search
 bindkey -M viins "^r" history-incremental-search-backward
 bindkey -M vicmd "f" history-incremental-search-backward
+
 
 #git alias
 alias gpo="git push origin"
