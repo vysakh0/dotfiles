@@ -31,3 +31,4 @@ export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 eval `gnome-keyring-daemon --start`
 
+alias a="./a.out"

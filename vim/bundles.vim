@@ -17,7 +17,6 @@ NeoBundle 'tpope/vim-markdown.git'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-projectile'
-NeoBundle 'kris89/vim-multiple-cursors'
 
 "Shougo's awesomeness
 
@@ -26,10 +25,8 @@ NeoBundle "Shougo/unite-outline"
 NeoBundle "osyo-manga/unite-quickfix"
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
       \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
+      \     'linux' : 'make',
       \    },
       \ }
 NeoBundle 'Shougo/neocomplete'
@@ -106,4 +103,7 @@ NeoBundle 'dahu/vimple'
 NeoBundle 'dahu/Asif'
 NeoBundle 'osyo-manga/vim-monster'
 NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'gcmt/wildfire.vim'
+NeoBundle 'AndrewRadev/splitjoin.vim'
 
+NeoBundle 'terryma/vim-multiple-cursors'

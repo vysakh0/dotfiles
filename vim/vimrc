@@ -222,4 +222,3 @@ iabbr ed export default
 set autoread "sets it to reload files on change.
 au CursorHold,CursorHoldI * checktime " The problem is that Vim doesn't
 "actually check changes. So this  makes it check periodically.
-yolo

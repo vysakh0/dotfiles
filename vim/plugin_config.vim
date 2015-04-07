@@ -48,7 +48,7 @@ let g:unite_source_rec_async_command = 'ack -f --nofilter'
 nnoremap <silent> [unite]tt :Unite -start-insert -no-split tag <cr>
 nnoremap <silent> [unite]tf :Unite -start-insert -no-split tag/file <cr>
 nnoremap <silent> [unite]vv :<C-u>Unite -start-insert -no-split -buffer-name=file_vcs file/vcs<CR>
-nnoremap <silent> [unite]f :<C-u>Unite -start-insert file_rec<cr>
+nnoremap <silent> [unite]ff :<C-u>Unite -start-insert file_rec<cr>
 nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <silent> [unite]op :<C-u>Unite -no-split -buffer-name=outline  -auto-preview outline<cr>
 nnoremap <silent> [unite]oo :<C-u>Unite -no-split -quick-match -buffer-name=outline  outline<cr>
@@ -136,8 +136,10 @@ nnoremap [eunuch]f :Find<space>
 nnoremap [eunuch]l :Locate<space>
 nnoremap [eunuch]s :SudoWrite<CR>
 nnoremap [eunuch]e :SudoEdit<CR>
-nnoremap [eunuch]m :Move <space>
+nnoremap [eunuch]w :Wall<CR>
+nnoremap [eunuch]m :Move<space>
 nnoremap [eunuch]c :Chmod<space>
+nnoremap [eunuch]d :Mkdir<space>
 
 "Syntastic customization
 let g:syntastic_error_symbol = '✗'
@@ -358,3 +360,16 @@ let g:monster#completion#rcodetools#backend = "async_rct_complete"
 let g:neocomplete#force_omni_input_patterns = {
 \   'ruby' : '[^. *\t]\.\|\h\w*::',
 \}
+
+
+" wildfire
+"
+map <SPACE>w <Plug>(wildfire-fuel)
+map <SPACE>m <Plug>(wildfire-water)
+let g:wildfire_objects = {
+    \ "*" : ["i'", 'i"', "i)", "i]", "i}"]
+\ }
+
+cal wildfire#triggers#Add("<ENTER>", {
+    \ "html,xml,erb,hbs" : ["at", "it"],
+\ })
