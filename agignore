@@ -1,0 +1,15 @@
+tmp/
+node_modules/
+dist/
+bower_components/
+cache/
+*.sql
+*.sqlite3
+*.tags*
+*.gemtags*
+*.tmp*
+*.js
+*.css
+*.scss
+*.old
+*.json

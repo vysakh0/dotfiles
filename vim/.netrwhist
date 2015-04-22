@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/vysakh'
-let g:netrw_dirhist_2='/home/vysakh/.Skype'
-let g:netrw_dirhist_3='/home/vysakh/_posts'
-let g:netrw_dirhist_4='/home/vysakh'
-let g:netrw_dirhist_5='ftp://testbox/'
-let g:netrw_dirhist_6='/home/vysakh/custom4u/celeb/client/app'

@@ -49,7 +49,6 @@ alias ls="ls --color=always"
 #debian/ubuntu related system liases
 alias halt='sudo shutdown -h now'
 alias reboot='sudo reboot'
-alias ag='sudo apt-get'
 alias api='sudo apt-get install'
 alias aps='sudo apt-cache search'
 
@@ -68,8 +67,10 @@ ealias vi="vim "
 bindkey -v
 # I want my bck-i-search
 bindkey -M viins "^r" history-incremental-search-backward
+bindkey -M viins "<up>" history-incremental-search-backward
 bindkey -M vicmd "f" history-incremental-search-backward
-
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 #git alias
 alias gpo="git push origin"
@@ -78,8 +79,8 @@ alias gpod="git push origin develop"
 alias gpld="git pull --rebase origin develop"
 
 #git flow related aliases
-alias gf="git flow"
-alias gff="git flow feature"
+#alias gf="git flow"
+#alias gff="git flow feature"
 
 #Ruby stuff :D
 RUBYOPT=rubygems

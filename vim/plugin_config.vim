@@ -1,3 +1,4 @@
+
 "r PLUGIN CONFIGURATIONS
 """""""""""""""""""""""
 "Numbers vim toggle
@@ -28,78 +29,98 @@ if has('conceal')
 
 endif
 vnoremap <silent> <Leader>a :EasyAlign<Enter>
+nmap ga <Plug>(EasyAlign)
+nmap <space>e gaip
 
 " U1nite
 nmap <space> [unite]
 nnoremap [unite] <nop>
 let g:unite_source_history_yank_enable = 1
+
+let g:unite_source_file_mru_limit = 10
+
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-let g:unite_source_grep_default_opts = "-iRHn"
-            \ . " --exclude='*.svn*'"
-            \ . " --exclude='*.svn*'"
-            \ . " --exclude='*.log*'"
-            \ . " --exclude='*tmp*'"
-            \ . " --exclude-dir='**/tmp'"
-            \ . " --exclude-dir='CVS'"
-            \ . " --exclude-dir='.svn'"
-            \ . " --exclude-dir='.git'"
-            \ . " --exclude-dir='node_modules'"
-let g:unite_source_rec_async_command = 'ack -f --nofilter'
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+            \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+            \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
+            \ '--ignore ''**/*.pyc'''
+let g:unite_source_grep_recursive_opt = ''
+
+"call unite#custom#source('file_rec/async', 'ignore_pattern', ['tmp/', 'bin/'])
+" ignore certain files and directories while searching
+call unite#custom_source('file,file_rec,file_rec/async,grep',
+            \ 'ignore_pattern', join([
+            \ './.bundle/',
+            \ './tmp/',
+            \ './log/',
+            \ './bin/',
+            \ './vendor/',
+            \ 'sqlite3',
+            \ '.jpg',
+            \ '.png',
+            \ '.mp4',
+            \ 'seeds',
+            \ ], '\|'))
+
 nnoremap <silent> [unite]tt :Unite -start-insert -no-split tag <cr>
 nnoremap <silent> [unite]tf :Unite -start-insert -no-split tag/file <cr>
 nnoremap <silent> [unite]vv :<C-u>Unite -start-insert -no-split -buffer-name=file_vcs file/vcs<CR>
 nnoremap <silent> [unite]ff :<C-u>Unite -start-insert file_rec<cr>
-nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <silent> [unite]m :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <silent> [unite]op :<C-u>Unite -no-split -buffer-name=outline  -auto-preview outline<cr>
 nnoremap <silent> [unite]oo :<C-u>Unite -no-split -quick-match -buffer-name=outline  outline<cr>
 nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-nnoremap <silent> [unite]s :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-nnoremap <silent> [unite]e :<C-u>Unite -quick-match buffer<cr>
+"nnoremap <silent> [unite]s :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <silent> [unite]// :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+nnoremap <silent> [unite]/w :<C-u>Unite -no-quit -buffer-name=search grep:.<cr><C-R><C-W><cr>
+nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+" Since we are using Obsess plugin, sometimes there are too many sessions
+" So, those buffers can be deleted by :%bd
 nnoremap <silent> [unite]ft :Unite file_rec/async -default-action=tabopen<cr>
 nnoremap <silent> [unite]fs :Unite file_rec/async -default-action=split<cr>
 nnoremap <silent> [unite]fv :Unite file_rec/async -default-action=vsplit<cr>
 nnoremap <silent> [unite]fp :Unite -no-split -buffer-name=files -default-action=preview file<cr>
 nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
-nnoremap <silent> [unite]fc :Unite file_rec/async<cr>
+nnoremap <silent> [unite]fc :Unite -start-insert file_rec/async<cr>
 
 let g:unite_source_menu_menus = {}
 let g:unite_source_menu_menus.git = {
-    \ 'description' : '            gestionar repositorios git
-        \                            ⌘ [espacio]g',
-    \}
+            \ 'description' : '            gestionar repositorios git
+            \                            ⌘ [espacio]g',
+            \}
 let g:unite_source_menu_menus.git.command_candidates = [
-    \['▷ tig                                                        ⌘ ,gt',
-        \'normal ,gt'],
-    \['▷ git status       (Fugitive)                                ⌘ ,gs',
-        \'Gstatus'],
-    \['▷ git diff         (Fugitive)                                ⌘ ,gd',
-        \'Gdiff'],
-    \['▷ git commit       (Fugitive)                                ⌘ ,gc',
-        \'Gcommit'],
-    \['▷ git log          (Gitv)                                    ⌘ ,gl',
-        \'Gitv'],
-    \['▷ git history      (Gitv)                                    ⌘ ,gv',
-        \'Gitv!'],
-    \['▷ git blame        (Fugitive)                                ⌘ ,gb',
-        \'Gblame'],
-    \['▷ git stage        (Fugitive)                                ⌘ ,gw',
-        \'Gwrite'],
-    \['▷ git checkout     (Fugitive)                                ⌘ ,go',
-        \'Gread'],
-    \['▷ git rm           (Fugitive)                                ⌘ ,gr',
-        \'Gremove'],
-    \['▷ git mv           (Fugitive)                                ⌘ ,gm',
-        \'exe "Git mv " input("destino: ")'],
-    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
-        \'Git! push'],
-    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
-        \'Git! pull'],
-    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
-        \'exe "Git! " input("comando git: ")'],
-    \['▷ git cd           (Fugitive)',
-        \'Gcd'],
-    \]
+            \['▷ tig                                                        ⌘ ,gt',
+            \'normal ,gt'],
+            \['▷ git status       (Fugitive)                                ⌘ ,gs',
+            \'Gstatus'],
+            \['▷ git diff         (Fugitive)                                ⌘ ,gd',
+            \'Gdiff'],
+            \['▷ git commit       (Fugitive)                                ⌘ ,gc',
+            \'Gcommit'],
+            \['▷ git log          (Gitv)                                    ⌘ ,gl',
+            \'Gitv'],
+            \['▷ git history      (Gitv)                                    ⌘ ,gv',
+            \'Gitv!'],
+            \['▷ git blame        (Fugitive)                                ⌘ ,gb',
+            \'Gblame'],
+            \['▷ git stage        (Fugitive)                                ⌘ ,gw',
+            \'Gwrite'],
+            \['▷ git checkout     (Fugitive)                                ⌘ ,go',
+            \'Gread'],
+            \['▷ git rm           (Fugitive)                                ⌘ ,gr',
+            \'Gremove'],
+            \['▷ git mv           (Fugitive)                                ⌘ ,gm',
+            \'exe "Git mv " input("destino: ")'],
+            \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
+            \'Git! push'],
+            \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
+            \'Git! pull'],
+            \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
+            \'exe "Git! " input("comando git: ")'],
+            \['▷ git cd           (Fugitive)',
+            \'Gcd'],
+            \]
 nnoremap <silent>[unite]g :Unite -silent -start-insert menu:git<CR>
 
 "Fugitive related key mappings
@@ -132,20 +153,27 @@ nnoremap [eunuch] <nop>
 
 nnoremap [eunuch]u :Unlink<CR>
 nnoremap [eunuch]r :Remove<CR>
-nnoremap [eunuch]f :Find<space>
-nnoremap [eunuch]l :Locate<space>
+nnoremap [eunuch]d :Mkdir<space>
+nnoremap [eunuch]m :Move<space>
+"change the name
+nnoremap [eunuch]c :Rename<space>
+nnoremap [eunuch]w :Wall<CR>
+" wall writes all files
+
 nnoremap [eunuch]s :SudoWrite<CR>
 nnoremap [eunuch]e :SudoEdit<CR>
-nnoremap [eunuch]w :Wall<CR>
-nnoremap [eunuch]m :Move<space>
-nnoremap [eunuch]c :Chmod<space>
-nnoremap [eunuch]d :Mkdir<space>
+nnoremap [eunuch]h :Chmod<space>
+nnoremap [eunuch]f :Find<space>
+nnoremap [eunuch]l :Locate<space>
 
 "Syntastic customization
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
+let g:syntastic_ruby_checkers          = ['mri', 'rubocop', 'reek']
+
+let g:syntastic_javascript_checkers = ['standard']
 
 
 "Rails vim
@@ -153,21 +181,26 @@ let g:syntastic_style_warning_symbol = '≈'
 nnoremap <leader>rf :find<space>
 nnoremap <leader>gg :e Gemfile<CR>
 nnoremap <leader>rr :e config/routes.rb<CR>
-nnoremap <leader>rq :Rtask<space>
-nnoremap <leader>rv :Rview<space>
-nnoremap <leader>rl :Rlayout<space>
-nnoremap <leader>rj :Rjavascript<space>
-nnoremap <leader>ro :Rserializer<space>
-nnoremap <leader>ru :Rspec serializers/
-nnoremap <leader>re :Renvironment<space>
-nnoremap <leader>rt :Rspec<space>
-nnoremap <leader>rf :Rfixtures<space>
-nnoremap <leader>rh :Rschema<space>
-nnoremap <leader>rs :Rstylesheet<space>
-nnoremap <leader>rc :Rcontroller<space>
-nnoremap <leader>rp :Rpreview<space>
-nnoremap <leader>rn :Rmailer<space>
-nnoremap <leader>ri :Rinitializer<space>
+nnoremap <leader>rq :REtask<space>
+nnoremap <leader>rv :REview<space>
+nnoremap <leader>rl :RElayout<space>
+nnoremap <leader>rj :REjavascript<space>
+nnoremap <leader>ro :REserializer<space>
+nnoremap <leader>ru :REspec serializers/
+nnoremap <leader>re :REenvironment<space>
+nnoremap <leader>rt :REspec<space>
+nnoremap <leader>rf :REfixtures<space>
+nnoremap <leader>rh :REschema<space>
+nnoremap <leader>rs :REstylesheet<space>
+nnoremap <leader>rc :REcontroller<space>
+nnoremap <leader>rp :REpreview<space>
+nnoremap <leader>rn :REmailer<space>
+nnoremap <leader>ri :REinitializer<space>
+
+nnoremap <space>a :A<CR>
+nnoremap <space>av :AV<CR>
+nnoremap <space>r :R<CR>
+nnoremap <space>rv :RV<CR>
 
 "Rake
 nnoremap <leader>rkk :Rake<space>
@@ -191,7 +224,7 @@ nnoremap <leader>rdd :Rdestroy migration<space>
 nnoremap <leader>rdr :Rdestroy resource<space>
 nnoremap <leader>rdt :Rdestroy task<space>
 
-nnoremap <leader>rm :Rmodel<space>
+nnoremap <leader>rm :REmodel<space>
 nnoremap <leader>rec :Rgenerate ember:controller<space>
 nnoremap <leader>reb :Rgenerate ember:bootstrap -n App<CR>
 nnoremap <leader>rem :Rgenerate ember:model<space>
@@ -214,7 +247,17 @@ let g:rails_projections = {
             \ "template": "class %SSerializer < ActiveModel::Serializer\nend"
             \ }
             \ }
-"Ember projections using ember-cli
+
+" Projections for simple ruby project
+let g:projectionist_heuristics = {
+            \ "lib|spec": {
+            \ "lib/*.rb": {
+            \     "type": "lib",
+            \     "alternate": "spec/{}_spec.rb"
+            \ }}}
+
+" Ember projections using ember-cli
+
 nnoremap <leader>em :Emodel <space>
 nnoremap <leader>ea :Eapp <space>
 nnoremap <leader>ec :Econtroller <space>
@@ -244,12 +287,23 @@ autocmd FileType java let b:dispatch = 'javac %'
 autocmd FileType javascript let b:dispatch = 'node %'
 
 nnoremap <leader>d :Dispatch<CR>
-nnoremap <space>d :Dispatch bundle exec rspec %<CR>
+" to see the output of the quick fix window
+nnoremap <leader>c :Copen<CR>
+"nnoremap <space>d :Dispatch bundle exec rspec %<CR>
+nnoremap <leader>br :Dispatch ruby %<CR>
+
 nnoremap <leader>bc :Dispatch bundle check <CR>
 nnoremap <leader>bi :Dispatch bundle install<CR>
 nnoremap <leader>bl :Dispatch bundle install --local<CR>
-
 "nmap <silent> <leader>bi :so MYVIMRC<CR>:NeoBundleInstall <CR>
+
+" vim-rspec
+let g:rspec_command = "Dispatch rspec {spec}"
+
+map <space>dd :call RunCurrentSpecFile()<CR>
+map <space>ds :call RunNearestSpec()<CR>
+map <space>dl :call RunLastSpec()<CR>
+map <space>da :call RunAllSpecs()<CR>
 
 "Vim signify"
 let g:signify_mapping_next_hunk = '<leader>gj'
@@ -282,7 +336,9 @@ nnoremap [vfiler] <nop>
 nnoremap <silent>   [vfiler]f   :VimFiler<CR>
 nnoremap <silent>   [vfiler]t   :VimFilerTab<CR>
 nnoremap <silent>   [vfiler]e   :VimFilerExplorer<CR>
+nnoremap <silent>   [vfiler]p   :VimFilerCurrentDir<CR>
 nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
+
 nnoremap [vfiler]j :VimFilerCreate app/assets/javascripts<CR>
 nnoremap [vfiler]a :VimFilerCreate app<CR>
 nnoremap [vfiler]s :VimFilerCreate spec<CR>
@@ -354,12 +410,11 @@ endfunction
 
 "vim-monster for ruby autocomplete
 " Set async completion.
-let g:monster#completion#rcodetools#backend = "async_rct_complete"
 
 " Use neocomplete.vim
 let g:neocomplete#force_omni_input_patterns = {
-\   'ruby' : '[^. *\t]\.\|\h\w*::',
-\}
+            \   'ruby' : '[^. *\t]\.\|\h\w*::',
+            \}
 
 
 " wildfire
@@ -367,9 +422,27 @@ let g:neocomplete#force_omni_input_patterns = {
 map <SPACE>w <Plug>(wildfire-fuel)
 map <SPACE>m <Plug>(wildfire-water)
 let g:wildfire_objects = {
-    \ "*" : ["i'", 'i"', "i)", "i]", "i}"]
-\ }
+            \ "*" : ["i'", 'i"', "i)", "i]", "i}"]
+            \ }
 
 cal wildfire#triggers#Add("<ENTER>", {
-    \ "html,xml,erb,hbs" : ["at", "it"],
-\ })
+            \ "html,xml,erb,hbs" : ["at", "it"],
+            \ })
+
+
+"OverCommandLine plugin
+"
+function! VisualFindAndReplace(param)
+    :exe "OverCommandLine ". a:param
+    :w
+endfunction
+function! VisualFindAndReplaceWithSelection(param) range
+    :exe "OverCommandLine ". a:param
+    :w
+endfunction
+nnoremap <leader>ss :call VisualFindAndReplace('%s/')<CR>
+xnoremap <leader>ss :call VisualFindAndReplaceWithSelection('%s/')<CR>
+nnoremap <leader>sr :call VisualFindAndReplace('%S/')<CR>
+xnoremap <leader>sr :call VisualFindAndReplaceWithSelection('%S/')<CR>
+nnoremap <leader>sw :call VisualFindAndReplace('%S/<C-R><C-W>/')<CR>
+xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('%S/<C-R><C-W>/')<CR>

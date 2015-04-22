@@ -8,9 +8,9 @@ plugins=(git git-flow command-not-found rails zsh-syntax-highlighting vundle ext
 
 source $ZSH/oh-my-zsh.sh
 
-PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin
+PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/opt/iojs-v1.6.3-linux-ia32/bin
+
 export PATH
-export TERM=xterm-256color
 #~/./days
 #fi
 BASE="$HOME/dotfiles/zsh"
@@ -31,4 +31,14 @@ export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 eval `gnome-keyring-daemon --start`
 
-alias a="./a.out"
+
+source ~/.gmail
+
+
+export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/opt/iojs-v1.6.3-linux-ia32/lib/node_modules
+
+#Extras
+# install fzf plugin for autocompletion
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+source $BASE/extras.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
