@@ -21,21 +21,21 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.ruby =  '[^. *\t]\.\w*\|\h\w*::'
 
-" HTML configurations
-"""""""""""""""""""""
+"" HTML configurations
+""""""""""""""""""""""
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 tabstop=2
 
-" Python configurations
-"""""""""""""""""""""""
+"" Python configurations
+""""""""""""""""""""""""
 autocmd FileType python setlocal shiftwidth=4 expandtab tabstop=4 softtabstop=4
 autocmd FileType python setlocal colorcolumn=80
 autocmd FileType python autocmd BufWritePre * :%s/\s\+$//e
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-" Coffeescript configurations
-"""""""""""""""""""""""""""""
-au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent
+"" Coffeescript configurations
+""""""""""""""""""""""""""""""
+"au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent
 au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 expandtab
 
 " Javascript configurations

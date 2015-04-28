@@ -3,8 +3,6 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundle 'dsawardekar/ember.vim'
-NeoBundle 'dsawardekar/portkey'
 
 "Tpope's awesomeness
 
@@ -20,6 +18,7 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-projectile'
 NeoBundle 'tpope/vim-repeat'
+"NeoBundle 'tpope/vim-sleuth'
 
 "Shougo's awesomeness
 
@@ -94,7 +93,7 @@ NeoBundle 'koron/nyancat-vim'
 NeoBundle 'bilalq/lite-dfm'
 
 NeoBundle 'junegunn/goyo.vim'
-"NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 
@@ -113,4 +112,5 @@ NeoBundle 'terryma/vim-multiple-cursors'
 
 NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'wellle/tmux-complete.vim'
-
+NeoBundle 'vim-scripts/vim-auto-save'
+NeoBundle 'elixir-lang/vim-elixir'

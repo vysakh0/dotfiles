@@ -55,10 +55,7 @@ snippet eu
  })
 
 snippet tr
-  this.resource('${1:#:name}');
-
-snippet to
-  this.route('${1:#:name}');
+    this.route('${1:#:name}');
 
 snippet eco
  Ember.ObjectController.extend({
@@ -95,3 +92,53 @@ snippet ac
         ${0:#://body...}
     }
  }
+
+# testing...
+# acceptance
+snippet tes
+ test('${1:#:action} ', function(assert) {
+   visit('/${2:#:route name}');
+
+   andThen(function() {
+     ${3:#:assertion}
+   });
+ });
+
+snippet ae
+ assert.equal(${1:#:check}, '${2:#:result}');
+
+snippet at
+ assert.equal(find('${1:#u.posts}').text(), '${2:#:result}');
+
+snippet al
+    assert.equal(find('${1:#u.posts}').length, ${2:#:1}, '${3:#:result}');
+
+snippet ft
+ find('${1:#:ul.posts}').text()
+
+snippet fi
+ fillIn('${1:#:ul.posts}', ${2:#:result})
+
+snippet cli
+ click('${1:#:button.submit}');
+
+# model assertion
+
+#snippet ao
+#assert.ok(${1:`substitute(vim_snippets#Filename(), '-test$', '', '')`}.get('${2:relation}'))
+#assert.ok($1.get('$2') instanceof DS.Model);
+#${0}
+
+snippet ao
+    assert.ok(model.get('${1:relation}'));
+    assert.ok(model.get('$1') instanceof DS.Model);
+    ${2}
+
+snippet erum
+ // set a relationship
+   Ember.run(function() {
+    model.set('${1:relation}', store.createRecord('$1', {}));
+   });
+
+snippet ems
+ model.set('${1:relation}', store.createRecord('$1', {}))

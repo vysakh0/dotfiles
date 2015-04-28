@@ -1,0 +1,96 @@
+{
+  "app/adapters/*.js": {
+    "command": "adapter",
+    "template": [
+      "// export default DS.{capitalize}Adapter.extend();",
+    ]
+  },
+
+  "app/components/*.js": {
+    "command": "component",
+    "alternate": "tests/unit/components/{}-test.js",
+    "template": [
+      "export default Ember.Component.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/helpers/*.js": {
+    "command": "helper",
+    "template": [
+      "// Please note that Handlebars helpers will only be found automatically by the",
+      "// resolver if their name contains a dash (reverse-word, translate-text, etc.)",
+      "// For more details: http://stefanpenner.github.io/ember-app-kit/guides/using-modules.html",
+      "",
+      "export default Ember.Handlebars.makeBoundHelper(function() {",
+      "",
+      "});",
+    ]
+  },
+
+  "app/models/*.js": {
+    "command": "model",
+    "alternate": "tests/unit/models/{}-test.js",
+    "template": [
+      "export default DS.Model.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/router.js": {
+    "command": "router"
+  },
+
+  "app/routes/*.js": {
+    "command": "route",
+    "template": [
+      "export default Ember.Route.extend({",
+      "",
+      "});",
+    ]
+
+  },
+
+  "app/styles/*.css": {
+    "command": "style",
+    "template": [
+      "/* {}.css */",
+      "",
+    ]
+  },
+
+  "app/templates/*.hbs": {
+    "command": "template",
+    "alternate": "app/components/{}.js"
+  },
+
+  "app/utils/*.js": {
+    "command": "util"
+  },
+
+  "app/views/*.js": {
+    "command": "view",
+    "template": [
+      "export default Ember.View.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/*.js": {
+    "alternate": "tests/unit/{}-test.js",
+    "type": "source"
+  },
+
+  "tests/unit/*-test.js":{
+    "alternate": "app/{}.js",
+    "type": "unit"
+  },
+  "tests/acceptance/*-test.js":{
+    "alternate": "app/templates/{}.hbs",
+    "type": "acceptance"
+  }
+
+}

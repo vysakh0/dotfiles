@@ -9,7 +9,6 @@ plugins=(git git-flow command-not-found rails zsh-syntax-highlighting vundle ext
 source $ZSH/oh-my-zsh.sh
 
 PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/opt/iojs-v1.6.3-linux-ia32/bin
-
 export PATH
 #~/./days
 #fi
@@ -33,7 +32,7 @@ eval `gnome-keyring-daemon --start`
 
 
 source ~/.gmail
-
+LISTMAX=0 # ask to complete if top of list would scroll off screen
 
 export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/opt/iojs-v1.6.3-linux-ia32/lib/node_modules
 

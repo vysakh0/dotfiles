@@ -1,0 +1,48 @@
+{
+    "web/models/*.ex": {
+        "command": "model",
+        "alternate": "test/models/{}_test.exs",
+        "template": [
+        ]
+    },
+
+    "web/controllers/*.ex": {
+        "command": "controller",
+        "alternate": "test/controllers/{}_test.exs",
+        "template": [
+        ]
+    },
+    "web/styles/*.css": {
+        "command": "style",
+        "template": [
+            "/* {}.css */",
+            "",
+        ]
+    },
+
+    "web/templates/*.html.eex": {
+        "command": "template",
+        "alternate": "web/components/{}.ex"
+    },
+
+    "web/utils/*.ex": {
+        "command": "util"
+    },
+
+    "web/views/*.ex": {
+        "command": "view",
+        "template": [
+        ]
+    },
+
+    "web/*.ex": {
+        "alternate": "test/{}_test.exs",
+        "type": "source"
+    },
+
+    "test/*_test.exs":{
+        "alternate": "web/{}.ex",
+        "type": "test"
+    }
+
+}

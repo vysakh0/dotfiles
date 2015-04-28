@@ -113,6 +113,8 @@ inoremap <c-w> <c-g>u<c-w>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>vv :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>az :e ~/dotfiles/zsh/aliases.zsh<CR>
+
 nmap <silent> <leader>eb :e ~/dotfiles/vim/bundles.vim<CR>
 nmap <silent> <leader>ep :e ~/dotfiles/vim/plugin_config.vim<CR>
 
@@ -176,7 +178,10 @@ vnoremap <leader>m  :m<space>
 noremap <leader>t  :t<space>
 noremap <leader>m  :m<space>
 
+"I've already set auto saving my buffer. This key is the pain to my
+"fingers. Not gonna use this anymore.
 nnoremap <leader>w :w<cr>
+
 nnoremap <leader>x :x<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <space>q :qa<cr>

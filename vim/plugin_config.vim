@@ -40,6 +40,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_file_mru_limit = 10
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts =
             \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
@@ -49,7 +50,7 @@ let g:unite_source_grep_recursive_opt = ''
 
 "call unite#custom#source('file_rec/async', 'ignore_pattern', ['tmp/', 'bin/'])
 " ignore certain files and directories while searching
-call unite#custom_source('file,file_rec,file_rec/async,grep',
+call unite#custom_source('file,file_rec,file_rec/async,ag',
             \ 'ignore_pattern', join([
             \ './.bundle/',
             \ './tmp/',
@@ -84,44 +85,6 @@ nnoremap <silent> [unite]fp :Unite -no-split -buffer-name=files -default-action=
 nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
 nnoremap <silent> [unite]fc :Unite -start-insert file_rec/async<cr>
 
-let g:unite_source_menu_menus = {}
-let g:unite_source_menu_menus.git = {
-            \ 'description' : '            gestionar repositorios git
-            \                            ⌘ [espacio]g',
-            \}
-let g:unite_source_menu_menus.git.command_candidates = [
-            \['▷ tig                                                        ⌘ ,gt',
-            \'normal ,gt'],
-            \['▷ git status       (Fugitive)                                ⌘ ,gs',
-            \'Gstatus'],
-            \['▷ git diff         (Fugitive)                                ⌘ ,gd',
-            \'Gdiff'],
-            \['▷ git commit       (Fugitive)                                ⌘ ,gc',
-            \'Gcommit'],
-            \['▷ git log          (Gitv)                                    ⌘ ,gl',
-            \'Gitv'],
-            \['▷ git history      (Gitv)                                    ⌘ ,gv',
-            \'Gitv!'],
-            \['▷ git blame        (Fugitive)                                ⌘ ,gb',
-            \'Gblame'],
-            \['▷ git stage        (Fugitive)                                ⌘ ,gw',
-            \'Gwrite'],
-            \['▷ git checkout     (Fugitive)                                ⌘ ,go',
-            \'Gread'],
-            \['▷ git rm           (Fugitive)                                ⌘ ,gr',
-            \'Gremove'],
-            \['▷ git mv           (Fugitive)                                ⌘ ,gm',
-            \'exe "Git mv " input("destino: ")'],
-            \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
-            \'Git! push'],
-            \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
-            \'Git! pull'],
-            \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
-            \'exe "Git! " input("comando git: ")'],
-            \['▷ git cd           (Fugitive)',
-            \'Gcd'],
-            \]
-nnoremap <silent>[unite]g :Unite -silent -start-insert menu:git<CR>
 
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -173,7 +136,8 @@ let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_ruby_checkers          = ['mri', 'rubocop', 'reek']
 
-let g:syntastic_javascript_checkers = ['standard']
+"let g:syntastic_javascript_checkers = ['standard']
+"let g:syntastic_javascript_checkers = ['jscs -c']
 
 
 "Rails vim
@@ -190,7 +154,8 @@ nnoremap <leader>ru :REspec serializers/
 nnoremap <leader>re :REenvironment<space>
 nnoremap <leader>rt :REspec<space>
 nnoremap <leader>rf :REfixtures<space>
-nnoremap <leader>rh :REschema<space>
+nnoremap <leader>rhh :REschema<space>
+nnoremap <leader>rhe :REschema<CR>
 nnoremap <leader>rs :REstylesheet<space>
 nnoremap <leader>rc :REcontroller<space>
 nnoremap <leader>rp :REpreview<space>
@@ -198,7 +163,9 @@ nnoremap <leader>rn :REmailer<space>
 nnoremap <leader>ri :REinitializer<space>
 
 nnoremap <space>a :A<CR>
+nnoremap <space>r :R<CR>
 nnoremap <space>av :AV<CR>
+nnoremap <space>rv :RV<CR>
 nnoremap <space>r :R<CR>
 nnoremap <space>rv :RV<CR>
 
@@ -225,12 +192,6 @@ nnoremap <leader>rdr :Rdestroy resource<space>
 nnoremap <leader>rdt :Rdestroy task<space>
 
 nnoremap <leader>rm :REmodel<space>
-nnoremap <leader>rec :Rgenerate ember:controller<space>
-nnoremap <leader>reb :Rgenerate ember:bootstrap -n App<CR>
-nnoremap <leader>rem :Rgenerate ember:model<space>
-nnoremap <leader>rer :Rgenerate ember:route<space>
-nnoremap <leader>ret :Rgenerate ember:template<space>
-nnoremap <leader>res :Rgenerate ember:resource<space>
 
 let g:rails_projections = {
             \ "spec/mailers/previews/*_preview.rb": {
@@ -257,31 +218,50 @@ let g:projectionist_heuristics = {
             \ }}}
 
 " Ember projections using ember-cli
+let g:projectionist_heuristics = {
+            \ "Brocfile.js": {
+            \ "tests/acceptance/*.js": {
+            \     "type": "lib",
+            \     "alternate": "test/{}_test.exs"
+            \ }
+        \ }
+    \ }
 
+nnoremap <leader>eea :Eacceptance<space>
+nnoremap <leader>eeu :Eunit<space>
+nnoremap <leader>ed :Etest<space>
 nnoremap <leader>em :Emodel <space>
-nnoremap <leader>ea :Eapp <space>
-nnoremap <leader>ec :Econtroller <space>
-nnoremap <leader>eo :Ecomponent<space>
+nnoremap <leader>ec :Ecomponent<space>
+nnoremap <leader>ea :Econtroller<space>
 nnoremap <leader>es :Estylesheet<space>
 nnoremap <leader>ev :Eview <space>
 nnoremap <leader>eu :e app/router.js<CR>
-nnoremap <space>eb :e Brocfile.js<CR>
-nnoremap <space>ep :e package.json<CR>
 nnoremap <leader>er :Eroute <space>
 nnoremap <leader>et :Etemplate <space>
 
-"Ember projections using rails.vim
-nmap <leader>a [ember-rails]
-nnoremap [ember-rails]em :Ejmodel <space>
-nnoremap [ember-rails]ec :Ejcontroller <space>
-nnoremap [ember-rails]eo :Ejcomponent<space>
-nnoremap [ember-rails]ev :Ejview <space>
-nnoremap [ember-rails]er :Ejroute <space>
-nnoremap [ember-rails]et :Etemplate <space>
+"phoenix projections
+nnoremap <leader>per :e web/router.ex<CR>
+
+" Projections for elixir project
+let g:projectionist_heuristics = {
+            \ "mix.exs": {
+            \ "lib/*.ex": {
+            \     "type": "lib",
+            \     "alternate": "test/{}_test.exs"
+            \ },
+            \ "test/*_test.exs": {
+            \     "type": "test",
+            \     "alternate": "lib/{}.ex"
+            \ }
+        \ }
+    \ }
+nnoremap <leader>mx :e mix.exs<cr>
+
 
 "Vim dispatch, change compiler for language specific"
 "autocmd FileType ruby let b:dispatch = 'ruby %'
 autocmd FileType ruby let b:dispatch = 'ruby %'
+autocmd FileType elixir let b:dispatch = 'elixir %'
 autocmd FileType python let b:dispatch = 'python %'
 autocmd FileType java let b:dispatch = 'javac %'
 autocmd FileType javascript let b:dispatch = 'node %'
@@ -295,7 +275,6 @@ nnoremap <leader>br :Dispatch ruby %<CR>
 nnoremap <leader>bc :Dispatch bundle check <CR>
 nnoremap <leader>bi :Dispatch bundle install<CR>
 nnoremap <leader>bl :Dispatch bundle install --local<CR>
-"nmap <silent> <leader>bi :so MYVIMRC<CR>:NeoBundleInstall <CR>
 
 " vim-rspec
 let g:rspec_command = "Dispatch rspec {spec}"
@@ -437,12 +416,23 @@ function! VisualFindAndReplace(param)
     :w
 endfunction
 function! VisualFindAndReplaceWithSelection(param) range
-    :exe "OverCommandLine ". a:param
+    :exe "'<,'>OverCommandLine ". a:param
     :w
 endfunction
 nnoremap <leader>ss :call VisualFindAndReplace('%s/')<CR>
-xnoremap <leader>ss :call VisualFindAndReplaceWithSelection('%s/')<CR>
+xnoremap <leader>ss :call VisualFindAndReplaceWithSelection('s/')<CR>
 nnoremap <leader>sr :call VisualFindAndReplace('%S/')<CR>
-xnoremap <leader>sr :call VisualFindAndReplaceWithSelection('%S/')<CR>
+xnoremap <leader>sr :call VisualFindAndReplaceWithSelection('S/')<CR>
 nnoremap <leader>sw :call VisualFindAndReplace('%S/<C-R><C-W>/')<CR>
-xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('%S/<C-R><C-W>/')<CR>
+xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('S/<C-R><C-W>/')<CR>
+
+"vim-auto save plugin
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+
+nmap <space>u [uunite]
+nnoremap [uunite] <nop>
+
+nnoremap [uunite]nu :<C-u>Unite neobundle/update -log -wrap -vertical -auto-quit<CR>
+nnoremap [uunite]ni :<C-u>Unite neobundle/install -log -wrap -vertical -auto-quit<CR>

@@ -33,11 +33,10 @@ alias t="tmux"
 
 # aliases
 alias st="~/./start-mod.sh"
-alias z="vim ~/.zshrc"
+alias vz="vim ~/.zshrc"
 alias az="vim ~/dotfiles/zsh/aliases.zsh"
 alias sz="source ~/.zshrc"
 alias vv="vim ~/.vimrc"
-alias sv="source ~/.vimrc"
 
 # alias to open the dotfiles directory
 alias dv="cd ~/dotfiles; vim +NERDTree"
@@ -100,8 +99,10 @@ ealias rn="rails new "
 ealias cy="cap deploy"
 ealias rdbm='rake db:migrate'
 
-#rails
-alias egc="ember generate controller"
+# ember stuff
+alias ems="ember server"
+alias emt="ember test --server"
+alias egc="ember generate component"
 alias egr="ember generate route"
 alias egt="ember generate template"
 alias egm="ember generate model"
@@ -109,12 +110,27 @@ alias egx="ember generate mixin"
 alias egi="ember generate initializer"
 alias egv="ember generate view"
 alias egs="ember generate resource" # think scaffold?
+alias ega="ember generate acceptance-test" # think scaffold?
 
 #node stuf
 alias ni="npm install"
 alias nis="npm install --save-dev"
 alias boi="bower install"
 alias bis="bower install --save"
+
+# elixir stuff
+alias min="mix new"
+alias mit="mix test"
+alias mil="mix local"
+
+# elixir stuff
+alias mec="mix ecto.migrate"
+alias mps="mix phoenix.server"
+alias mpn="mix phoenix.new"
+alias mpj="mix phoenix.gen.json"
+alias mph="mix phoenix.gen.html"
+alias mpm="mix phoenix.gen.model"
+alias mpr="mix phoenix.routes"
 
 # ctags
 alias tagit='ctags -R --exclude=.git --exclude=log *'
