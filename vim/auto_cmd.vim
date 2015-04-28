@@ -9,6 +9,7 @@ au VimResized * exe "normal! \<c-w>="
 
 "remove whitespace on writing
 autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
+
 " Ruby Configurations
 """""""""""""""""""""
 autocmd filetype ruby setlocal shiftwidth=2 tabstop=2
@@ -51,12 +52,3 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " change filetypes
 au BufNewFile,BufRead *.erb set filetype=eruby.html
 au BufNewFile,BufRead *.es6 set filetype=javascript
-
-"" Make sure we hilight extra whitespace in the most annoying way possible.
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"match ExtraWhitespace /\s\+$/
-"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-
-

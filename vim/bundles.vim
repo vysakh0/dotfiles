@@ -18,7 +18,6 @@ NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'tpope/vim-projectile'
 NeoBundle 'tpope/vim-repeat'
-"NeoBundle 'tpope/vim-sleuth'
 
 "Shougo's awesomeness
 
@@ -92,7 +91,6 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'koron/nyancat-vim'
 NeoBundle 'bilalq/lite-dfm'
 
-NeoBundle 'junegunn/goyo.vim'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
@@ -110,7 +108,7 @@ NeoBundle 'AndrewRadev/splitjoin.vim'
 
 NeoBundle 'terryma/vim-multiple-cursors'
 
-NeoBundle 'junegunn/seoul256.vim'
+"NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'wellle/tmux-complete.vim'
 NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'elixir-lang/vim-elixir'

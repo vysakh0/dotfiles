@@ -9,20 +9,10 @@ let mapleader=","
 
 " vim color theme
 set t_Co=256
-"if !has("gui_running")
-    ""colorscheme chance-of-storm
-    "colorscheme jellybeans
-"else
-    "colorscheme jellybeans
-"endif
-
-" Themes that seem to working in the fucking terminals are
-" seoul, jellybeans, gruvbox, vim-hybrid,
-"let g:seoul256_background = 236
-"colo seoul256
+" Themes that seem to working in the fucking terminals are " seoul, jellybeans, gruvbox, vim-hybrid,
+"let g:seoul256_background = 236 "colo seoul256
 colorscheme gruvbox
 set background=dark
-"let base16colorspace=256
 
 " SETTINGS/CONFIGURATIONS
 set nocompatible
@@ -154,8 +144,6 @@ nnoremap Y y$
 
 "ABBREVIATIONS
 
-"These abbreviations is my savior :D
-
 iabbr rma require 'minitest/autorun'
 iabbr ime import Ember from 'ember';
 cnoreabbrev Wq w
@@ -200,24 +188,11 @@ cmap rx Rextract
 nnoremap <leader>ld :pwd<CR>
 nnoremap <leader>lcp :lcd %:p:h<CR>
 nnoremap <leader>lcd :lcd ~/
-" currently selected text with default register
 
 " currently selected text with default register
 " without yanking it
 nnoremap <leader>r "_diwP
 vnoremap <leader>r "_dP
-
-
-iabbr fkrs Faker::Lorem.sentence
-iabbr fkrp Faker::Lorem.paragraph
-iabbr eakr gem 'ember-appkit-rails', github: 'dockyard/ember-appkit-rails'
-iabbr ha  auth_hash = request.env['omniauth.auth']
-
-"Rails project
-cnoreabbrev ra app/
-cnoreabbrev rj app/assets/javascripts/
-cnoreabbrev rt spec/
-cnoreabbrev rc config/
 
 "nnoremap <leader>ct :Ctags<CR>
 nnoremap <leader>ct :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>

@@ -362,17 +362,6 @@ hi StartifyHeader  ctermfg=114
 hi StartifyFooter  ctermfg=240
 hi StartifyFile    ctermfg=111
 
-
-"Ember vim mappings
-"nnoremap er :Eroute<space>
-"nnoremap em :Emodel<space>
-"nnoremap ec :Econtroller<space>
-"nnoremap et :Etemplate<space>
-"nnoremap es :Estylesheet<space>
-"nnoremap eg :Egrunt<space>
-"nnoremap ear :Eapp router<CR>
-"nnoremap eaa :Eapp app<CR>
-
 let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <Leader>z :LiteDFMToggle<CR>:silent !tmux set status > /dev/null 2>&1<CR>:redraw!<CR>
@@ -388,8 +377,6 @@ function! Multiple_cursors_after()
 endfunction
 
 "vim-monster for ruby autocomplete
-" Set async completion.
-
 " Use neocomplete.vim
 let g:neocomplete#force_omni_input_patterns = {
             \   'ruby' : '[^. *\t]\.\|\h\w*::',
@@ -397,7 +384,6 @@ let g:neocomplete#force_omni_input_patterns = {
 
 
 " wildfire
-"
 map <SPACE>w <Plug>(wildfire-fuel)
 map <SPACE>m <Plug>(wildfire-water)
 let g:wildfire_objects = {
