@@ -3,6 +3,13 @@ set autowriteall " Auto-save files when switching buffers or leaving vim.
 au FocusLost * silent! :wa
 au TabLeave * silent! :wa
 
+" on every change of text in the file, autosaves
+set updatetime=1000
+"autocmd CursorHoldI * silent w
+"autocmd TextChanged,TextChangedI <buffer> silent! :wa
+autocmd CursorHold * update
+autocmd CursorHold,CursorHoldI * update
+
 let g:mustache_abbreviations = 1
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="

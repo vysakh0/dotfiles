@@ -1,5 +1,4 @@
-
-"r PLUGIN CONFIGURATIONS
+" PLUGIN CONFIGURATIONS
 """""""""""""""""""""""
 "Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
@@ -224,18 +223,22 @@ let g:projectionist_heuristics = {
             \     "type": "lib",
             \     "alternate": "test/{}_test.exs"
             \ }
-        \ }
-    \ }
+            \ }
+            \ }
+nnoremap <leader>eu :e app/router.js<CR>
 
+"Common key strokes for ruby, elixi proj
+nnoremap <leader>el :Elib <space>
+nnoremap <leader>ed :Etest<space>
+
+"Common keystrokes for ember-cli, phoenix
 nnoremap <leader>eea :Eacceptance<space>
 nnoremap <leader>eeu :Eunit<space>
-nnoremap <leader>ed :Etest<space>
 nnoremap <leader>em :Emodel <space>
 nnoremap <leader>ec :Ecomponent<space>
 nnoremap <leader>ea :Econtroller<space>
 nnoremap <leader>es :Estylesheet<space>
 nnoremap <leader>ev :Eview <space>
-nnoremap <leader>eu :e app/router.js<CR>
 nnoremap <leader>er :Eroute <space>
 nnoremap <leader>et :Etemplate <space>
 
@@ -247,21 +250,22 @@ let g:projectionist_heuristics = {
             \ "mix.exs": {
             \ "lib/*.ex": {
             \     "type": "lib",
-            \     "alternate": "test/{}_test.exs"
+            \     "alternate": "test/{}_test.exs",
+            \     "template": "defmodule {camelcase|capitalize|colons} do\nend"
             \ },
             \ "test/*_test.exs": {
             \     "type": "test",
-            \     "alternate": "lib/{}.ex"
+            \     "alternate": "lib/{}.ex",
+            \     "template": "defmodule {camelcase|capitalize|colons}Test do\n  use ExUnit.Case\nend"
             \ }
-        \ }
-    \ }
+            \ }
+            \ }
 nnoremap <leader>mx :e mix.exs<cr>
 
 
 "Vim dispatch, change compiler for language specific"
 "autocmd FileType ruby let b:dispatch = 'ruby %'
 autocmd FileType ruby let b:dispatch = 'ruby %'
-autocmd FileType elixir let b:dispatch = 'elixir %'
 autocmd FileType python let b:dispatch = 'python %'
 autocmd FileType java let b:dispatch = 'javac %'
 autocmd FileType javascript let b:dispatch = 'node %'
@@ -271,6 +275,17 @@ nnoremap <leader>d :Dispatch<CR>
 nnoremap <leader>c :Copen<CR>
 "nnoremap <space>d :Dispatch bundle exec rspec %<CR>
 nnoremap <leader>br :Dispatch ruby %<CR>
+
+function! FileName()
+    let l:file_name = bufname("%")
+    let l:line_num  = line(".")
+    let l:total     = ( l:file_name.":".l:line_num )
+    :exe "Dispatch mix test ".total
+endfunction
+
+nnoremap <leader>mc :call FileName()<CR>
+nnoremap <leader>mf :Dispatch mix test %<CR>
+nnoremap <leader>mt :Dispatch mix test<CR>
 
 nnoremap <leader>bc :Dispatch bundle check <CR>
 nnoremap <leader>bi :Dispatch bundle install<CR>
@@ -364,7 +379,30 @@ hi StartifyFile    ctermfg=111
 
 let g:airline#extensions#tabline#enabled = 1
 
-nnoremap <Leader>z :LiteDFMToggle<CR>:silent !tmux set status > /dev/null 2>&1<CR>:redraw!<CR>
+nnoremap <Leader>z :Goyo<CR>
+let g:goyo_width = 110
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+  " ...
+endfunction
+
+autocmd! User GoyoEnter
+autocmd! User GoyoLeave
+autocmd  User GoyoEnter nested call <SID>goyo_enter()
+autocmd  User GoyoLeave nested call <SID>goyo_leave()
 "let g:github_access_token = ""
 function! Multiple_cursors_before()
     exe 'NeoCompleteLock'
@@ -411,11 +449,6 @@ nnoremap <leader>sr :call VisualFindAndReplace('%S/')<CR>
 xnoremap <leader>sr :call VisualFindAndReplaceWithSelection('S/')<CR>
 nnoremap <leader>sw :call VisualFindAndReplace('%S/<C-R><C-W>/')<CR>
 xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('S/<C-R><C-W>/')<CR>
-
-"vim-auto save plugin
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
-let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 
 nmap <space>u [uunite]
 nnoremap [uunite] <nop>

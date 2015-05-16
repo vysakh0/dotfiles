@@ -125,6 +125,7 @@ alias mil="mix local"
 
 # elixir stuff
 alias mec="mix ecto.migrate"
+alias mer="mix ecto.rollback"
 alias mps="mix phoenix.server"
 alias mpn="mix phoenix.new"
 alias mpj="mix phoenix.gen.json"

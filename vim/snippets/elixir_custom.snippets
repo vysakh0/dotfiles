@@ -1,0 +1,10 @@
+snippet fnn
+    fn
+      ${1:args} -> ${0}
+    end
+snippet tea
+    test "${1:test_name}" do
+       assert ${0}
+    end
+snippet ass
+    assert ${1:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${2:method_name} == ${3:result}

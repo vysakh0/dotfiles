@@ -8,10 +8,15 @@ filetype plugin indent on " required!
 let mapleader=","
 
 " vim color theme
-set t_Co=256
+if $COLORTERM == 'gnome-terminal'
+    set term=screen-256color
+    set t_Co=256
+endif
+
 " Themes that seem to working in the fucking terminals are " seoul, jellybeans, gruvbox, vim-hybrid,
-"let g:seoul256_background = 236 "colo seoul256
-colorscheme gruvbox
+let g:seoul256_background = 236
+colo seoul256
+"colorscheme gruvbox
 set background=dark
 
 " SETTINGS/CONFIGURATIONS
@@ -91,7 +96,7 @@ set foldmethod=indent
 set foldlevel=99
 
 " Toggle spellcheck in normal mode
-:map <F5> :setlocal spell! spelllang=en_us<CR>
+map <F5> :setlocal spell! spelllang=en_us<CR>
 
 
 " CUSTOM MAPPINGS
@@ -197,7 +202,7 @@ vnoremap <leader>r "_dP
 "nnoremap <leader>ct :Ctags<CR>
 nnoremap <leader>ct :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-iabbr ed export default
+"iabbr ed export default
 
 "the block selector special
 nnoremap <leader>vlg <C-v>G$
@@ -213,6 +218,13 @@ nnoremap <leader>2 m`yypVr-``
 nnoremap <leader>3 m`^i### <esc>``4l
 nnoremap <leader>4 m`^i#### <esc>``5l
 nnoremap <leader>5 m`^i##### <esc>``6l
+
+" Ascii doctor headings
+nnoremap <leader>6 m`^i= <esc>``2l
+nnoremap <leader>7 m`^i== <esc>``3l
+nnoremap <leader>8 m`^i=== <esc>``4l
+nnoremap <leader>9 m`^i==== <esc>``5l
+nnoremap <leader>0 m`^i===== <esc>``6l
 
 set autoread "sets it to reload files on change.
 au CursorHold,CursorHoldI * checktime " The problem is that Vim doesn't

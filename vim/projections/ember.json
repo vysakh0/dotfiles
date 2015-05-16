@@ -53,10 +53,10 @@
 
   },
 
-  "app/styles/*.css": {
-    "command": "style",
+  "app/styles/*.scss": {
+    "command": "stylesheet",
     "template": [
-      "/* {}.css */",
+      "/* {}.scss */",
       "",
     ]
   },

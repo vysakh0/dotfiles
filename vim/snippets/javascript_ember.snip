@@ -5,7 +5,7 @@ snippet eg
  ${1:this.}get('${2:#:property}');
 
 snippet es
- ${1:this.}set('${2:#:property}', ${3:#:value});
+ ${1:this}.set('${2:#:property}', ${3:#:value});
 
 # Computer properties
 
@@ -94,6 +94,21 @@ snippet ac
  }
 
 # testing...
+snippet test
+ test('${1:#:action} ', function(assert) {
+    ${0}
+ });
+snippet erun
+   Ember.run(function() {
+     ${0}
+   });
+snippet and
+   andThen(function() {
+     ${0}
+   });
+snippet exp
+    assert.expect(${1});
+    ${1}
 # acceptance
 snippet tes
  test('${1:#:action} ', function(assert) {
@@ -139,6 +154,7 @@ snippet erum
    Ember.run(function() {
     model.set('${1:relation}', store.createRecord('$1', {}));
    });
+
 
 snippet ems
  model.set('${1:relation}', store.createRecord('$1', {}))

@@ -49,8 +49,6 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle "myusuf3/numbers.vim"
 
-NeoBundle 'nelstrom/vim-markdown-folding.git'
-
 NeoBundle 'elzr/vim-json'
 
 NeoBundle 'vim-ruby/vim-ruby'
@@ -69,6 +67,7 @@ NeoBundle 'junegunn/vim-easy-align'
 NeoBundle "jiangmiao/auto-pairs"
 NeoBundle 'Yggdroot/indentLine'
 
+NeoBundle 'sickill/vim-pasta'
 
 NeoBundle "kshenoy/vim-signature"
 
@@ -76,6 +75,7 @@ NeoBundle "kshenoy/vim-signature"
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'm2mdas/unite-file-vcs'
 NeoBundle 'mhinz/vim-signify'
+"NeoBundle 'godlygeek/csapprox'
 
 
 NeoBundle 'othree/html5.vim'
@@ -89,26 +89,31 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'bling/vim-airline'
 
 NeoBundle 'koron/nyancat-vim'
-NeoBundle 'bilalq/lite-dfm'
+NeoBundle 'junegunn/goyo.vim'
 
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'nelstrom/vim-textobj-rubyblock'
 NeoBundle 'kana/vim-textobj-user'
 
-NeoBundle 'sickill/vim-pasta'
 "NeoBundle "wookiehangover/jshint.vim"
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'chriskempson/base16'
 
 NeoBundle 'wting/rust.vim'
-NeoBundle 'osyo-manga/vim-monster'
+"NeoBundle 'osyo-manga/vim-monster'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'gcmt/wildfire.vim'
 NeoBundle 'AndrewRadev/splitjoin.vim'
 
 NeoBundle 'terryma/vim-multiple-cursors'
 
-"NeoBundle 'junegunn/seoul256.vim'
+NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'wellle/tmux-complete.vim'
-NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'elixir-lang/vim-elixir'
+
+"NeoBundle 'vim-scripts/vim-auto-save'
+"autosave fucks my paste intendation! :/
+"
+NeoBundle 'dahu/vim-asciidoc'
+NeoBundle 'dahu/Asif'
+NeoBundle 'dahu/vimple'
