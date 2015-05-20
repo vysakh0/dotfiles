@@ -380,7 +380,7 @@ hi StartifyFile    ctermfg=111
 let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <Leader>z :Goyo<CR>
-let g:goyo_width = 110
+let g:goyo_width = 115
 function! s:goyo_enter()
   silent !tmux set status off
   set noshowmode

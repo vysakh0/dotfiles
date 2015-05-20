@@ -2,9 +2,26 @@ snippet fnn
     fn
       ${1:args} -> ${0}
     end
+
 snippet tea
     test "${1:test_name}" do
-       assert ${0}
+        assert ${1:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${2:method_name} == ${3:result}
     end
+
 snippet ass
     assert ${1:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${2:method_name} == ${3:result}
+
+snippet tes
+    test "${1:test_name}" do
+     ${0}
+    end
+snippet @doc
+    @doc """
+    ${1:#:Print the FizzBuzz sequence from 1 to n#}
+
+    ## Example
+
+      iex> ${2:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${3:method_name}
+      ${3:#:1 2 Fizz 4 Buzz :#}
+    """
+    ${4}
