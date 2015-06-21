@@ -1,119 +1,113 @@
-if has('vim_starting')
-    set nocompatible               " Be iMproved
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call plug#begin('~/.vim/plugged')
 
 "Tpope's awesomeness
 
-NeoBundle 'tpope/vim-fugitive.git'
-NeoBundle 'tpope/vim-surround.git'
-NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'tpope/vim-rails.git'
-NeoBundle 'tpope/vim-rake.git'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-markdown.git'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-obsession'
-NeoBundle 'tpope/vim-projectile'
-NeoBundle 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-projectile'
+Plug 'tpope/vim-repeat'
 
 "Shougo's awesomeness
 
-NeoBundle "Shougo/unite.vim"
-NeoBundle "Shougo/unite-outline"
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'linux' : 'make',
-      \    },
-      \ }
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundleFetch 'Shougo/neobundle.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimproc', { 'do': 'make' }
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neomru.vim'
 
 "Addons to unite
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle "osyo-manga/unite-quickfix"
+Plug 'tsukkee/unite-tag'
+Plug 'osyo-manga/unite-quickfix'
 
 
-NeoBundle 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 "Scoorloose"
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle "scrooloose/syntastic"
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
 
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle "myusuf3/numbers.vim"
+Plug 'Lokaltog/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'myusuf3/numbers.vim'
 
-NeoBundle 'elzr/vim-json'
+Plug 'elzr/vim-json'
 
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Keithbsmiley/rspec.vim'
-NeoBundle 'thoughtbot/vim-rspec'
+Plug 'vim-ruby/vim-ruby'
+Plug 'Keithbsmiley/rspec.vim'
+Plug 'thoughtbot/vim-rspec'
 
-NeoBundle "mhinz/vim-startify"
-NeoBundle 'altercation/vim-colors-solarized.git'
-NeoBundle 'honza/vim-snippets'
+Plug 'mhinz/vim-startify'
+Plug 'altercation/vim-colors-solarized'
+Plug 'honza/vim-snippets'
 
-NeoBundle "tomtom/tlib_vim"
-NeoBundle "dhruvasagar/vim-table-mode"
-"NeoBundle 'godlygeek/tabular'
-NeoBundle 'junegunn/vim-easy-align'
-"NeoBundle 'Raimondi/delimitMate'
-NeoBundle "jiangmiao/auto-pairs"
-NeoBundle 'Yggdroot/indentLine'
+Plug 'tomtom/tlib_vim'
+Plug 'dhruvasagar/vim-table-mode'
+"Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+"Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/indentLine'
 
-NeoBundle 'sickill/vim-pasta'
+Plug 'sickill/vim-pasta'
 
-NeoBundle "kshenoy/vim-signature"
+Plug 'kshenoy/vim-signature'
 
 " for git
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'm2mdas/unite-file-vcs'
-NeoBundle 'mhinz/vim-signify'
-"NeoBundle 'godlygeek/csapprox'
+Plug 'gregsexton/gitv'
+Plug 'm2mdas/unite-file-vcs'
+Plug 'mhinz/vim-signify'
+"Plug 'godlygeek/csapprox'
 
 
-NeoBundle 'othree/html5.vim'
-NeoBundle 'ap/vim-css-color'
+Plug 'othree/html5.vim'
+Plug 'ap/vim-css-color'
 "color picker"
-NeoBundle 'Rykka/colorv.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mattn/emmet-vim'
+Plug 'Rykka/colorv.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/emmet-vim'
 
-NeoBundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
-NeoBundle 'koron/nyancat-vim'
-NeoBundle 'junegunn/goyo.vim'
+Plug 'koron/nyancat-vim'
+Plug 'junegunn/goyo.vim'
 
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'nelstrom/vim-textobj-rubyblock'
-NeoBundle 'kana/vim-textobj-user'
+Plug 'justinmk/vim-sneak'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
 
-"NeoBundle "wookiehangover/jshint.vim"
-NeoBundle 'wellle/targets.vim'
-NeoBundle 'chriskempson/base16'
+"Plug "wookiehangover/jshint.vim"
+Plug 'wellle/targets.vim'
+Plug 'chriskempson/base16'
 
-NeoBundle 'wting/rust.vim'
-"NeoBundle 'osyo-manga/vim-monster'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'gcmt/wildfire.vim'
-NeoBundle 'AndrewRadev/splitjoin.vim'
+Plug 'wting/rust.vim'
+"Plug 'osyo-manga/vim-monster'
+Plug 'osyo-manga/vim-over'
+Plug 'gcmt/wildfire.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
-NeoBundle 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
-NeoBundle 'junegunn/seoul256.vim'
-NeoBundle 'wellle/tmux-complete.vim'
-NeoBundle 'elixir-lang/vim-elixir'
+Plug 'junegunn/seoul256.vim'
+Plug 'wellle/tmux-complete.vim'
+Plug 'elixir-lang/vim-elixir'
 
-"NeoBundle 'vim-scripts/vim-auto-save'
+"Plug 'vim-scripts/vim-auto-save'
 "autosave fucks my paste intendation! :/
 "
-NeoBundle 'dahu/vim-asciidoc'
-NeoBundle 'dahu/Asif'
-NeoBundle 'dahu/vimple'
+Plug 'dahu/vim-asciidoc'
+Plug 'dahu/Asif'
+Plug 'dahu/vimple'
+
+call plug#end()

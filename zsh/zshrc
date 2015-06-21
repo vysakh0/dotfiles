@@ -38,6 +38,9 @@ export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/op
 
 #Extras
 # install fzf plugin for autocompletion
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
+#export FZF_DEFAULT_COMMAND='ag -l -g ""'
+#export FZF_COMPLETION_TRIGGER='~~'
 source $BASE/extras.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Also install Facebook/pathpicker

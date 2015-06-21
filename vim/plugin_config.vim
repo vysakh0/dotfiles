@@ -31,60 +31,6 @@ vnoremap <silent> <Leader>a :EasyAlign<Enter>
 nmap ga <Plug>(EasyAlign)
 nmap <space>e gaip
 
-" U1nite
-nmap <space> [unite]
-nnoremap [unite] <nop>
-let g:unite_source_history_yank_enable = 1
-
-let g:unite_source_file_mru_limit = 10
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-            \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-            \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
-            \ '--ignore ''**/*.pyc'''
-let g:unite_source_grep_recursive_opt = ''
-
-"call unite#custom#source('file_rec/async', 'ignore_pattern', ['tmp/', 'bin/'])
-" ignore certain files and directories while searching
-call unite#custom_source('file,file_rec,file_rec/async,ag',
-            \ 'ignore_pattern', join([
-            \ './.bundle/',
-            \ './tmp/',
-            \ './log/',
-            \ './bin/',
-            \ './vendor/',
-            \ 'sqlite3',
-            \ '.jpg',
-            \ '.png',
-            \ '.mp4',
-            \ 'seeds',
-            \ ], '\|'))
-
-nnoremap <silent> [unite]tt :Unite -start-insert -no-split tag <cr>
-nnoremap <silent> [unite]tf :Unite -start-insert -no-split tag/file <cr>
-nnoremap <silent> [unite]vv :<C-u>Unite -start-insert -no-split -buffer-name=file_vcs file/vcs<CR>
-nnoremap <silent> [unite]ff :<C-u>Unite -start-insert file_rec<cr>
-nnoremap <silent> [unite]m :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-nnoremap <silent> [unite]op :<C-u>Unite -no-split -buffer-name=outline  -auto-preview outline<cr>
-nnoremap <silent> [unite]oo :<C-u>Unite -no-split -quick-match -buffer-name=outline  outline<cr>
-nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-"nnoremap <silent> [unite]s :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
-nnoremap <silent> [unite]// :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-nnoremap <silent> [unite]/w :<C-u>Unite -no-quit -buffer-name=search grep:.<cr><C-R><C-W><cr>
-nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-" Since we are using Obsess plugin, sometimes there are too many sessions
-" So, those buffers can be deleted by :%bd
-nnoremap <silent> [unite]ft :Unite file_rec/async -default-action=tabopen<cr>
-nnoremap <silent> [unite]fs :Unite file_rec/async -default-action=split<cr>
-nnoremap <silent> [unite]fv :Unite file_rec/async -default-action=vsplit<cr>
-nnoremap <silent> [unite]fp :Unite -no-split -buffer-name=files -default-action=preview file<cr>
-nnoremap <silent> [unite]fa :Unite -no-split -start-insert -auto-preview file_rec/async <cr>
-nnoremap <silent> [unite]fc :Unite -start-insert file_rec/async<cr>
-
-
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>ga :Git add -A<CR>
@@ -450,8 +396,7 @@ xnoremap <leader>sr :call VisualFindAndReplaceWithSelection('S/')<CR>
 nnoremap <leader>sw :call VisualFindAndReplace('%S/<C-R><C-W>/')<CR>
 xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('S/<C-R><C-W>/')<CR>
 
-nmap <space>u [uunite]
-nnoremap [uunite] <nop>
+"Fzf
+silent so ~/dotfiles/vim/fzf.vim
+nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>
 
-nnoremap [uunite]nu :<C-u>Unite neobundle/update -log -wrap -vertical -auto-quit<CR>
-nnoremap [uunite]ni :<C-u>Unite neobundle/install -log -wrap -vertical -auto-quit<CR>
