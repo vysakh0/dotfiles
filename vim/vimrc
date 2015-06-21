@@ -181,6 +181,11 @@ nnoremap <space>q :qa<cr>
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>te :tabedit<space>
+nnoremap <leader>ed :edit<space>
+nnoremap <leader>ex :Explore<cr>
+"netrw explore
+nnoremap <leader>er :Rex<cr>
+"netrw resume
 
 
 " Make arrowkey do something usefull, resize the viewports accordingly

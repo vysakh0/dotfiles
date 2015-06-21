@@ -119,10 +119,3 @@ function! GetCompletions()
                     \})) 
     endif
 endfunction
-nnoremap <space><space>  :FZF<CR>
-nnoremap <space>f  :FZF!<CR>
-nnoremap <space>g  :FZF<space>
-nnoremap <space>m  :FZFMru<space>
-nnoremap <space>t  :FZFTags<space>
-nnoremap <space>o  :FZFTagFile<space>
-nnoremap <space>s  :FZFLines<space>

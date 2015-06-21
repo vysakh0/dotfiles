@@ -15,32 +15,32 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-projectile'
 Plug 'tpope/vim-repeat'
 
+""Junegunn's awesomeness
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/goyo.vim'
+
 "Shougo's awesomeness
 
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/vimproc', { 'do': 'make' }
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
-Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/neomru.vim'
-
-"Addons to unite
-Plug 'tsukkee/unite-tag'
-Plug 'osyo-manga/unite-quickfix'
 
 
-Plug 'mustache/vim-mustache-handlebars'
 "Scoorloose"
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 
+"Osyo-manga
+"Plug 'osyo-manga/vim-monster'
+Plug 'osyo-manga/vim-over'
+Plug 'osyo-manga/vim-anzu'
+Plug 'osyo-manga/vim-hopping'
+
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'myusuf3/numbers.vim'
-
-Plug 'elzr/vim-json'
+Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'Keithbsmiley/rspec.vim'
@@ -52,10 +52,6 @@ Plug 'honza/vim-snippets'
 
 Plug 'tomtom/tlib_vim'
 Plug 'dhruvasagar/vim-table-mode'
-"Plug 'godlygeek/tabular'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-"Plug 'Raimondi/delimitMate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 
@@ -65,10 +61,7 @@ Plug 'kshenoy/vim-signature'
 
 " for git
 Plug 'gregsexton/gitv'
-Plug 'm2mdas/unite-file-vcs'
 Plug 'mhinz/vim-signify'
-"Plug 'godlygeek/csapprox'
-
 
 Plug 'othree/html5.vim'
 Plug 'ap/vim-css-color'
@@ -81,9 +74,7 @@ Plug 'mattn/emmet-vim'
 Plug 'bling/vim-airline'
 
 Plug 'koron/nyancat-vim'
-Plug 'junegunn/goyo.vim'
 
-Plug 'justinmk/vim-sneak'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'kana/vim-textobj-user'
 
@@ -91,9 +82,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'wellle/targets.vim'
 Plug 'chriskempson/base16'
 
-Plug 'wting/rust.vim'
-"Plug 'osyo-manga/vim-monster'
-Plug 'osyo-manga/vim-over'
+"Plug 'wting/rust.vim'
 Plug 'gcmt/wildfire.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
@@ -103,9 +92,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'wellle/tmux-complete.vim'
 Plug 'elixir-lang/vim-elixir'
 
-"Plug 'vim-scripts/vim-auto-save'
-"autosave fucks my paste intendation! :/
-"
 Plug 'dahu/vim-asciidoc'
 Plug 'dahu/Asif'
 Plug 'dahu/vimple'

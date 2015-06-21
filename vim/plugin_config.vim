@@ -1,5 +1,4 @@
-" PLUGIN CONFIGURATIONS
-"""""""""""""""""""""""
+""""""""""""""""""""""
 "Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
 let g:neocomplete#enable_at_startup = 1
@@ -268,24 +267,6 @@ let g:user_emmet_settings = {
             \}
 
 
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_enable_clipboard = 0
-let g:vimfiler_safe_mode_by_default = 0
-nmap <leader>f [vfiler]
-nnoremap [vfiler] <nop>
-nnoremap <silent>   [vfiler]f   :VimFiler<CR>
-nnoremap <silent>   [vfiler]t   :VimFilerTab<CR>
-nnoremap <silent>   [vfiler]e   :VimFilerExplorer<CR>
-nnoremap <silent>   [vfiler]p   :VimFilerCurrentDir<CR>
-nnoremap<silent> <F3> :<C-u>VimFilerExplorer<CR>
-
-nnoremap [vfiler]j :VimFilerCreate app/assets/javascripts<CR>
-nnoremap [vfiler]a :VimFilerCreate app<CR>
-nnoremap [vfiler]s :VimFilerCreate spec<CR>
-nnoremap [vfiler]c :VimFilerCreate config<CR>
-nnoremap [vfiler]b :VimFilerBufferDir<CR>
-nnoremap [vfiler]m :VimFilerCreate db/migrate<CR>
-
 nnoremap <leader>np :Nyancat<CR>
 
 "Matchit ftw
@@ -378,7 +359,7 @@ cal wildfire#triggers#Add("<ENTER>", {
             \ "html,xml,erb,hbs" : ["at", "it"],
             \ })
 
-
+""Osyo-manga"
 "OverCommandLine plugin
 "
 function! VisualFindAndReplace(param)
@@ -389,14 +370,36 @@ function! VisualFindAndReplaceWithSelection(param) range
     :exe "'<,'>OverCommandLine ". a:param
     :w
 endfunction
-nnoremap <leader>ss :call VisualFindAndReplace('%s/')<CR>
-xnoremap <leader>ss :call VisualFindAndReplaceWithSelection('s/')<CR>
-nnoremap <leader>sr :call VisualFindAndReplace('%S/')<CR>
-xnoremap <leader>sr :call VisualFindAndReplaceWithSelection('S/')<CR>
+nnoremap <leader>s :call VisualFindAndReplace('%s/')<CR>
+xnoremap <leader>s :call VisualFindAndReplaceWithSelection('s/')<CR>
+nnoremap <leader>S :call VisualFindAndReplace('%S/')<CR>
+xnoremap <leader>S :call VisualFindAndReplaceWithSelection('S/')<CR>
+"search and replace word under cursor
 nnoremap <leader>sw :call VisualFindAndReplace('%S/<C-R><C-W>/')<CR>
 xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('S/<C-R><C-W>/')<CR>
 
-"Fzf
-silent so ~/dotfiles/vim/fzf.vim
-nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>
+"anzu
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+" statusline
+set statusline=%{anzu#search_status()}
 
+nmap <Space>/ <Plug>(hopping-start)
+
+"Fzf
+nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>
+silent so ~/dotfiles/vim/fzf.vim
+nnoremap <space><space>  :FZF<CR>
+nnoremap <space>ap  :FZF app/<CR>
+nnoremap <space>ag  :Ag<space>
+nnoremap <space>f  :FZF!<CR>
+nnoremap <space>g  :FZF<space>
+nnoremap <space>m  :FZFMru<cr>
+nnoremap <space>t  :FZFTags<cr>
+nnoremap <space>o  :FZFTagFile<cr>
+nnoremap <space>s  :FZFLines<cr>
