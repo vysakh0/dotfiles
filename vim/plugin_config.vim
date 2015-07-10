@@ -390,6 +390,12 @@ nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 set statusline=%{anzu#search_status()}
 
 nmap <Space>/ <Plug>(hopping-start)
+let g:hopping#keymapping = {
+\   "\<C-n>" : "<Over>(hopping-next)",
+\   "\<C-p>" : "<Over>(hopping-prev)",
+\   "\<C-u>" : "<Over>(scroll-u)",
+\   "\<C-d>" : "<Over>(scroll-d)",
+\}
 
 "Fzf
 nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>

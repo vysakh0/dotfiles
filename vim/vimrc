@@ -165,11 +165,6 @@ source ~/dotfiles/vim/auto_cmd.vim
 "PLUGINS CONFIGURATION
 source ~/dotfiles/vim/plugin_config.vim
 
-"ex mode mappings, save shift key(2 keys :o)
-vnoremap <leader>t  :t<space>
-vnoremap <leader>m  :m<space>
-noremap <leader>t  :t<space>
-noremap <leader>m  :m<space>
 
 "I've already set auto saving my buffer. This key is the pain to my
 "fingers. Not gonna use this anymore.

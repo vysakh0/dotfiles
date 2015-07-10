@@ -50,13 +50,15 @@ source ~/.profile
 sudo apt-get install libreadline-dev libssl-dev zlib1g-dev build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev
 
 # installing ruby using rbenv
-CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 2.0.0-p247  #if the above dependencies are installed
+CONFIGURE_OPTS="--with-readline-dir=/usr/include/readline" rbenv install 2.2.0p0 #if the above dependencies are installed
 
 or
 
-rbenv install 2.0.0-p247  #when dependencies are not installed
+rbenv install 2.2.0p0 #when dependencies are not installed
 
-rbenv global 2.0.0-p247
+# setting global ruby version
+
+rbenv global 2.2.0p0
 ```
 
 Python should be available in most distros.
@@ -93,13 +95,15 @@ logout or Reboot
 ```bash
 git clone git@github.com:vysakh0/dotfiles.git
 
-#make sure you have cowsay installed ;)
-sudo apt-get install cowsay
-
-# vim
+# VIM
 ln -s dotfiles/vim/vimrc ~/.vimrc
-git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-vim +NeoBundleInstall
+
+# install Vim-Plug which is a plugin manager
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install plugins using vim-plug
+vim +PlugInstall
 
 #zsh
 ln -s dotfiles/zsh/zshrc ~/.zshrc
