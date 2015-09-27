@@ -8,8 +8,4 @@ cache/
 *.tags*
 *.gemtags*
 *.tmp*
-*.js
-*.css
-*.scss
 *.old
-*.json

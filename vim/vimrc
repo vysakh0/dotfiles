@@ -62,8 +62,6 @@ set showmatch
 set ignorecase
 set hlsearch
 set incsearch
-nnoremap / /\v
-vnoremap / /\v
 
 "Persistent undo is like a local version control system that you don't have to
 "manage. I think I will use this feature a lot.
@@ -151,6 +149,10 @@ nnoremap Y y$
 
 iabbr rma require 'minitest/autorun'
 iabbr ime import Ember from 'ember';
+
+iabbr qas gem 'quiet_assets'
+iabbr ramp gem 'rack-mini-profiler'
+
 cnoreabbrev Wq w
 cnoreabbrev W w
 cnoreabbrev WQ wq
@@ -158,6 +160,7 @@ cnoreabbrev WQ wq
 cnoreabbrev X x
 cnoreabbrev Q q
 
+cnoreabbrev scp scp://@//home/ubuntu/
 
 "FILE RELATED SETTINGS
 source ~/dotfiles/vim/auto_cmd.vim
@@ -177,10 +180,7 @@ nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>te :tabedit<space>
 nnoremap <leader>ed :edit<space>
-nnoremap <leader>ex :Explore<cr>
-"netrw explore
-nnoremap <leader>er :Rex<cr>
-"netrw resume
+nnoremap <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
 
 
 " Make arrowkey do something usefull, resize the viewports accordingly

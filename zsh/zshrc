@@ -8,7 +8,7 @@ plugins=(git git-flow command-not-found rails zsh-syntax-highlighting vundle ext
 
 source $ZSH/oh-my-zsh.sh
 
-PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/opt/iojs-v1.6.3-linux-ia32/bin
+PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/opt/iojs-v1.6.3-linux-ia32/bin:"$PATH:/home/vysakh/github/elixir/bin"
 export PATH
 #~/./days
 #fi

@@ -89,27 +89,25 @@ let g:syntastic_ruby_checkers          = ['mri', 'rubocop', 'reek']
 nnoremap <leader>rf :find<space>
 nnoremap <leader>gg :e Gemfile<CR>
 nnoremap <leader>rr :e config/routes.rb<CR>
-nnoremap <leader>rq :REtask<space>
-nnoremap <leader>rv :REview<space>
-nnoremap <leader>rl :RElayout<space>
-nnoremap <leader>rj :REjavascript<space>
-nnoremap <leader>ro :REserializer<space>
-nnoremap <leader>ru :REspec serializers/
-nnoremap <leader>re :REenvironment<space>
-nnoremap <leader>rt :REspec<space>
-nnoremap <leader>rf :REfixtures<space>
-nnoremap <leader>rhh :REschema<space>
-nnoremap <leader>rhe :REschema<CR>
-nnoremap <leader>rs :REstylesheet<space>
-nnoremap <leader>rc :REcontroller<space>
-nnoremap <leader>rp :REpreview<space>
-nnoremap <leader>rn :REmailer<space>
-nnoremap <leader>ri :REinitializer<space>
+nnoremap <leader>rq :Etask<space>
+nnoremap <leader>rv :Rview<space>
+nnoremap <leader>rl :Elayout<space>
+nnoremap <leader>rj :Ejavascript<space>
+nnoremap <leader>ro :Eserializer<space>
+nnoremap <leader>ru :Espec serializers/
+nnoremap <leader>re :Eenvironment<space>
+nnoremap <leader>rt :Espec<space>
+nnoremap <leader>rf :Efixtures<space>
+nnoremap <leader>rhh :Eschema<space>
+nnoremap <leader>rhe :Eschema<CR>
+nnoremap <leader>rs :Estylesheet<space>
+nnoremap <leader>rc :Econtroller<space>
+nnoremap <leader>rp :Epreview<space>
+nnoremap <leader>rn :Emailer<space>
+nnoremap <leader>ri :Einitializer<space>
 
 nnoremap <space>a :A<CR>
-nnoremap <space>r :R<CR>
 nnoremap <space>av :AV<CR>
-nnoremap <space>rv :RV<CR>
 nnoremap <space>r :R<CR>
 nnoremap <space>rv :RV<CR>
 
@@ -135,7 +133,7 @@ nnoremap <leader>rdd :Rdestroy migration<space>
 nnoremap <leader>rdr :Rdestroy resource<space>
 nnoremap <leader>rdt :Rdestroy task<space>
 
-nnoremap <leader>rm :REmodel<space>
+nnoremap <leader>rm :Emodel<space>
 
 let g:rails_projections = {
             \ "spec/mailers/previews/*_preview.rb": {
@@ -174,7 +172,7 @@ nnoremap <leader>eu :e app/router.js<CR>
 
 "Common key strokes for ruby, elixi proj
 nnoremap <leader>el :Elib <space>
-nnoremap <leader>ed :Etest<space>
+nnoremap <leader>eq :Etest<space>
 
 "Common keystrokes for ember-cli, phoenix
 nnoremap <leader>eea :Eacceptance<space>
@@ -309,21 +307,21 @@ let g:airline#extensions#tabline#enabled = 1
 nnoremap <Leader>z :Goyo<CR>
 let g:goyo_width = 115
 function! s:goyo_enter()
-  silent !tmux set status off
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  Limelight
-  " ...
+    silent !tmux set status off
+    set noshowmode
+    set noshowcmd
+    set scrolloff=999
+    Limelight
+    " ...
 endfunction
 
 function! s:goyo_leave()
-  silent !tmux set status on
-  set showmode
-  set showcmd
-  set scrolloff=5
-  Limelight!
-  " ...
+    silent !tmux set status on
+    set showmode
+    set showcmd
+    set scrolloff=5
+    Limelight!
+    " ...
 endfunction
 
 autocmd! User GoyoEnter
@@ -378,6 +376,20 @@ xnoremap <leader>S :call VisualFindAndReplaceWithSelection('S/')<CR>
 nnoremap <leader>sw :call VisualFindAndReplace('%S/<C-R><C-W>/')<CR>
 xnoremap <leader>sw :call VisualFindAndReplaceWithSelection('S/<C-R><C-W>/')<CR>
 
+"incsearch.vim
+let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+"nnoremap / /\v
+"vnoremap / /\v
 "anzu
 " mapping
 nmap n <Plug>(anzu-n-with-echo)
@@ -391,19 +403,29 @@ set statusline=%{anzu#search_status()}
 
 nmap <Space>/ <Plug>(hopping-start)
 let g:hopping#keymapping = {
-\   "\<C-n>" : "<Over>(hopping-next)",
-\   "\<C-p>" : "<Over>(hopping-prev)",
-\   "\<C-u>" : "<Over>(scroll-u)",
-\   "\<C-d>" : "<Over>(scroll-d)",
-\}
+            \   "\<C-n>" : "<Over>(hopping-next)",
+            \   "\<C-p>" : "<Over>(hopping-prev)",
+            \   "\<C-u>" : "<Over>(scroll-u)",
+            \   "\<C-d>" : "<Over>(scroll-d)",
+            \}
+
+function RangerExplorer()
+    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+    if filereadable('/tmp/vim_ranger_current_file')
+        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+        call system('rm /tmp/vim_ranger_current_file')
+    endif
+    redraw!
+endfun
+map <Leader>ex :call RangerExplorer()<CR>
 
 "Fzf
 nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>
 silent so ~/dotfiles/vim/fzf.vim
-nnoremap <space><space>  :FZF<CR>
+nnoremap <space><space>  :FZF!<CR>
 nnoremap <space>ap  :FZF app/<CR>
 nnoremap <space>ag  :Ag<space>
-nnoremap <space>f  :FZF!<CR>
+nnoremap <space>f  :FZF<CR>
 nnoremap <space>g  :FZF<space>
 nnoremap <space>m  :FZFMru<cr>
 nnoremap <space>t  :FZFTags<cr>

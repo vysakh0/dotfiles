@@ -132,6 +132,7 @@ alias mpj="mix phoenix.gen.json"
 alias mph="mix phoenix.gen.html"
 alias mpm="mix phoenix.gen.model"
 alias mpr="mix phoenix.routes"
+alias mdg="mix deps.get"
 
 # ctags
 alias tagit='ctags -R --exclude=.git --exclude=log *'
@@ -149,3 +150,4 @@ function b {
   fi
 }
 
+alias ngr="~/Downloads/ngrok/ngrok"

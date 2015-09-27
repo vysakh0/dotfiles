@@ -96,4 +96,5 @@ Plug 'dahu/vim-asciidoc'
 Plug 'dahu/Asif'
 Plug 'dahu/vimple'
 
+Plug 'haya14busa/incsearch.vim'
 call plug#end()

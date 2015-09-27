@@ -58,4 +58,5 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " change filetypes
 au BufNewFile,BufRead *.erb set filetype=eruby.html
+au BufNewFile,BufRead *.eex set filetype=eruby.html
 au BufNewFile,BufRead *.es6 set filetype=javascript

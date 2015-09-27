@@ -25,6 +25,11 @@ I have used very less of my own customization(except for zsh/aliases.zsh) and us
 
 You should have Vim  and zsh already installed. You need lua, ruby, python support to your Vim to install the plugins of this repo.
 
+##### Other command line tools
+
+- [fzf](https://github.com/junegunn/fzf) - Used for file searches
+- [ranger](https://github.com/hut/ranger) - Used as file explorer
+
 ##### Vim installation
 
 **Install lua**

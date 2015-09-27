@@ -6,10 +6,15 @@
         ]
     },
 
-    "web/controllers/*.ex": {
+    "web/controllers/*_controller.ex": {
         "command": "controller",
-        "alternate": "test/controllers/{}_test.exs",
+        "alternate": "test/controllers/{}_controller_test.exs",
         "template": [
+            "defmodule <`1`>.{camelcase|capitalize}Controller do",
+            "  use <`1`>.Web, :controller",
+            "",
+            "  <`2`>",
+            "end"
         ]
     },
     "web/styles/*.css": {
@@ -40,9 +45,21 @@
         "type": "source"
     },
 
-    "test/*_test.exs":{
-        "alternate": "web/{}.ex",
-        "type": "test"
+    "test/controllers/*_controller_test.exs":{
+        "alternate": "web/controllers/{}_controller.ex",
+        "type": "test",
+        "template": [
+        "defmodule <`1`>.{camelcase|capitalize}ControllerTest do",
+        "  use <`2`>.ConnCase",
+        "",
+        "  setup do",
+          "    conn = conn() |> put_req_header(\"accept\", \"application/json\")",
+          "    {:ok, conn: conn}",
+        "  end",
+        "",
+        "  <`2`>",
+        "end"
+        ]
     }
 
 }

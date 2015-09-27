@@ -610,6 +610,15 @@ snippet begin
 		# always executed
 	end
 
+# Rails specific
+snippet rcf
+    Rails.cache.fetch(${1:key_name}) do
+    ${2:values}
+    end
+
+snippet rcd
+    Rails.cache.delete(${1:key_name})
+
 #debugging
 snippet debug
 	require 'byebug'; byebug
@@ -741,3 +750,4 @@ snippet is
 	it { should ${0} }
 snippet isn
 	it { should_not ${0} }
+
