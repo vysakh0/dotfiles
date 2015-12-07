@@ -1,17 +1,11 @@
 "vime: nowrap fdm=marker
-silent so ~/dotfiles/vim/bundles.vim
+silent so ~/dotfiles/nvim/bundles.vim
 "runtime ftplugin/man.vim
 
 filetype plugin indent on " required!
 
 "Change leader key, ecomma is easier than \
 let mapleader=","
-
-" vim color theme
-if $COLORTERM == 'gnome-terminal'
-    set term=screen-256color
-    set t_Co=256
-endif
 
 " Themes that seem to working in the fucking terminals are " seoul, jellybeans, gruvbox, vim-hybrid,
 let g:seoul256_background = 236
@@ -20,7 +14,6 @@ colo seoul256
 set background=dark
 
 " SETTINGS/CONFIGURATIONS
-set nocompatible
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
 " Basic
@@ -109,8 +102,8 @@ nmap <silent> <leader>vv :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>az :e ~/dotfiles/zsh/aliases.zsh<CR>
 
-nmap <silent> <leader>eb :e ~/dotfiles/vim/bundles.vim<CR>
-nmap <silent> <leader>ep :e ~/dotfiles/vim/plugin_config.vim<CR>
+nmap <silent> <leader>eb :e ~/dotfiles/nvim/bundles.vim<CR>
+nmap <silent> <leader>ep :e ~/dotfiles/nvim/plugin_config.vim<CR>
 
 "Vundle install"
 
@@ -163,7 +156,7 @@ cnoreabbrev scp scp://@//home/ubuntu/
 source ~/dotfiles/vim/auto_cmd.vim
 
 "PLUGINS CONFIGURATION
-source ~/dotfiles/vim/plugin_config.vim
+source ~/dotfiles/nvim/plugin_config.vim
 
 
 "I've already set auto saving my buffer. This key is the pain to my
@@ -204,7 +197,7 @@ nnoremap <leader>ct :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q 
 " current line mapping
 nnoremap <space>vg <C-v>GE
 nnoremap <space>ve <C-v>E
-nnoremap <leader>g gg=G''<CR>
+nnoremap <leader>gg gg=G''<CR>
 
 function! RemoveComments()
     :g_\v(^|^\s+)#_d

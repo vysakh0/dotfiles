@@ -3,32 +3,32 @@ snippet fnn
       ${1:args} -> ${0}
     end
 
-snippet tee
+snippet tec
     test "${1:test_name}", %{conn: conn} do
-     conn = ${2:type} conn, ${3:resource}_path(conn, :create), ${3}: @${4:valid_or_invalid}_attrs
-     assert json_response(conn, 422)["errors"] != %{}
-    end
-
-snippet tjs
-    test "${1:test_name}", %{conn: conn} do
-     ${2:resource} = Repo.insert! %${3:model}{}
-     conn = ${4:type} conn, $2_path(conn, :create), $2: @valid_attrs
-     assert json_response(conn, 201)["data"]["id"]
-     assert Repo.get_by($3, @valid_attrs)
+     conn = ${2:type} conn, ${3:resource}_path(conn, ${4:action}), ${5:attrs}
+     resp = json_response(conn, ${6:status})
+     assert ${7:assertion}
     end
 
 snippet tea
     test "${1:test_name}" do
-        assert ${1:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${2:method_name} == ${3:result}
+        assert ${2:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${3:method_name} == ${4:result}
     end
 
 snippet ass
     assert ${1:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${2:method_name} == ${3:result}
 
-snippet tes
-    test "${1:test_name}" do
-     ${0}
-    end
+snippet @mdoc
+    @moduledoc """
+    ${1:#:Print the FizzBuzz sequence from 1 to n#}
+
+    ## Example
+
+    ${2:    }iex> ${3:`substitute(substitute(vim_snippets#Filename(), '_test$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`}.${4:method_name}
+    $2${5:#:1 2 Fizz 4 Buzz :#}
+
+    """
+    ${6}
 snippet @doc
     @doc """
     ${1:#:Print the FizzBuzz sequence from 1 to n#}
@@ -40,3 +40,11 @@ snippet @doc
 
     """
     ${6}
+
+snippet eat
+    alter table(:${1:tablename}) do
+      ${2:"add_or_modify_or_remove"}
+    end
+
+snippet eai
+    create index(:${1:table}, [:${2:columns}], name: ${3:name}, unique: true)

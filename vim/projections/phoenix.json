@@ -17,6 +17,13 @@
             "end"
         ]
     },
+
+    "web/channels/*.ex": {
+        "command": "channel",
+        "alternate": "test/channels/{}_test.exs",
+        "template": [
+        ]
+    },
     "web/styles/*.css": {
         "command": "style",
         "template": [
@@ -60,6 +67,12 @@
         "  <`2`>",
         "end"
         ]
-    }
+    },
 
+    "test/models/*_test.exs":{
+        "alternate": "web/models/{}.ex",
+    },
+    "test/channels/*_test.exs":{
+        "alternate": "web/channels/{}.ex",
+    }
 }

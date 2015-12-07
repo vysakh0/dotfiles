@@ -1,46 +1,28 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-
-#if [[ -n $TMUX ]]; then
-# Let's make sure we're in tmux boots before loading anything. Without this if,
-# everything loads in the "real", non-tmux terminal.
-plugins=(git git-flow command-not-found rails zsh-syntax-highlighting vundle extract)
-
-source $ZSH/oh-my-zsh.sh
-
-PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/opt/iojs-v1.6.3-linux-ia32/bin:"$PATH:/home/vysakh/github/elixir/bin"
+PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/home/vysakh/github/node-v4.1.1-linux-x86/bin:"$PATH:/home/vysakh/github/elixir/bin"
 export PATH
-#~/./days
-#fi
+
 BASE="$HOME/dotfiles/zsh"
 source $BASE/aliases.zsh
 #DISABLE_CORRECTION=”true”
 unsetopt correct_all
-
 export EDITOR='vim'
 export VISUAL=vim
 #open tmux with utf-8 support instead of relying on local, got from dhruvsagar post
 alias tmux="tmux -u"
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-source ~/dotfiles/zsh/syntax-highlight/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 xhost local:vysakh > /dev/null
 
 export TERM=xterm-256color
 #[ -n "$TMUX" ] && export TERM=screen-256color
 eval `gnome-keyring-daemon --start`
 
-
-source ~/.gmail
 LISTMAX=0 # ask to complete if top of list would scroll off screen
 
-export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/opt/iojs-v1.6.3-linux-ia32/lib/node_modules
-
-#Extras
-# install fzf plugin for autocompletion
-#export FZF_DEFAULT_COMMAND='ag -l -g ""'
-#export FZF_COMPLETION_TRIGGER='~~'
+source $BASE/zplug.zsh
+zplug load
 source $BASE/extras.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Also install Facebook/pathpicker
+export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD ||
+   find * -name ".*" -prune -o -type f -print -o -type l -print) 2> /dev/null'
+export ENHANCD_FILTER="fzf"
+

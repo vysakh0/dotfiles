@@ -2,6 +2,8 @@ tmp/
 node_modules/
 dist/
 bower_components/
+/bower_components
+/node_modules
 cache/
 *.sql
 *.sqlite3
@@ -9,3 +11,5 @@ cache/
 *.gemtags*
 *.tmp*
 *.old
+tags
+Session.vim

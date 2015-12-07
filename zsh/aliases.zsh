@@ -61,6 +61,7 @@ alias -s com=chromium-browser
 
 # Vim aliases
 ealias v="vim "
+ealias nv="nvim "
 ealias vi="vim "
 # Vim-style line editing
 bindkey -v
@@ -74,8 +75,8 @@ bindkey '^[[B' down-line-or-search
 #git alias
 alias gpo="git push origin"
 alias gpl="git pull origin"
-alias gpod="git push origin develop"
-alias gpld="git pull --rebase origin develop"
+alias gpom="git push origin master"
+alias gplm="git pull --rebase origin master"
 
 #git flow related aliases
 #alias gf="git flow"
@@ -116,7 +117,7 @@ alias ega="ember generate acceptance-test" # think scaffold?
 alias ni="npm install"
 alias nis="npm install --save-dev"
 alias boi="bower install"
-alias bis="bower install --save"
+alias bois="bower install --save"
 
 # elixir stuff
 alias min="mix new"
@@ -124,15 +125,19 @@ alias mit="mix test"
 alias mil="mix local"
 
 # elixir stuff
-alias mec="mix ecto.migrate"
+alias mem="mix ecto.migrate"
 alias mer="mix ecto.rollback"
+alias meg="mix ecto.gen.migration"
 alias mps="mix phoenix.server"
 alias mpn="mix phoenix.new"
 alias mpj="mix phoenix.gen.json"
 alias mph="mix phoenix.gen.html"
 alias mpm="mix phoenix.gen.model"
+alias mpc="mix phoenix.gen.channel"
 alias mpr="mix phoenix.routes"
 alias mdg="mix deps.get"
+alias iem="iex -S mix"
+alias iemt="iex -S mix test"
 
 # ctags
 alias tagit='ctags -R --exclude=.git --exclude=log *'

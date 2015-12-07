@@ -1,9 +1,8 @@
 """"""""""""""""""""""
 "Numbers vim toggle
 nnoremap <F9> :NumbersToggle<CR>
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#data_directory='~/.vim/.cache/neocomplete'
+
+let g:deoplete#enable_at_startup = 1
 
 "Necomplete + Neo snippets key-mappings.
 "
@@ -73,21 +72,9 @@ nnoremap [eunuch]h :Chmod<space>
 nnoremap [eunuch]f :Find<space>
 nnoremap [eunuch]l :Locate<space>
 
-"Syntastic customization
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '✠'
-let g:syntastic_warning_symbol = '∆'
-let g:syntastic_style_warning_symbol = '≈'
-let g:syntastic_ruby_checkers          = ['mri', 'rubocop', 'reek']
-"let g:syntastic_enable_elixir_checker = 1
-"let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_javascript_checkers = ['jscs']
-
-
 "Rails vim
 "Create command abbreviations that auto corrects ;)
 nnoremap <leader>rf :find<space>
-nnoremap <leader>gg :e Gemfile<CR>
 nnoremap <leader>rr :e config/routes.rb<CR>
 nnoremap <leader>rq :Etask<space>
 nnoremap <leader>rv :Rview<space>
@@ -205,49 +192,24 @@ let g:projectionist_heuristics = {
             \ }
             \ }
 nnoremap <leader>mx :e mix.exs<cr>
+"Neomake
+let g:neomake_javascript_enabled_makers = ['jscs']
+autocmd! BufWritePost * Neomake
 
-
-"Vim dispatch, change compiler for language specific"
-"autocmd FileType ruby let b:dispatch = 'ruby %'
-autocmd FileType ruby let b:dispatch = 'ruby %'
-autocmd FileType python let b:dispatch = 'python %'
-autocmd FileType java let b:dispatch = 'javac %'
-autocmd FileType javascript let b:dispatch = 'node %'
-
-nnoremap <leader>d :Dispatch<CR>
+nnoremap <space>n :Neomake<CR>
 " to see the output of the quick fix window
-nnoremap <leader>c :Copen<CR>
-"nnoremap <space>d :Dispatch bundle exec rspec %<CR>
-nnoremap <leader>br :Dispatch ruby %<CR>
+nnoremap <leader>co :copen<CR>
 
-function! FileName()
-    let l:file_name = bufname("%")
-    let l:line_num  = line(".")
-    let l:total     = ( l:file_name.":".l:line_num )
-    :exe "Dispatch mix test ".total
-endfunction
-
-nnoremap <leader>mc :call FileName()<CR>
-nnoremap <leader>mf :Dispatch mix test %<CR>
-nnoremap <leader>mt :Dispatch mix test<CR>
-nnoremap <leader>meg :Dispatch mix ecto.gen.migration<space>
-
-nnoremap <leader>bc :Dispatch bundle check <CR>
-nnoremap <leader>bi :Dispatch bundle install<CR>
-nnoremap <leader>bl :Dispatch bundle install --local<CR>
-
-" vim-rspec
-let g:rspec_command = "Dispatch rspec {spec}"
-
-map <space>dd :call RunCurrentSpecFile()<CR>
-map <space>ds :call RunNearestSpec()<CR>
-map <space>dl :call RunLastSpec()<CR>
-map <space>da :call RunAllSpecs()<CR>
+let test#strategy = "dispatch"
+nmap <silent> <space>dd :TestNearest<CR>
+nmap <silent> <space>df :TestFile<CR>
+nmap <silent> <space>da :TestSuite<CR>
+nmap <silent> <space>dl :TestLast<CR>
+nmap <silent> <space>dv :TestVisit<CR>
 
 "Vim signify"
-let g:signify_mapping_next_hunk = '<leader>gj'
-let g:signify_mapping_prev_hunk = '<leader>gk'
-let g:signify_mapping_toggle_highlight = '<leader>gh'
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
 
 "emmet zencoding
 let g:user_emmet_settings = {
@@ -331,22 +293,6 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 "let g:github_access_token = ""
-function! Multiple_cursors_before()
-    exe 'NeoCompleteLock'
-    echo 'Disabled autocomplete'
-endfunction
-
-function! Multiple_cursors_after()
-    exe 'NeoCompleteUnlock'
-    echo 'Enabled autocomplete'
-endfunction
-
-"vim-monster for ruby autocomplete
-" Use neocomplete.vim
-let g:neocomplete#force_omni_input_patterns = {
-            \   'ruby' : '[^. *\t]\.\|\h\w*::',
-            \}
-
 
 " wildfire
 map <SPACE>w <Plug>(wildfire-fuel)
@@ -412,16 +358,7 @@ let g:hopping#keymapping = {
             \   "\<C-d>" : "<Over>(scroll-d)",
             \}
 
-function RangerExplorer()
-    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
-    if filereadable('/tmp/vim_ranger_current_file')
-        exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
-        call system('rm /tmp/vim_ranger_current_file')
-    endif
-    redraw!
-endfun
-map <Leader>ex :call RangerExplorer()<CR>
-
+nnoremap <f3> :tabe %:p:h<cr>
 "Fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>
