@@ -68,6 +68,12 @@ nvim +PlugInstall
 
 #zsh
 ln -s dotfiles/zsh/zshrc ~/.zshrc
+
+# tmux
+ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+# ag (silver search)
+ln -s ~/dotfiles/other-tools/agignore ~/.agignore
 ```
 
 ##### Support for other language plugins:
