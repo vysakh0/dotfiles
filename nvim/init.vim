@@ -21,7 +21,7 @@ syntax enable
 
 set number
 set hidden
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set backspace=indent,eol,start " Make backspace behave normally.
 set noswapfile
 set scrolloff=3    " setting the page on scrolling the screen
@@ -153,7 +153,7 @@ cnoreabbrev Q q
 cnoreabbrev scp scp://@//home/ubuntu/
 
 "FILE RELATED SETTINGS
-source ~/dotfiles/vim/auto_cmd.vim
+source ~/dotfiles/nvim/auto_cmd.vim
 
 "PLUGINS CONFIGURATION
 source ~/dotfiles/nvim/plugin_config.vim
@@ -221,7 +221,6 @@ nnoremap <leader>7 m`^i== <esc>``3l
 nnoremap <leader>8 m`^i=== <esc>``4l
 nnoremap <leader>9 m`^i==== <esc>``5l
 nnoremap <leader>0 m`^i===== <esc>``6l
-
 set autoread "sets it to reload files on change.
 au CursorHold,CursorHoldI * checktime " The problem is that Vim doesn't
 "actually check changes. So this  makes it check periodically.

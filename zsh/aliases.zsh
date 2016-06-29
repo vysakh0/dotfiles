@@ -33,13 +33,10 @@ alias t="tmux"
 
 # aliases
 alias st="~/./start-mod.sh"
-alias vz="vim ~/.zshrc"
-alias az="vim ~/dotfiles/zsh/aliases.zsh"
+alias vz="nvim ~/.zshrc"
+alias az="nvim ~/dotfiles/zsh/aliases.zsh"
 alias sz="source ~/.zshrc"
-alias vv="vim ~/.vimrc"
 
-# alias to open the dotfiles directory
-alias dv="cd ~/dotfiles; vim +NERDTree"
 alias cp="cp -iv"
 alias rm="rm -iv"
 alias mv="mv -iv"
@@ -51,6 +48,7 @@ alias reboot='sudo reboot'
 alias api='sudo apt-get install'
 alias aps='sudo apt-cache search'
 
+ealias y='vim ~/.zshrc'
 # open file using the software
 alias -s html=vim
 alias -s rb=vim
@@ -60,9 +58,10 @@ alias -s pdf=evince
 alias -s com=chromium-browser
 
 # Vim aliases
-ealias v="vim "
+ealias v="nvim "
+ealias vim="nvim"
 ealias nv="nvim "
-ealias vi="vim "
+ealias vi="nvim "
 # Vim-style line editing
 bindkey -v
 # I want my bck-i-search
@@ -138,13 +137,12 @@ alias mpr="mix phoenix.routes"
 alias mdg="mix deps.get"
 alias iem="iex -S mix"
 alias iemt="iex -S mix test"
+alias ddd="MIX_ENV=test mix ecto.drop; MIX_ENV=test mix ecto.create; MIX_ENV=test mix ecto.migrate"
+alias sss="MIX_ENV=prod mix compile; MIX_ENV=prod mix release --verbosity=verbose"
+alias yy="rm -rf _build/prod; MIX_ENV=prod mix release --verbosity=verbose"
 
 # ctags
 alias tagit='ctags -R --exclude=.git --exclude=log *'
-
-# asciidoctor
-alias asp="ruby ~/ascii/asciidoctor-pdf/bin/asciidoctor-pdf"
-alias ase="ruby ~/ascii/asciidoctor-epub3/bin/asciidoctor-epub3 -D output"
 
 function b {
   if [[ $# == 0 ]]

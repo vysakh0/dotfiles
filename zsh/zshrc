@@ -1,6 +1,7 @@
-PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/home/vysakh/github/node-v4.1.1-linux-x86/bin:"$PATH:/home/vysakh/github/elixir/bin"
+PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/home/vysakh/github/node-v4.1.1-linux-x86/bin:/home/vysakh/github/elixir/bin
 export PATH
 
+export NODE_PATH=/home/vysakh/github/node-v4.1.1-linux-x86/lib/node_modules
 BASE="$HOME/dotfiles/zsh"
 source $BASE/aliases.zsh
 #DISABLE_CORRECTION=”true”
@@ -26,3 +27,6 @@ export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD ||
    find * -name ".*" -prune -o -type f -print -o -type l -print) 2> /dev/null'
 export ENHANCD_FILTER="fzf"
 
+source ~/secrets.zsh
+. $HOME/.asdf/asdf.sh
+export ANDROID_HOME=/home/vysakh/Android/Sdk

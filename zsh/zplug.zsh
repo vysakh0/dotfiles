@@ -10,6 +10,8 @@ zplug "junegunn/fzf-bin", \
 
 # Support oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/command-not-found",   from:oh-my-zsh
+zplug "plugins/extract",   from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
 
 if ! zplug check --verbose; then

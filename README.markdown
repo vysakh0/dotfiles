@@ -30,7 +30,48 @@ You should have Vim  and zsh already installed. You need lua, ruby, python suppo
 - [fzf](https://github.com/junegunn/fzf) - Used for file searches
 - [ranger](https://github.com/hut/ranger) - Used as file explorer
 
-##### Vim installation
+
+#### Neovim installation
+
+```bash
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout v0.1.4
+make
+sudo make install
+```
+
+For more or different installation, refer [neovim installation](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source)
+
+#### Install Zsh and oh-my-zsh
+
+``` bash
+sudo apt-get update && sudo apt-get install zsh # for ubuntu
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+chsh -s /bin/zsh
+```
+logout or Reboot
+
+### Install the settings from the repo
+
+```bash
+git clone git@github.com:vysakh0/dotfiles.git
+
+# VIM
+ln -s dotfiles/nvim/init ~/.config/v
+
+# install Vim-Plug which is a plugin manager
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install plugins using vim-plug
+nvim +PlugInstall
+
+#zsh
+ln -s dotfiles/zsh/zshrc ~/.zshrc
+```
+
+#### Other installation (optional)
 
 **Install lua**
 ```bash
@@ -68,48 +109,5 @@ rbenv global 2.2.0p0
 
 Python should be available in most distros.
 
-**Install latest Vim**
 
-```bash
-wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-tar -xvjf  vim-7.4.tar.bz2
-cd vim74
-
-./configure --with-features=huge \
-    --enable-rubyinterp \
-    --enable-pythoninterp \
-    --enable-perlinterp \
-    --with-lua-prefix=/usr/local --enable-luainterp \
-    --enable-gui=gtk2 --enable-cscope --prefix=/usr
-
-make VIMRUNTIMEDIR=/usr/share/vim/vim74
-sudo make install
-```
-
-#### Install Zsh and oh-my-zsh
-
-``` bash
-sudo apt-get update && sudo apt-get install zsh
-curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-chsh -s /bin/zsh
-```
-logout or Reboot
-
-### Install the settings from the repo
-
-```bash
-git clone git@github.com:vysakh0/dotfiles.git
-
-# VIM
-ln -s dotfiles/vim/vimrc ~/.vimrc
-
-# install Vim-Plug which is a plugin manager
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Install plugins using vim-plug
-vim +PlugInstall
-
-#zsh
-ln -s dotfiles/zsh/zshrc ~/.zshrc
-```
+Begin your code :boom: Bonne Chance :metal:

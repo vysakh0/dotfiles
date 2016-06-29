@@ -9,10 +9,6 @@ let g:deoplete#enable_at_startup = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-imap <C-i>     <Plug>(neosnippet_expand_or_jump)
-smap <C-i>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-i>     <Plug>(neosnippet_expand_target)
-
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
@@ -27,8 +23,9 @@ if has('conceal')
 endif
 vnoremap <silent> <Leader>a :EasyAlign<Enter>
 nmap ga <Plug>(EasyAlign)
-nmap <space>e gaip
+nmap <Leader>e gaip
 
+let g:syntastic_javascript_checkers = ['eslint']
 "Fugitive related key mappings
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>ga :Git add -A<CR>
@@ -51,8 +48,6 @@ nnoremap <silent> <leader>gl :Gitv<CR>
 "file transforms"
 nnoremap <silent> <leader>gv :Gitv!<CR>
 
-
-
 "Enunch
 nmap <leader>u [eunuch]
 nnoremap [eunuch] <nop>
@@ -73,7 +68,6 @@ nnoremap [eunuch]f :Find<space>
 nnoremap [eunuch]l :Locate<space>
 
 "Rails vim
-"Create command abbreviations that auto corrects ;)
 nnoremap <leader>rf :find<space>
 nnoremap <leader>rr :e config/routes.rb<CR>
 nnoremap <leader>rq :Etask<space>
@@ -268,6 +262,10 @@ hi StartifyFile    ctermfg=111
 
 let g:airline#extensions#tabline#enabled = 1
 
+set noshowmode
+set noruler
+set laststatus=0
+set noshowcmd
 nnoremap <Leader>z :Goyo<CR>
 let g:goyo_width = 115
 function! s:goyo_enter()
@@ -348,27 +346,32 @@ nmap # <Plug>(anzu-sharp-with-echo)
 " clear status
 nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 " statusline
-set statusline=%{anzu#search_status()}
-
-nmap <Space>/ <Plug>(hopping-start)
-let g:hopping#keymapping = {
-            \   "\<C-n>" : "<Over>(hopping-next)",
-            \   "\<C-p>" : "<Over>(hopping-prev)",
-            \   "\<C-u>" : "<Over>(scroll-u)",
-            \   "\<C-d>" : "<Over>(scroll-d)",
-            \}
 
 nnoremap <f3> :tabe %:p:h<cr>
 "Fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-nnoremap <leader>o :e ~/dotfiles/vim/fzf.vim<CR>
-silent so ~/dotfiles/vim/fzf.vim
 nnoremap <space><space>  :FZF!<CR>
-nnoremap <space>f  :FZF<CR>
-nnoremap <space>o  :FZFTagFile<cr>
-nnoremap <space>m  :FZFMru<cr>
-nnoremap <space>ap  :FZF app/<CR>
-nnoremap <space>ag  :Ag<space>
-nnoremap <space>g  :FZF<space>
-nnoremap <space>t  :FZFTags<cr>
-nnoremap <space>s  :FZFLines<cr>
+nnoremap <space>g  :GitFiles!<CR>
+nnoremap <space>f  :Files<space>
+nnoremap <space>b  :Buffers!<CR>
+nnoremap <space>ag  :Ag!<space>
+nnoremap <space>m  :History!<cr>
+nnoremap <space>;  :Marks<cr>
+" mru
+nnoremap <space>h  :History/<cr>
+nnoremap <space>/  :Lines!<cr>
+
+nnoremap <space>c  :Commits!<cr>
+nnoremap <space>l  :BCommits!<cr>
+nnoremap <space>t  :BTags<cr>
+
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+let g:jsx_ext_required = 0
