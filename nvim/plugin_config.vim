@@ -375,3 +375,61 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 let g:jsx_ext_required = 0
+
+augroup elixir
+    nnoremap K :call Exdoc()<CR>
+
+    function! s:Opendoc(query)
+        silent! execute 'botright new'
+        call termopen('elixir -pa "_build/**/**/ebin" -e "require IEx.Helpers; IEx.Helpers.h '.a:query.'"')
+        execute 'nnoremap <buffer> q :bd!<cr>'
+    endfunction
+    command! -nargs=1 ExDoc call s:Opendoc(<f-args>)
+    nnoremap <leader>de :ExDoc <space>
+    autocmd!
+    " bits stolen from alchemist-vim and slightly modified
+    function! Exdoc(...)
+      let query = ''
+      if empty(a:000)
+          let query = Lookup_name_under_cursor()
+      else
+          let query = a:000[0]
+      endif
+      silent! execute 'botright new'
+      call termopen('elixir -pa "_build/**/**/ebin" -e "require IEx.Helpers; IEx.Helpers.h '.query.'"')
+      execute 'nnoremap <buffer> q :bd!<cr>'
+    endfunction
+
+    function! Lookup_name_under_cursor()
+        let module_func_match = '[A-Za-z0-9\._?!]\+'
+        let before_cursor = strpart(getline('.'), 0, col('.'))
+        let after_cursor = strpart(getline('.'), col('.'))
+        let elixir_erlang_module_func_match = ':\?' . module_func_match
+        let before_match = matchlist(before_cursor, elixir_erlang_module_func_match . '$')
+        let after_match = matchlist(after_cursor, '^' . module_func_match)
+        let query = ''
+        let before = ''
+        if len(before_match) > 0
+            let before = before_match[0]
+        endif
+        let after = ''
+        if len(after_match) > 0
+            let after = after_match[0]
+        endif
+        if before =~ '\.$'
+            "case before = List.Chars. after = to_char_list
+            let query = substitute(before, '[.]$', '', '')
+        elseif after =~ '^\.'
+            "case before = List.Chars  after = .to_char_list
+            let query = before
+        elseif after =~ '.*\.'
+            "case before = OptionParse after = r.parse
+            "case before = Mix.Shel    after = l.IO.cmd
+            let up_to_dot = matchlist(after, '\([A-Za-z0-9_]\+\)\.')
+            let query = before . up_to_dot[1]
+        else
+            let query = before . after
+        endif
+        return query
+    endfunction
+augroup END

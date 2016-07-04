@@ -236,3 +236,6 @@ function! Testjsonapi(from)
 endfunction
 cnoreabbrev aa :call Jsonapi
 cnoreabbrev ba :call Testjsonapi
+
+nmap <Leader>ij yiwoconsole.log('<c-r>"', <c-r>");<Esc>^
+nmap <Leader>ie yiwoIO.puts("--------------<c-r>"--------------"); IO.inspect(<c-r>");<Esc>^
