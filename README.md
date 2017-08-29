@@ -57,7 +57,7 @@ logout or Reboot
 git clone git@github.com:vysakh0/dotfiles.git
 
 # VIM
-ln -s ~/dotfiles/nvim ~/config/.nvim
+ln -s ~/dotfiles/nvim ~/.config/nvim
 
 # install Vim-Plug which is a plugin manager
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \

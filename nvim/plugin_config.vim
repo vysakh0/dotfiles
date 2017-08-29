@@ -67,56 +67,6 @@ nnoremap [eunuch]h :Chmod<space>
 nnoremap [eunuch]f :Find<space>
 nnoremap [eunuch]l :Locate<space>
 
-"Rails vim
-nnoremap <leader>rf :find<space>
-nnoremap <leader>rr :e config/routes.rb<CR>
-nnoremap <leader>rq :Etask<space>
-nnoremap <leader>rv :Rview<space>
-nnoremap <leader>rl :Elayout<space>
-nnoremap <leader>rj :Ejavascript<space>
-nnoremap <leader>ro :Eserializer<space>
-nnoremap <leader>ru :Espec serializers/
-nnoremap <leader>re :Eenvironment<space>
-nnoremap <leader>rt :Espec<space>
-nnoremap <leader>rf :Efixtures<space>
-nnoremap <leader>rhh :Eschema<space>
-nnoremap <leader>rhe :Eschema<CR>
-nnoremap <leader>rs :Estylesheet<space>
-nnoremap <leader>rc :Econtroller<space>
-nnoremap <leader>rp :Epreview<space>
-nnoremap <leader>rn :Emailer<space>
-nnoremap <leader>ri :Einitializer<space>
-nnoremap <leader>rx :Echannel<space>
-
-nnoremap <space>a :A<CR>
-nnoremap <space>av :AV<CR>
-nnoremap <space>r :R<CR>
-nnoremap <space>rv :RV<CR>
-
-"Rake
-nnoremap <leader>rkk :Rake<space>
-nnoremap <leader>rkm :Rake db:migrate<CR>
-nnoremap <leader>rkr :Rake db:rollback<CR>
-nnoremap <leader>rkd :Rake db:drop<CR>
-
-"Rails generate vim
-nnoremap <leader>rg :Rgenerate <space>
-nnoremap <leader>rgc :Rgenerate controller<space>
-nnoremap <leader>rgm :Rgenerate model<space>
-nnoremap <leader>rgd :Rgenerate migration<space>
-nnoremap <leader>rgr :Rgenerate resource<space>
-nnoremap <leader>rgs :Rgenerate scaffold<space>
-nnoremap <leader>rgt :Rgenerate task<space>
-nnoremap <leader>rgl :Rgenerate mailer<space>
-"Destroy
-nnoremap <leader>rdc :Rdestroy controller<space>
-nnoremap <leader>rdm :Rdestroy model<space>
-nnoremap <leader>rdd :Rdestroy migration<space>
-nnoremap <leader>rdr :Rdestroy resource<space>
-nnoremap <leader>rdt :Rdestroy task<space>
-
-nnoremap <leader>rm :Emodel<space>
-
 let g:rails_projections = {
             \ "spec/mailers/previews/*_preview.rb": {
             \ "command": "preview",
@@ -150,42 +100,7 @@ let g:projectionist_heuristics = {
             \ }
             \ }
             \ }
-nnoremap <leader>eu :e app/router.js<CR>
 
-"Common key strokes for ruby, elixi proj
-nnoremap <leader>el :Elib <space>
-nnoremap <leader>eq :Etest<space>
-
-"Common keystrokes for ember-cli, phoenix
-nnoremap <leader>eea :Eacceptance<space>
-nnoremap <leader>eeu :Eunit<space>
-nnoremap <leader>em :Emodel <space>
-nnoremap <leader>ec :Ecomponent<space>
-nnoremap <leader>ea :Econtroller<space>
-nnoremap <leader>es :Estylesheet<space>
-nnoremap <leader>ev :Eview <space>
-nnoremap <leader>er :Eroute <space>
-nnoremap <leader>et :Etemplate <space>
-
-"phoenix projections
-nnoremap <leader>per :e web/router.ex<CR>
-
-" Projections for elixir project
-let g:projectionist_heuristics = {
-            \ "mix.exs": {
-            \ "lib/*.ex": {
-            \     "type": "lib",
-            \     "alternate": "test/{}_test.exs",
-            \     "template": "defmodule {camelcase|capitalize|dot} do\nend"
-            \ },
-            \ "test/*_test.exs": {
-            \     "type": "test",
-            \     "alternate": "lib/{}.ex",
-            \     "template": "defmodule {camelcase|capitalize|dot}Test do\n  use ExUnit.Case\nend"
-            \ }
-            \ }
-            \ }
-nnoremap <leader>mx :e mix.exs<cr>
 "Neomake
 let g:neomake_javascript_enabled_makers = ['jscs']
 autocmd! BufWritePost * Neomake
