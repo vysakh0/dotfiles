@@ -1,4 +1,5 @@
 BASE="$HOME/dotfiles/zsh"
+export PATH="$(yarn global bin):$PATH"
 source $BASE/aliases.zsh
 unsetopt correct_all
 export EDITOR='nvim'
