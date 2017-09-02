@@ -4,7 +4,9 @@ nnoremap <F9> :NumbersToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
 
+"
 "Necomplete + Neo snippets key-mappings.
+
 "
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -24,6 +26,9 @@ endif
 vnoremap <silent> <Leader>a :EasyAlign<Enter>
 nmap ga <Plug>(EasyAlign)
 nmap <Leader>e gaip
+
+
+let g:AutoPairsShortcutToggle = '<C-Home>'
 
 let g:syntastic_javascript_checkers = ['eslint']
 "Fugitive related key mappings
