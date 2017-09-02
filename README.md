@@ -67,6 +67,8 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 nvim +PlugInstall
 
 #zsh
+brew install zplug
+ln -s /usr/local/opt/zplug .zplug
 ln -s dotfiles/zsh/zshrc ~/.zshrc
 
 # tmux

@@ -23,7 +23,7 @@ Plug 'junegunn/fzf.vim'
 
 "Shougo's awesomeness
 
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
