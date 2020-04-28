@@ -18,6 +18,8 @@ still making it more productive. [This a post i wrote about Vim](http://vysakh0.
 I have used very less of my own customization(except for zsh/aliases.zsh) and used oh-my-zsh, its plugin.
 [This is a small post I wrote about zsh](vysakh0.github.io/flying-start-with-zsh-shell/)
 
+I use the [Dracula theme](https://draculatheme.com/gnome-terminal/)
+
 ##### Files and dirs
 
 - zshrc (plugins of oh-my-zsh that i use)

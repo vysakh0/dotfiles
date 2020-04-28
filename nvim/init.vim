@@ -7,10 +7,13 @@ filetype plugin indent on " required!
 "Change leader key, ecomma is easier than \
 let mapleader=","
 
+set t_Co=256
 " Themes that seem to working in the fucking terminals are " seoul, jellybeans, gruvbox, vim-hybrid,
-let g:seoul256_background = 236
-colo seoul256
-"colorscheme gruvbox
+"let g:seoul256_background = 236
+"colorscheme vim-sublime-monokai
+colorscheme dracula
+let g:sublimemonokai_term_italic = 1
+
 set background=dark
 
 " SETTINGS/CONFIGURATIONS
@@ -72,9 +75,9 @@ endif
 "set status line for status plugin to show in single file editing"
 set laststatus=2
 " Default Tabs & spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab      " insert tabs on the start of a line according to
@@ -97,15 +100,18 @@ map <F5> :setlocal spell! spelllang=en_us<CR>
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
+nnoremap . /
+imap + ?
+
+
 " Quickly edit/reload the vimrc file
+nnoremap $ g$
 nmap <silent> <leader>vv :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <silent> <leader>az :e ~/dotfiles/zsh/aliases.zsh<CR>
 
 nmap <silent> <leader>eb :e ~/dotfiles/nvim/bundles.vim<CR>
 nmap <silent> <leader>ep :e ~/dotfiles/nvim/plugin_config.vim<CR>
-
-"Vundle install"
 
 "to create a new line cmd mode without going to insert
 nmap <leader>k O<esc>k0
@@ -126,9 +132,6 @@ nnoremap $ g$
 
 "To pasuuuute content from system clipboard into Vim, I use this too often.
 nnoremap<leader>p :set paste!<CR>
-
-"Inherit Activercord base for model created with Rails vim
-imap <c-b> <<space>ActiveRecord::Base<cr>
 
 " unhighlight the search terms
 nnoremap <leader><space> :noh <cr>
@@ -153,7 +156,7 @@ cnoreabbrev Q q
 cnoreabbrev scp scp://@//home/ubuntu/
 
 "FILE RELATED SETTINGS
-source ~/dotfiles/nvim/auto_cmd.vim
+"source ~/dotfiles/nvim/auto_cmd.vim
 
 "PLUGINS CONFIGURATION
 source ~/dotfiles/nvim/plugin_config.vim
@@ -226,16 +229,11 @@ au CursorHold,CursorHoldI * checktime " The problem is that Vim doesn't
 "actually check changes. So this  makes it check periodically.
 "
 "
-function! Jsonapi(from)
-    echo a:from
-    exec ':%s/"'. a:from . '" => \(\w\+\)/"data" => %{"attributes" => \1}/g'
-endfunction
-function! Testjsonapi(from)
-    echo a:from
-    exec ':%s/'. a:from . ': \(.*\)$/data: %{attributes: \1}/g'
-endfunction
-cnoreabbrev aa :call Jsonapi
-cnoreabbrev ba :call Testjsonapi
 
 nmap <Leader>ij yiwoconsole.log('<c-r>"', <c-r>");<Esc>^
-nmap <Leader>ie yiwoIO.puts("--------------<c-r>"--------------"); IO.inspect(<c-r>");<Esc>^
+
+"Terminal mode switch
+tnoremap <Esc> <C-\><C-n>
+
+"yarn add
+nnoremap <leader>ya :!yarn add <space>

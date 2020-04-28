@@ -17,27 +17,6 @@ au VimResized * exe "normal! \<c-w>="
 "remove whitespace on writing
 autocmd FileType * autocmd BufWritePre * :%s/\s\+$//e
 
-" Ruby Configurations
-"""""""""""""""""""""
-autocmd filetype ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal colorcolumn=80
-autocmd filetype ruby iabbr rmi require 'minitest/autorun'
-autocmd filetype ruby iabbr rmp require 'minitest/pride'
-autocmd FileType ruby setlocal colorcolumn=80
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby =  '[^. *\t]\.\w*\|\h\w*::'
-
-"" HTML configurations
-""""""""""""""""""""""
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-autocmd FileType eruby setlocal shiftwidth=2 tabstop=2
-
-""""""""""""""""""""""""""""""
-"au BufNewFile,BufReadPost *.coffee setlocal foldmethod=indent
-au BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 expandtab
-
 " Javascript configurations
 """""""""""""""""""""""""""
 autocmd FileType javascript.jsx setlocal shiftwidth=2 tabstop=2

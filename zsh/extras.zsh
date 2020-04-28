@@ -133,14 +133,14 @@ fs() {
 }
 
 # fastd
-alias c='fasd_cd -d -i' # cd with interactive selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias a='fasd -a'        # any
-alias fv='fasd -f -e vim '        # file
+#alias c='fasd_cd -d -i' # cd with interactive selection
+#alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+#alias a='fasd -a'        # any
+#alias fv='fasd -f -e vim '        # file
 #alias s='fasd -si'       # show / search / select
 #alias fd='fasd -d'        # directory
 
-eval "$(fasd --init auto)"
+#eval "$(fasd --init auto)"
 alias i='f -e vim' # quick opening files with vim
 alias m='f -e mplayer' # quick opening files with mplayer
 alias o='a -e xdg-open'

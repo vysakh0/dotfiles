@@ -1,32 +1,47 @@
-PATH=$PATH:/home/vysakh/.local/bin:/home/vysakh/.rbenv/shims:/home/vysakh/.rbenv/bin:/home/vysakh/github/node-v4.1.1-linux-x86/bin:/home/vysakh/github/elixir/bin
-export PATH
-
-export NODE_PATH=/home/vysakh/github/node-v4.1.1-linux-x86/lib/node_modules
 BASE="$HOME/dotfiles/zsh"
 source $BASE/aliases.zsh
+export ZSH=$HOME/.oh-my-zsh
 #DISABLE_CORRECTION=”true”
 unsetopt correct_all
 export EDITOR='vim'
 export VISUAL=vim
 #open tmux with utf-8 support instead of relying on local, got from dhruvsagar post
 alias tmux="tmux -u"
+
 xhost local:vysakh > /dev/null
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 #[ -n "$TMUX" ] && export TERM=screen-256color
 eval `gnome-keyring-daemon --start`
 
 LISTMAX=0 # ask to complete if top of list would scroll off screen
 
-source $BASE/zplug.zsh
-zplug load
+ZSH_THEME="robbyrussell"
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+#zplug load
 source $BASE/extras.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD ||
    find * -name ".*" -prune -o -type f -print -o -type l -print) 2> /dev/null'
 export ENHANCD_FILTER="fzf"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
-source ~/secrets.zsh
-. $HOME/.asdf/asdf.sh
-export ANDROID_HOME=/home/vysakh/Android/Sdk
+eval "$(rbenv init -)"
+
+if [ "$TERM" = "xterm-256color" ]; then
+  xprop \
+    -id $(xdotool getactivewindow) \
+    -f _MOTIF_WM_HINTS 32c \
+    -set _MOTIF_WM_HINTS "0x2, 0x0, 0x0, 0x0, 0x0"
+fi
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/pipesort/new-dermio/src/app/practiceAdminApp'
+let g:netrw_dirhist_0='/home/pipesort/new-dermio/src/app/doctorApp'
+let g:netrw_dirhist_9='/home/pipesort/new-dermio/src/app/practiceAdminApp'
+let g:netrw_dirhist_8='/home/pipesort/dermio-patient-portal/src/components/Forms/Pharmacy'
+let g:netrw_dirhist_7='/home/pipesort/dermio-admin'
+let g:netrw_dirhist_6='/home/pipesort/dermio-website'
+let g:netrw_dirhist_5='/home/pipesort/dermio-patient-portal/src/components/Authentication'
+let g:netrw_dirhist_4='/home/pipesort'
+let g:netrw_dirhist_3='/home/pipesort/dermio-chatbot'
+let g:netrw_dirhist_2='/home/pipesort/dermio-chatbot/src'

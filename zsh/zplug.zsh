@@ -3,11 +3,6 @@ source ~/.zplug/zplug
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 
-zplug "junegunn/fzf-bin", \
-    as:command, \
-    from:gh-r, \
-    file:fzf
-
 # Support oh-my-zsh plugins and the like
 zplug "plugins/git",   from:oh-my-zsh
 zplug "plugins/command-not-found",   from:oh-my-zsh
