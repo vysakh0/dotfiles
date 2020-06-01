@@ -33,14 +33,14 @@ alias t="tmux"
 
 # aliases
 alias st="~/./start-mod.sh"
-alias vz="~/./nvim.appimage ~/.zshrc"
-alias az="~/./nvim.appimage ~/dotfiles/zsh/aliases.zsh"
+alias vz="nvim ~/.zshrc"
+alias az="nvim ~/dotfiles/zsh/aliases.zsh"
 alias sz="source ~/.zshrc"
 
 alias cp="cp -iv"
 alias rm="rm -iv"
 alias mv="mv -iv"
-alias ls="ls --color=always"
+
 
 #debian/ubuntu related system liases
 alias halt='sudo shutdown -h now'
@@ -58,10 +58,10 @@ alias -s pdf=evince
 alias -s com=chromium-browser
 
 # Vim aliases
-ealias v="~/./nvim.appimage "
-ealias vim="~/./nvim.appimage"
-ealias nv="~/./nvim.appimage "
-ealias vi="~/./nvim.appimage "
+ealias v="nvim "
+ealias vim="nvim"
+ealias nv="nvim "
+ealias vi="nvim "
 # Vim-style line editing
 bindkey -v
 # I want my bck-i-search

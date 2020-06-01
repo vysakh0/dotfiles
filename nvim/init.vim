@@ -16,6 +16,8 @@ let g:sublimemonokai_term_italic = 1
 
 set background=dark
 
+set rtp+=/usr/local/opt/fzf
+
 " SETTINGS/CONFIGURATIONS
 set dictionary-=/usr/share/dict/words dictionary+=/usr/share/dict/words
 
@@ -237,3 +239,5 @@ tnoremap <Esc> <C-\><C-n>
 
 "yarn add
 nnoremap <leader>ya :!yarn add <space>
+
+
